@@ -20,7 +20,7 @@ class Home {
 		switch (userInput) {
 			case 1:
 				System.out.println("one selected");
-				System.out.println("new Line");
+				System.out.println("new Line Selected");
 				break;
 			default:
 				System.out.println("default");
