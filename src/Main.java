@@ -20,7 +20,7 @@ class Home {
 		switch (userInput) {
 			case 1:
 				System.out.println("one selected");
-				System.out.println("new Line deleteded eclipse ");
+				System.out.println("new Line eclipse ");
 				break;
 			default:
 				System.out.println("default");
