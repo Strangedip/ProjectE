@@ -25,6 +25,10 @@ class Action {
 	public static void createAccount() {
 		System.out.println("Create new acc here");
 	}
+
+	public static void clscr(){
+		System.out.print("\033[H\033[2J");
+	}
 }
 
 class Login {
@@ -33,6 +37,7 @@ class Login {
 		String username = Action.inputStr();
 		System.out.print("Enter Password :");
 		String password = Action.inputStr();
+
 		check(username, password);
 	}
 
@@ -42,23 +47,31 @@ class Login {
 		String orgPassword = "pass";
 
 		if (username.equals(orgUsername) && password.equals(orgPassword)) {
+			Action.clscr();
 			System.out.println("Logged in");
 			// user home page class or object
-		} 
-		else if (username.equals(orgUsername)) {
+		} else if (username.equals(orgUsername)) {
+			Action.clscr();
 			System.out.println("Incorrect Password, please try again");
 			login();
 			// retain username method
-		} 
-		else {
+		} else {
+			Action.clscr();
 			System.out.println("Incorrect Username and Password, please try again");
 			System.out.println("Enter 1 to go to Home");
-			System.out.println("Enter any other key to login again");
-			if (Action.inputInt() == 1) {
-				Home.menu();
-			} 
-			else {
-				login();
+			System.out.println("Enter 0 to login again");
+			switch (Action.inputInt()) {
+				case 1:
+					Action.clscr();
+					Home.menu();
+					break;
+				case 0:
+					Action.clscr();
+					login();
+					break;
+				default:
+					Action.clscr();
+					System.out.println("invalid Input");
 			}
 		}
 	}
@@ -70,6 +83,7 @@ class Members {
 
 class Home {
 	public static void menu() {
+		Action.clscr();
 		System.out.println("1) User Login");
 		System.out.println("2) Create new account");
 		System.out.println("3) Admin Login");
@@ -77,16 +91,20 @@ class Home {
 		int userInput = Action.inputInt();
 		switch (userInput) {
 			case 1:
+				Action.clscr();
 				Action.login();
 				break;
 			case 2:
+				Action.clscr();
 				Action.createAccount();
 				break;
 			case 3:
+				Action.clscr();
 				Action.adminLogin();
 				break;
 
 			default:
+				Action.clscr();
 				System.out.println("Invalid Input");
 				break;
 		}
