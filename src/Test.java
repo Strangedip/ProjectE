@@ -24,5 +24,6 @@ public class Test {
         System.out.print("ENter nea: ");
         String input= Action.inputStr();
         System.out.println(input);
+		in.close();
     }
 }
