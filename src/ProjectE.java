@@ -2,16 +2,15 @@ import java.util.*;
 
 
 class Action {
+	static Scanner in = new Scanner(System.in);
 	public static int inputInt() {
 		Scanner in = new Scanner(System.in);
 		int input = in.nextInt();
-		in.close();
 		return input;
 	}
 	public static String inputStr() {
 		Scanner in = new Scanner(System.in);
 		String input = in.next();
-		in.close();
 		return input;
 	}
 	public static void login(){
