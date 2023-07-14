@@ -1,4 +1,4 @@
-import java.util.Scanner;
+import java.util.*;
 
 
 class Action {
@@ -24,10 +24,13 @@ class Login{
 	String username;
 	String password;
 	public void login(){
-		System.out.print("Enter Username: ");
-		username=Action.inputStr();
-		System.out.print("Enter Password : ");
-		password=Action.inputStr();
+		Scanner in = new Scanner(System.in);
+		System.out.println("Enter Username: ");
+		if(in.hasNext())
+		this.username=in.next();
+		System.out.println("Enter Password : ");
+		if(in.hasNext())
+		password=in.next();
 		check(username, password);
 	}
 	
@@ -71,7 +74,8 @@ class Home {
 		int userInput = Action.inputInt();
 		switch (userInput) {
 			case 1:
-				Action.login();
+				Login user=new Login();
+				user.login();
 				break;
 			default:
 				System.out.println("Invalid Input");

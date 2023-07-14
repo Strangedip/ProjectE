@@ -21,7 +21,7 @@ class Action {
 public class Test {
     public static void main(String[] args) {
         Scanner in = new Scanner(System.in);
-        System.out.print("ENter nea:");
+        System.out.print("ENter nea: ");
         String input= Action.inputStr();
         System.out.println(input);
     }
