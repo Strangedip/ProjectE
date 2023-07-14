@@ -47,7 +47,7 @@ class Login{
 		}
 		else{
 			System.out.println("Incorrect Username and Password, please try again");		
-			System.out.println("Enter Q to go to Home");
+			System.out.println("Enter 1 to go to Home");
 			System.out.println("Enter any other key to login again");
 			if (Action.inputInt()==1){
 			login();
