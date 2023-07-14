@@ -29,7 +29,7 @@ class Action {
 
 	public static void createAccount() {
 		System.out.println("Create new acc here");
-		CreateAccount user=new CreateAccount();
+		CreateAccount user = new CreateAccount();
 		user.createAccount();
 		user.details();
 		// user.createUser();
@@ -168,7 +168,6 @@ class Member {
 	private long accountNumber;
 	private int accountLevel = 0;
 	private int accountBal = 0;
-
 
 	void generateAcoountNumber() {
 		this.accountNumber = 111l;
