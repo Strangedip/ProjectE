@@ -228,6 +228,7 @@ class Home {
 public class ProjectE {
 
 	public static void main(String[] args) {
+		Action.clscr();
 		Home.menu();
 	}
 
