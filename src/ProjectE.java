@@ -24,13 +24,11 @@ class Login{
 	String username;
 	String password;
 	public void login(){
-		Scanner in = new Scanner(System.in);
+		// Scanner in = new Scanner(System.in);
 		System.out.println("Enter Username: ");
-		if(in.hasNext())
-		this.username=in.next();
+		username=Action.inputStr();
 		System.out.println("Enter Password : ");
-		if(in.hasNext())
-		password=in.next();
+		password=Action.inputStr();
 		check(username, password);
 	}
 	
