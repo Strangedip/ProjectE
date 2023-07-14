@@ -1,58 +1,63 @@
 import java.util.*;
 
-
 class Action {
 	static Scanner in = new Scanner(System.in);
+
 	public static int inputInt() {
-		Scanner in = new Scanner(System.in);
 		int input = in.nextInt();
 		return input;
 	}
+
 	public static String inputStr() {
-		Scanner in = new Scanner(System.in);
 		String input = in.next();
 		return input;
 	}
-	public static void login(){
-		Login obj=new Login();
+
+	public static void login() {
+		Login obj = new Login();
 		obj.login();
+	}
+
+	public static void adminLogin() {
+		System.out.println("Admin login here");
+	}
+
+	public static void createAccount() {
+		System.out.println("Create new acc here");
 	}
 }
 
-class Login{
-	String username;
-	String password;
-	public void login(){
-		// Scanner in = new Scanner(System.in);
-		System.out.println("Enter Username: ");
-		username=Action.inputStr();
-		System.out.println("Enter Password : ");
-		password=Action.inputStr();
+class Login {
+	public void login() {
+		System.out.print("Enter Username:");
+		String username = Action.inputStr();
+		System.out.print("Enter Password :");
+		String password = Action.inputStr();
 		check(username, password);
 	}
-	
-	void check(String username,String password){
-		// take user creds from database based username 
-		String orgUsername="admin";
-		String orgPassword="admin";
-		if (username==orgUsername && password==orgPassword){
+
+	void check(String username, String password) {
+		// take user creds from database based username
+		String orgUsername = "user";
+		String orgPassword = "pass";
+
+		if (username.equals(orgUsername) && password.equals(orgPassword)) {
 			System.out.println("Logged in");
 			// user home page class or object
-		}
-		else if(username==orgUsername ){
+		} 
+		else if (username.equals(orgUsername)) {
 			System.out.println("Incorrect Password, please try again");
 			login();
-			//retain username method
-		}
-		else{
-			System.out.println("Incorrect Username and Password, please try again");		
+			// retain username method
+		} 
+		else {
+			System.out.println("Incorrect Username and Password, please try again");
 			System.out.println("Enter 1 to go to Home");
 			System.out.println("Enter any other key to login again");
-			if (Action.inputInt()==1){
-			login();
-			}
-			else{
+			if (Action.inputInt() == 1) {
 				Home.menu();
+			} else {
+				login();
 			}
 		}
 	}
@@ -71,9 +76,15 @@ class Home {
 		int userInput = Action.inputInt();
 		switch (userInput) {
 			case 1:
-				Login user=new Login();
-				user.login();
+				Action.login();
 				break;
+			case 2:
+				Action.createAccount();
+				break;
+			case 3:
+				Action.adminLogin();
+				break;
+
 			default:
 				System.out.println("Invalid Input");
 				break;
