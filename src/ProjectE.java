@@ -56,7 +56,8 @@ class Login {
 			System.out.println("Enter any other key to login again");
 			if (Action.inputInt() == 1) {
 				Home.menu();
-			} else {
+			} 
+			else {
 				login();
 			}
 		}
