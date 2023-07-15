@@ -2,10 +2,11 @@ package user;
 
 import main.Home;
 import util.Action;
+import util.Msg;
 
 public class Login {
 	public void login() {
-		Action.clscr();
+		Msg.border();
 		System.out.print("Enter Username:");
 		String username = Action.inputStr();
 		System.out.print("Enter Password :");
@@ -20,17 +21,17 @@ public class Login {
 		String orgPassword = "pass";
 
 		if (username.equals(orgUsername) && password.equals(orgPassword)) {
-			Action.clscr();
+			Msg.border();
 			System.out.println("Logged in");
 			// user home page class or object
 
 		} else if (username.equals(orgUsername)) {
-			Action.clscr();
+			Msg.border();
 			System.out.println("Incorrect Password, please try again");
 			login();
 
 		} else {
-			Action.clscr();
+			Msg.border();
 			System.out.println("Incorrect Username and Password, please try again");
 			System.out.println("Enter 1 to go to Home");
 			System.out.println("Enter 0 to login again");
@@ -42,7 +43,7 @@ public class Login {
 					login();
 					break;
 				default:
-					Action.clscr();
+					Msg.border();
 					System.out.println("invalid Input");
 			}
 		}

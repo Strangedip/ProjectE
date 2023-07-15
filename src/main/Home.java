@@ -1,14 +1,15 @@
 package main;
 
 import util.Action;
+import util.Msg;
 
 public class Home {
     public static void menu() {
-        Action.clscr();
+        Msg.border();
         System.out.println("1) User Login");
         System.out.println("2) Create new account");
         System.out.println("3) Admin Login");
-        Action.clscr();
+        Msg.border();
         System.out.print("Enter you Choice --> ");
         int userInput = Action.inputInt();
         switch (userInput) {
@@ -22,7 +23,7 @@ public class Home {
                 Action.adminLogin();
                 break;
             default:
-                Action.clscr();
+                Msg.border();
                 System.out.println("Invalid Input");
                 break;
         }

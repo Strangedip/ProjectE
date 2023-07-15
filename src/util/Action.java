@@ -43,6 +43,5 @@ public class Action {
 	public static void clscr() {
 //		System.out.println("\033[H\033[2J");
 //		System.out.flush();  
-		System.out.println("=========================================");
 	}
 }

@@ -1,26 +1,27 @@
 package user;
 
 import util.Action;
+import util.Msg;
 
 public class CreateAccount extends Member {
     public void createAccount() {
-        Action.clscr();
+        Msg.border();
         System.out.println("           Create new Account");
-        Action.clscr();
+        Msg.border();
         System.out.print("Enter First Name: ");
         String fname = Action.inputStr();
 
-        Action.clscr();
+        Msg.border();
         System.out.print("Enter Last Name: ");
         String sname = Action.inputStr();
 
         name = fname + " " + sname;
 
-        Action.clscr();
+        Msg.border();
         System.out.print("Enter age: ");
         age = Action.inputInt();
 
-        Action.clscr();
+        Msg.border();
         System.out.println("1. Male");
         System.out.println("2. Female");
         System.out.println("3. Other");
@@ -39,23 +40,23 @@ public class CreateAccount extends Member {
                 System.out.println("Invalid Input, try Again");
         }
 
-        Action.clscr();
+        Msg.border();
         System.out.print("Enter email: ");
         email = Action.inputStr();
 
-        Action.clscr();
+        Msg.border();
         System.out.print("Enter Mobile Number: ");
         mobileNumber = Action.inputLong();
 
-        Action.clscr();
+        Msg.border();
         System.out.print("Enter Username: ");
         username = Action.inputStr();
 
-        Action.clscr();
+        Msg.border();
         System.out.print("Enter Password: ");
         String password = Action.inputStr();
 
-        Action.clscr();
+        Msg.border();
         System.out.print("Enter Re-enter Password: ");
         String confPassword = Action.inputStr();
     }
