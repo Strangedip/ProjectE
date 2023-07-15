@@ -24,8 +24,7 @@ public class Action {
 	}
 
 	public static void login() {
-		Login obj = new Login();
-		obj.login();
+		Login.login();
 	}
 
 	public static void adminLogin() {
@@ -44,4 +43,5 @@ public class Action {
 //		System.out.println("\033[H\033[2J");
 //		System.out.flush();  
 	}
+
 }
