@@ -28,7 +28,7 @@ class Action {
 	}
 
 	public static void createAccount() {
-		System.out.println("Create new acc here");
+		
 		CreateAccount user = new CreateAccount();
 		user.createAccount();
 		user.details();
@@ -36,13 +36,15 @@ class Action {
 	}
 
 	public static void clscr() {
-		//System.out.print("\033[H\033[2J");
-		//System.out.flush();  
+//		System.out.println("\033[H\033[2J");
+//		System.out.flush();  
+		System.out.println("=========================================");
 	}
 }
 
 class Login {
 	public void login() {
+		Action.clscr();
 		System.out.print("Enter Username:");
 		String username = Action.inputStr();
 		System.out.print("Enter Password :");
@@ -73,11 +75,9 @@ class Login {
 			System.out.println("Enter 0 to login again");
 			switch (Action.inputInt()) {
 				case 1:
-					Action.clscr();
 					Home.menu();
 					break;
 				case 0:
-					Action.clscr();
 					login();
 					break;
 				default:
@@ -91,11 +91,13 @@ class Login {
 class CreateAccount extends Member {
 	void createAccount() {
 		Action.clscr();
+		System.out.println("           Create new Account");
+		Action.clscr();
 		System.out.print("Enter First Name: ");
 		String fname = Action.inputStr();
 
 		Action.clscr();
-		System.out.print("Enter Second Name: ");
+		System.out.print("Enter Last Name: ");
 		String sname = Action.inputStr();
 
 		name = fname + " " + sname;
@@ -145,12 +147,14 @@ class CreateAccount extends Member {
 	}
 
 	void details() {
-		System.out.println("#######################\n");
+		System.out.println("#######################");
+		System.out.println("        Welcome        ");
+		System.out.println("#######################");
 		System.out.println("Name   : " + name);
 		System.out.println("Age    : " + age);
 		System.out.println("gender : " + gender);
 		System.out.println("Mobile : " + mobileNumber);
-		System.out.println("Email  : " + email + "\n");
+		System.out.println("Email  : " + email);
 		System.out.println("#######################");
 	}
 }
@@ -204,19 +208,17 @@ class Home {
 		System.out.println("1) User Login");
 		System.out.println("2) Create new account");
 		System.out.println("3) Admin Login");
-
+		Action.clscr();
+		System.out.print("Enter you Choice --> ");
 		int userInput = Action.inputInt();
 		switch (userInput) {
 			case 1:
-				Action.clscr();
 				Action.login();
 				break;
 			case 2:
-				Action.clscr();
 				Action.createAccount();
 				break;
 			case 3:
-				Action.clscr();
 				Action.adminLogin();
 				break;
 
@@ -232,7 +234,6 @@ class Home {
 public class ProjectE {
 
 	public static void main(String[] args) {
-		Action.clscr();
 		Home.menu();
 	}
 
