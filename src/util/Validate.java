@@ -36,4 +36,16 @@ public class Validate {
             }
         }
     }
+    public static void mobile(long num){
+
+    }
+    public static void username(String un){
+
+    }
+    public static void email(String email){
+
+    }
+    public static void age(String num){
+
+    }
 }

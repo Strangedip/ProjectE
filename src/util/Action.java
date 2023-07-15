@@ -1,7 +1,5 @@
 package util;
-
 import java.util.Scanner;
-
 import user.CreateAccount;
 import user.Login;
 
