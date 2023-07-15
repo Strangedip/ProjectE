@@ -36,8 +36,8 @@ class Action {
 	}
 
 	public static void clscr() {
-		System.out.print("\033[H\033[2J");
-		System.out.flush();  
+		//System.out.print("\033[H\033[2J");
+		//System.out.flush();  
 	}
 }
 
@@ -91,24 +91,24 @@ class Login {
 class CreateAccount extends Member {
 	void createAccount() {
 		Action.clscr();
-		System.out.println("Enter First Name: ");
+		System.out.print("Enter First Name: ");
 		String fname = Action.inputStr();
 
 		Action.clscr();
-		System.out.println("Enter Second Name: ");
+		System.out.print("Enter Second Name: ");
 		String sname = Action.inputStr();
 
 		name = fname + " " + sname;
 
 		Action.clscr();
-		System.out.println("Enter age: ");
+		System.out.print("Enter age: ");
 		age = Action.inputInt();
 
 		Action.clscr();
 		System.out.println("1. Male");
 		System.out.println("2. Female");
 		System.out.println("3. Other");
-		System.out.println("Enter gender: ");
+		System.out.print("Enter gender: ");
 		switch (Action.inputInt()) {
 			case 1:
 				gender = "Male";
@@ -124,35 +124,38 @@ class CreateAccount extends Member {
 		}
 
 		Action.clscr();
-		System.out.println("Enter email: ");
+		System.out.print("Enter email: ");
 		email = Action.inputStr();
 
 		Action.clscr();
-		System.out.println("Enter Mobile Number: ");
+		System.out.print("Enter Mobile Number: ");
 		mobileNumber = Action.inputLong();
 
 		Action.clscr();
-		System.out.println("Enter Username: ");
+		System.out.print("Enter Username: ");
 		username = Action.inputStr();
 
 		Action.clscr();
-		System.out.println("Enter Password: ");
+		System.out.print("Enter Password: ");
 		String password = Action.inputStr();
 
 		Action.clscr();
-		System.out.println("Enter Re-enter Password: ");
+		System.out.print("Enter Re-enter Password: ");
 		String confPassword = Action.inputStr();
 	}
 
 	void details() {
 		System.out.println("#######################\n");
-		System.out.println("Name : " + name);
-		System.out.println("Age : " + age);
+		System.out.println("Name   : " + name);
+		System.out.println("Age    : " + age);
 		System.out.println("gender : " + gender);
-		System.out.println("Mobile Number : " + mobileNumber);
-		System.out.println("Email : " + email + "\n");
+		System.out.println("Mobile : " + mobileNumber);
+		System.out.println("Email  : " + email + "\n");
 		System.out.println("#######################");
 	}
+}
+class Database{
+	
 }
 
 class Member {
