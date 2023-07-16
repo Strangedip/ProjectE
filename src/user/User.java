@@ -13,10 +13,11 @@ class Member {
     String accountType = "Saving Account";
     private long accountNumber;
     private int accountLevel = 0;
-    private int accountBal = 0;
+    private int accountBal = 0; 
 
     void generateAcoountNumber() {
         this.accountNumber = 111l;
+        
     }
 
     void setPassword(String password) {
