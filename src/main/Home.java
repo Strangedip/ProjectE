@@ -10,7 +10,7 @@ public class Home {
         System.out.println("2) Create new account");
         System.out.println("3) Admin Login");
         Msg.border();
-        System.out.print("Enter you Choice --> ");
+        System.out.print("Enter you Choice -> ");
         int userInput = Action.inputInt();
         switch (userInput) {
             case 1:
@@ -24,8 +24,8 @@ public class Home {
                 break;
             default:
                 Msg.border();
-                System.out.println("Invalid Input");
-                break;
+                System.out.println("Invalid Input, Enter valid option");
+                menu();
         }
     }
 

@@ -24,11 +24,11 @@ public class CreateAccount extends Member {
 
         gender = Validate.gender();
 
+        mobileNumber = Validate.mobileNumber();
+
         Msg.border();
         System.out.print("Enter email: ");
         email = Action.inputStr();
-
-        mobileNumber = Validate.mobileNumber();
 
         Msg.border();
         System.out.print("Enter Username: ");
