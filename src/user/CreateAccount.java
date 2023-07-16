@@ -5,9 +5,7 @@ import util.Msg;
 
 public class CreateAccount extends Member {
     public void createAccount() {
-        Msg.border();
-        System.out.println("           Create new Account");
-        Msg.border();
+        Msg.createAccount();
         System.out.print("Enter First Name: ");
         String fname = Action.inputStr();
 
@@ -62,14 +60,14 @@ public class CreateAccount extends Member {
     }
 
     public void details() {
-        System.out.println("#######################");
-        System.out.println("        Welcome        ");
-        System.out.println("#######################");
+        Msg.success();
+        Msg.border();
+        Msg.welcome();
         System.out.println("Name   : " + name);
         System.out.println("Age    : " + age);
         System.out.println("gender : " + gender);
         System.out.println("Mobile : " + mobileNumber);
         System.out.println("Email  : " + email);
-        System.out.println("#######################");
+        Msg.border();
     }
 }
