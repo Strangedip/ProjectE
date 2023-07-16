@@ -1,7 +1,11 @@
 package user;
 
+import java.util.InputMismatchException;
+import java.util.Scanner;
+
 import util.Action;
 import util.Msg;
+import util.Validate;
 
 public class CreateAccount extends Member {
     public void createAccount() {
@@ -19,32 +23,13 @@ public class CreateAccount extends Member {
         System.out.print("Enter age: ");
         age = Action.inputInt();
 
-        Msg.border();
-        System.out.println("1. Male");
-        System.out.println("2. Female");
-        System.out.println("3. Other");
-        System.out.print("Enter gender: ");
-        switch (Action.inputInt()) {
-            case 1:
-                gender = "Male";
-                break;
-            case 2:
-                gender = "Female";
-                break;
-            case 3:
-                gender = "Other";
-                break;
-            default:
-                System.out.println("Invalid Input, try Again");
-        }
+        gender = Validate.gender();
 
         Msg.border();
         System.out.print("Enter email: ");
         email = Action.inputStr();
 
-        Msg.border();
-        System.out.print("Enter Mobile Number: ");
-        mobileNumber = Action.inputLong();
+        mobileNumber = Validate.mobileNumber();
 
         Msg.border();
         System.out.print("Enter Username: ");
