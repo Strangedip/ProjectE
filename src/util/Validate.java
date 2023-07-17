@@ -66,7 +66,7 @@ public class Validate {
         Msg.border();
         System.out.print("Enter age: ");
         int age=in.nextInt();
-        if(age<1 && age>150){
+        if(age<1 || age>150){
             System.out.println("Invalid Age Input, Try Again");
             return age();
         }
@@ -143,22 +143,29 @@ public class Validate {
         }
     }
 
-    public static long mobileNumber() {
-        try {
+    public static long ValidateNumber() {
+    
             Msg.border();
             System.out.print("Enter Mobile Number: ");
-            long num = in.nextLong();
+           return mobileNumber();
+            
+    }
+    public static long mobileNumber()
+    { 
+        Scanner in = new Scanner(System.in);
+            try {
+         long num = in.nextLong();
             int digits = (int) Math.log10(num);
-            if (digits == 9) {
+        if (digits == 9) {
                 return num;
 
             } else {
                 System.out.println("Invalid Mobile Number, Please enter valid Number");
-                return mobileNumber();
+                return ValidateNumber();
             }
         } catch (InputMismatchException e) {
             System.out.println("Invalid Input, try Again");
-            return mobileNumber();
+            return ValidateNumber();
         }
     }
 
