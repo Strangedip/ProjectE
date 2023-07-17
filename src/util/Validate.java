@@ -10,9 +10,10 @@ import user.Login;
 import user.User;
 
 public class Validate implements TakeInput {
-    User user=new User();
+    User user = new User();
+
     public void userCreds(String username, String password) {
-        
+
         // ****take user creds from database based username
         String orgUsername = user.username;
         String orgPassword = "pass";
@@ -52,8 +53,9 @@ public class Validate implements TakeInput {
             }
         }
     }
-    public void userCreds(String username, String password,User user) {
-        
+
+    public void userCreds(String username, String password, User user) {
+
         // ****take user creds from database based username
         // String orgUsername = user.username;
         // String orgPassword = user.password;
