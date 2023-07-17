@@ -135,7 +135,7 @@ public class Validate {
     }
 
     public static String confirmPassword(String psw) {
-        System.out.println("Confirm Password: ");
+        System.out.print("Confirm Password: ");
         String cnf = in.next();
         if (psw.equals(cnf)) {
             return cnf;
