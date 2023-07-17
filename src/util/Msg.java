@@ -37,7 +37,8 @@ public class Msg {
     }
 
     public static void border() {
-        System.out.println("=========================================");
+        // System.out.println("=========================================");
+        System.out.println("-----------------------------------------");
     }
 
 }

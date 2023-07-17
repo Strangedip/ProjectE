@@ -15,6 +15,7 @@ public class Validate implements TakeInput {
 
         if (username.equals(orgUsername) && password.equals(orgPassword)) {
             Msg.border();
+            Msg.success();
             System.out.println("Logged in");
             // user home page class or object
 
@@ -49,15 +50,46 @@ public class Validate implements TakeInput {
     }
 
     public String fullName() {
-        Msg.createAccount();
+        Msg.border();
         System.out.print("Enter First Name: ");
         String fname = Action.inputStr();
+        if (onlyAlpha(fname)) {
+            Msg.error();
+            System.out.println("Name should contain only alphabets");
+            return fullName();
+        }
 
         Msg.border();
         System.out.print("Enter Last Name: ");
         String sname = Action.inputStr();
-
+        if (onlyAlpha(sname)) {
+            Msg.error();
+            System.out.println("Name should contain only alphabets");
+            return fullName();
+        }
         return fname + " " + sname;
+    }
+
+    boolean onlyAlpha(String a) {
+        char[] arr = a.toCharArray();
+        boolean markNumber = false;
+        boolean markChar = false;
+
+        for (char i : arr) {
+            if (i >= '0' && i <= '9') {
+                markNumber = true;
+            }
+            if (Resource.symbolArrayContains(i)) {
+                markChar = true;
+            }
+        }
+        if (markChar) {
+            return true;
+        } else if (markNumber) {
+            return true;
+        } else {
+            return false;
+        }
     }
 
     public int age() {
@@ -133,7 +165,7 @@ public class Validate implements TakeInput {
         try {
             long num = in.nextLong();
             int digits = (int) Math.log10(num);
-            if (digits+1 == 10) {
+            if (digits + 1 == 10) {
                 return num;
             } else {
                 Msg.error();
@@ -151,7 +183,7 @@ public class Validate implements TakeInput {
         try {
             Scanner in = new Scanner(System.in);
             String username;
-            System.out.println("Create Username : ");
+            System.out.print("Create Username : ");
             username = in.next();
             return username;
         } catch (Exception e) {
@@ -170,9 +202,9 @@ public class Validate implements TakeInput {
             return password;
         } else {
             Msg.error();
-            System.out.println("'Password must contain :");
-            System.out.println("Character, Number and Alphabet (both Uppercase and Lowercase)'");
             System.out.println("Please Enter valid Password in format");
+            System.out.println("Password must contain following :");
+            System.out.println("Character, Number and Alphabet (both Uppercase and Lowercase)'");
             return psw();
         }
 
@@ -184,19 +216,19 @@ public class Validate implements TakeInput {
         boolean markAlphaL = false;
         boolean markNumber = false;
         boolean markChar = false;
-        
+
         for (char i : psw) {
 
             if (i >= 'A' && i <= 'Z') {
                 markAlphaU = true;
             }
-            if (i >= 'a' && i <= 'a') {
+            if (i >= 'a' && i <= 'z') {
                 markAlphaL = true;
             }
             if (i >= '0' && i <= '9') {
                 markNumber = true;
             }
-            if (Resource.symbolArray(i)) {
+            if (Resource.symbolArrayContains(i)) {
                 markChar = true;
             }
         }
@@ -222,10 +254,10 @@ public class Validate implements TakeInput {
 
 }
 
-class Resource{
-    
-    public static boolean symbolArray(char ch) {
-        ArrayList<Character> symbols= new ArrayList<Character>();
+class Resource {
+
+    public static boolean symbolArrayContains(char ch) {
+        ArrayList<Character> symbols = new ArrayList<Character>();
         symbols.add('~');
         symbols.add('`');
         symbols.add('{');
@@ -258,12 +290,11 @@ class Resource{
         symbols.add('+');
         symbols.add('=');
         symbols.add(' ');
-        if(symbols.contains(ch)){
+        if (symbols.contains(ch)) {
             return true;
-        }
-        else{
+        } else {
             return false;
         }
     }
-    
+
 }

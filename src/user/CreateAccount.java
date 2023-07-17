@@ -9,6 +9,8 @@ public class CreateAccount extends Member {
 
         TakeInput validate = new Validate(); // Upcasting & 100% abstraction
 
+        Msg.createAccount();
+        
         name = validate.fullName();
 
         age = validate.age();
