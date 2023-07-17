@@ -4,35 +4,30 @@ package user;
 
 import util.Action;
 import util.Msg;
+import util.TakeInput;
 import util.Validate;
 
-public class CreateAccount extends Member {
+public class CreateAccount extends Member{
     public void createAccount() {
-        Msg.createAccount();
-        System.out.print("Enter First Name: ");
-        String fname = Action.inputStr();
+        
+        TakeInput validate= new Validate(); //Upcasting & 100% abstraction
+        name=validate.fullName();
 
-        Msg.border();
-        System.out.print("Enter Last Name: ");
-        String sname = Action.inputStr();
+        age=validate.age();
 
-        name = fname + " " + sname;
+        gender = validate.gender();
 
-        age=Validate.age();
-
-        gender = Validate.gender();
-
-        mobileNumber = Validate.ValidateNumber();
+        mobileNumber = validate.mobileNumber();
 
      
-        email = Validate.email();
+        email = validate.email();
 
         Msg.border();
         System.out.print("Enter Username: ");
         username = Action.inputStr();
 
-        String temp=Validate.psw();
-        setPassword(Validate.confirmPassword(temp));
+        String temp=validate.psw();
+        setPassword(validate.confirmPassword(temp));
     }
 
     public void details() {

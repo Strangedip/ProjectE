@@ -4,14 +4,23 @@ import java.util.ArrayList;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
-
 import main.Home;
 import user.Login;
 
-public class Validate {
-    static Scanner in = new Scanner(System.in);
+public class Validate implements TakeInput {
+    public String fullName() {
+        Msg.createAccount();
+        System.out.print("Enter First Name: ");
+        String fname = Action.inputStr();
 
-    public static void userPass(String username, String password) {
+        Msg.border();
+        System.out.print("Enter Last Name: ");
+        String sname = Action.inputStr();
+
+        return fname + " " + sname;
+    }
+
+    public void userPass(String username, String password) {
         // ****take user creds from database based username
         String orgUsername = "user";
         String orgPassword = "pass";
@@ -45,42 +54,42 @@ public class Validate {
         }
     }
 
-    public static void username(String un) {
+    public void username(String un) {
 
     }
 
-    public static String email() {
+    public String email() {
+        Scanner in = new Scanner(System.in);
         Msg.border();
         System.out.print("Enter email: ");
         String email = in.next();
-        if (email.contains(".com") && email.contains("@")){
+        if (email.contains(".com") && email.contains("@")) {
             return email;
-        }
-        else{
+        } else {
             System.out.println("Inavlid Email Format, Try again");
             return email();
         }
     }
 
-    public static int age() {
+    public int age() {
+        Scanner in = new Scanner(System.in);
         Msg.border();
         System.out.print("Enter age: ");
-        int age=in.nextInt();
-        if(age<1 || age>150){
+        int age = in.nextInt();
+        if (age < 1 || age > 150) {
             System.out.println("Invalid Age Input, Try Again");
             return age();
-        }
-        else if(age<5){
+        } else if (age < 5) {
             System.out.println("Age should be above 5 years");
             return age();
-        }
-        else{
+        } else {
             return age;
         }
-        
+
     }
 
-    public static String psw() {
+    public String psw() {
+        Scanner in = new Scanner(System.in);
         Msg.border();
         System.out.println("Password must contain characters, numbers and alphabets");
         System.out.print("Enter Password: ");
@@ -94,7 +103,7 @@ public class Validate {
 
     }
 
-    static boolean iteratePass(String password) {
+    boolean iteratePass(String password) {
         char[] psw = password.toCharArray();
         boolean markAlpha = false;
         boolean markNumber = false;
@@ -133,7 +142,8 @@ public class Validate {
         }
     }
 
-    public static String confirmPassword(String psw) {
+    public String confirmPassword(String psw) {
+        Scanner in = new Scanner(System.in);
         System.out.print("Confirm Password: ");
         String cnf = in.next();
         if (psw.equals(cnf)) {
@@ -143,40 +153,35 @@ public class Validate {
         }
     }
 
-    public static long ValidateNumber() {
-    
-            Msg.border();
-            System.out.print("Enter Mobile Number: ");
-           return mobileNumber();
-            
-    }
-    public static long mobileNumber()
-    { 
+    public long mobileNumber() {
+        Msg.border();
+        System.out.print("Enter Mobile Number: ");
         Scanner in = new Scanner(System.in);
-            try {
-         long num = in.nextLong();
+        try {
+            long num = in.nextLong();
             int digits = (int) Math.log10(num);
-        if (digits == 9) {
+            if (digits == 9) {
                 return num;
 
             } else {
                 System.out.println("Invalid Mobile Number, Please enter valid Number");
-                return ValidateNumber();
+                return mobileNumber();
             }
         } catch (InputMismatchException e) {
             System.out.println("Invalid Input, try Again");
-            return ValidateNumber();
+            return mobileNumber();
         }
     }
 
-    public static String gender() {
+    public String gender() {
         try {
+            Scanner in = new Scanner(System.in);
             Msg.border();
             System.out.println("1. Male");
             System.out.println("2. Female");
             System.out.println("3. Other");
             System.out.println("Enter gender: ");
-            int input=in.nextInt();
+            int input = in.nextInt();
             switch (input) {
                 case 1:
                     return "Male";
