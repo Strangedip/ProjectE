@@ -31,12 +31,12 @@ public class Validate implements TakeInput {
             // user home page class or object
 
         } else if (username.equals(orgUsername)) {
-            Msg.border();
+            Msg.error();
             System.out.println("Incorrect Password, please try again");
             Login.login();
 
         } else {
-            Msg.border();
+            Msg.error();
             System.out.println("Incorrect Username and Password, please try again");
             System.out.println("Enter 1 to go to Home");
             System.out.println("Enter 0 to login again");
@@ -48,8 +48,9 @@ public class Validate implements TakeInput {
                     Login.login();
                     break;
                 default:
-                    Msg.border();
-                    System.out.println("invalid Input");
+                    Msg.error();
+                    System.out.println("invalid Input, Try again");
+
             }
         }
     }
@@ -66,6 +67,7 @@ public class Validate implements TakeInput {
         if (email.contains(".com") && email.contains("@")) {
             return email;
         } else {
+            Msg.error();
             System.out.println("Inavlid Email Format, Try again");
             return email();
         }
@@ -77,9 +79,11 @@ public class Validate implements TakeInput {
         System.out.print("Enter age: ");
         int age = in.nextInt();
         if (age < 1 || age > 150) {
+            Msg.error();
             System.out.println("Invalid Age Input, Try Again");
             return age();
         } else if (age < 5) {
+            Msg.error();
             System.out.println("Age should be above 5 years");
             return age();
         } else {
@@ -92,11 +96,12 @@ public class Validate implements TakeInput {
         Scanner in = new Scanner(System.in);
         Msg.border();
         System.out.println("Password must contain characters, numbers and alphabets");
-        System.out.print("Enter Password: ");
+        System.out.print("Create Password: ");
         String password = in.next();
         if (iteratePass(password)) {
             return password;
         } else {
+            Msg.error();
             System.out.println("Please Enter valid Password in format");
             return psw();
         }
@@ -122,6 +127,7 @@ public class Validate implements TakeInput {
         symbols.add('-');
         symbols.add('+');
         symbols.add('=');
+        symbols.add(' ');
 
         for (char i : psw) {
 
@@ -149,13 +155,15 @@ public class Validate implements TakeInput {
         if (psw.equals(cnf)) {
             return cnf;
         } else {
+            Msg.error();
+            System.out.println("Enter the same Password");
             return confirmPassword(psw);
         }
     }
 
     public long mobileNumber() {
         Msg.border();
-        System.out.print("Enter Mobile Number: ");
+        System.out.print("Enter Mobile Number: +91 ");
         Scanner in = new Scanner(System.in);
         try {
             long num = in.nextLong();
@@ -164,10 +172,12 @@ public class Validate implements TakeInput {
                 return num;
 
             } else {
+                Msg.error();
                 System.out.println("Invalid Mobile Number, Please enter valid Number");
                 return mobileNumber();
             }
         } catch (InputMismatchException e) {
+            Msg.error();
             System.out.println("Invalid Input, try Again");
             return mobileNumber();
         }
@@ -190,10 +200,12 @@ public class Validate implements TakeInput {
                 case 3:
                     return "Other";
                 default:
+                    Msg.error();
                     System.out.println("Invalid option, try Again");
                     return gender();
             }
         } catch (Exception e) {
+            Msg.error();
             System.out.println("Invalid Input, try Again");
             return gender();
 

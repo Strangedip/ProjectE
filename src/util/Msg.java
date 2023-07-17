@@ -13,7 +13,8 @@ public class Msg {
     }
     
     public static void error() {
-        System.out.println("         -_-   _| ERROR |_   -_-        ");
+        System.out.println("          -_-  _| ERROR |_  -_-          ");
+        border();
     }
     
     public static void success() {
