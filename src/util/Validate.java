@@ -1,4 +1,5 @@
 package util;
+
 import java.util.ArrayList;
 import java.util.InputMismatchException;
 import java.util.Scanner;
@@ -7,7 +8,8 @@ import main.Home;
 import user.Login;
 
 public class Validate {
-    static Scanner in =new Scanner(System.in);
+    static Scanner in = new Scanner(System.in);
+
     public static void userPass(String username, String password) {
         // ****take user creds from database based username
         String orgUsername = "user";
@@ -41,36 +43,39 @@ public class Validate {
             }
         }
     }
-    
-    public static void username(String un){
+
+    public static void username(String un) {
 
     }
-    public static void email(String email){
+
+    public static void email(String email) {
 
     }
-    public static void age(String num){
+
+    public static void age(String num) {
 
     }
+
     public static String psw() {
         Msg.border();
         System.out.println("Password must contain characters, numbers and alphabets");
         System.out.print("Enter Password: ");
-        String password = in.next();        
-        if (iteratePass(password)){
+        String password = in.next();
+        if (iteratePass(password)) {
             return password;
-        }
-        else{
+        } else {
             System.out.println("Please Enter valid Password in format");
             return psw();
         }
 
     }
-    static boolean iteratePass(String password){
-        char[] psw=password.toCharArray();
-        boolean markAlpha=false;
-        boolean markNumber=false;
-        boolean markChar=false;
-        ArrayList<Character> symbols= new ArrayList<Character>();
+
+    static boolean iteratePass(String password) {
+        char[] psw = password.toCharArray();
+        boolean markAlpha = false;
+        boolean markNumber = false;
+        boolean markChar = false;
+        ArrayList<Character> symbols = new ArrayList<Character>();
         symbols.add('!');
         symbols.add('@');
         symbols.add('#');
@@ -85,32 +90,31 @@ public class Validate {
         symbols.add('+');
         symbols.add('=');
 
-        for(char i : psw){
+        for (char i : psw) {
 
-            if(i>='A' && i<='z'){
-                markAlpha=true;
+            if (i >= 'A' && i <= 'z') {
+                markAlpha = true;
             }
-            if(i>='0' && i<='9' ){
-                markNumber=true;
+            if (i >= '0' && i <= '9') {
+                markNumber = true;
             }
-            if(symbols.contains(i)){
-                markChar=true;
+            if (symbols.contains(i)) {
+                markChar = true;
             }
         }
-        if(markAlpha && markChar && markNumber){
+        if (markAlpha && markChar && markNumber) {
             return true;
-        }
-        else{
+        } else {
             return false;
-        }        
-    }
-    public static String confirmPassword(String psw){
-        System.out.println("Confirm Password: ");
-        String cnf=in.next();
-        if (psw.equals(cnf)){
-            return cnf;
         }
-        else{
+    }
+
+    public static String confirmPassword(String psw) {
+        System.out.println("Confirm Password: ");
+        String cnf = in.next();
+        if (psw.equals(cnf)) {
+            return cnf;
+        } else {
             return confirmPassword(psw);
         }
     }
@@ -120,8 +124,8 @@ public class Validate {
             Msg.border();
             System.out.print("Enter Mobile Number: ");
             long num = in.nextLong();
-            int digits=(int)Math.log10(num);
-            if (digits==9) {
+            int digits = (int) Math.log10(num);
+            if (digits == 9) {
                 return num;
 
             } else {
@@ -135,21 +139,28 @@ public class Validate {
     }
 
     public static String gender() {
-        Msg.border();
-        System.out.println("1. Male");
-        System.out.println("2. Female");
-        System.out.println("3. Other");
-        System.out.print("Enter gender: ");
-        switch (Action.inputInt()) {
-            case 1:
-                return "Male";
-            case 2:
-                return "Female";
-            case 3:
-                return "Other";
-            default:
-                System.out.println("Invalid Input, try Again");
-                return gender();
+        try {
+            Msg.border();
+            System.out.println("1. Male");
+            System.out.println("2. Female");
+            System.out.println("3. Other");
+            System.out.println("Enter gender: ");
+            int input=in.nextInt();
+            switch (input) {
+                case 1:
+                    return "Male";
+                case 2:
+                    return "Female";
+                case 3:
+                    return "Other";
+                default:
+                    System.out.println("Invalid option, try Again");
+                    return gender();
+            }
+        } catch (Exception e) {
+            System.out.println("Invalid Input, try Again");
+            return gender();
+
         }
     }
 
