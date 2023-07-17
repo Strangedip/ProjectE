@@ -22,7 +22,7 @@ public class Action {
 	}
 
 	public static void login() {
-		Login.login();
+		Login.loginUser();
 	}
 
 	public static void adminLogin() {

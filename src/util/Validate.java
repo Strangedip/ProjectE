@@ -8,19 +8,7 @@ import main.Home;
 import user.Login;
 
 public class Validate implements TakeInput {
-    public String fullName() {
-        Msg.createAccount();
-        System.out.print("Enter First Name: ");
-        String fname = Action.inputStr();
-
-        Msg.border();
-        System.out.print("Enter Last Name: ");
-        String sname = Action.inputStr();
-
-        return fname + " " + sname;
-    }
-
-    public void userPass(String username, String password) {
+    public void userCreds(String username, String password) {
         // ****take user creds from database based username
         String orgUsername = "user";
         String orgPassword = "pass";
@@ -33,153 +21,66 @@ public class Validate implements TakeInput {
         } else if (username.equals(orgUsername)) {
             Msg.error();
             System.out.println("Incorrect Password, please try again");
-            Login.login();
+            Login.loginUser();
 
         } else {
             Msg.error();
             System.out.println("Incorrect Username and Password, please try again");
-            System.out.println("Enter 1 to go to Home");
-            System.out.println("Enter 0 to login again");
-            switch (Action.inputInt()) {
-                case 1:
-                    Home.menu();
-                    break;
-                case 0:
-                    Login.login();
-                    break;
-                default:
-                    Msg.error();
-                    System.out.println("invalid Input, Try again");
+            System.out.println("Enter 0 for Main menu");
+            System.out.println("Enter 1 to try again");
+            System.out.println("Enter any other to exit");
+            System.out.print("Enter Choice ->");
+            try {
+                switch (Action.inputInt()) {
+                    case 0:
+                        Home.menu();
+                        break;
+                    case 1:
+                        Login.loginUser();
+                        break;
+                    default:
+                        System.exit(0);
+                }
 
+            } catch (Exception e) {
+                System.exit(0);
             }
         }
     }
 
-    public void username(String un) {
+    public String fullName() {
+        Msg.createAccount();
+        System.out.print("Enter First Name: ");
+        String fname = Action.inputStr();
 
-    }
-
-    public String email() {
-        Scanner in = new Scanner(System.in);
         Msg.border();
-        System.out.print("Enter email: ");
-        String email = in.next();
-        if (email.contains(".com") && email.contains("@")) {
-            return email;
-        } else {
-            Msg.error();
-            System.out.println("Inavlid Email Format, Try again");
-            return email();
-        }
+        System.out.print("Enter Last Name: ");
+        String sname = Action.inputStr();
+
+        return fname + " " + sname;
     }
 
     public int age() {
         Scanner in = new Scanner(System.in);
         Msg.border();
         System.out.print("Enter age: ");
-        int age = in.nextInt();
-        if (age < 1 || age > 150) {
-            Msg.error();
-            System.out.println("Invalid Age Input, Try Again");
-            return age();
-        } else if (age < 5) {
-            Msg.error();
-            System.out.println("Age should be above 5 years");
-            return age();
-        } else {
-            return age;
-        }
-
-    }
-
-    public String psw() {
-        Scanner in = new Scanner(System.in);
-        Msg.border();
-        System.out.println("Password must contain characters, numbers and alphabets");
-        System.out.print("Create Password: ");
-        String password = in.next();
-        if (iteratePass(password)) {
-            return password;
-        } else {
-            Msg.error();
-            System.out.println("Please Enter valid Password in format");
-            return psw();
-        }
-
-    }
-
-    boolean iteratePass(String password) {
-        char[] psw = password.toCharArray();
-        boolean markAlpha = false;
-        boolean markNumber = false;
-        boolean markChar = false;
-        ArrayList<Character> symbols = new ArrayList<Character>();
-        symbols.add('!');
-        symbols.add('@');
-        symbols.add('#');
-        symbols.add('$');
-        symbols.add('^');
-        symbols.add('&');
-        symbols.add('*');
-        symbols.add('(');
-        symbols.add(')');
-        symbols.add('_');
-        symbols.add('-');
-        symbols.add('+');
-        symbols.add('=');
-        symbols.add(' ');
-
-        for (char i : psw) {
-
-            if (i >= 'A' && i <= 'z') {
-                markAlpha = true;
-            }
-            if (i >= '0' && i <= '9') {
-                markNumber = true;
-            }
-            if (symbols.contains(i)) {
-                markChar = true;
-            }
-        }
-        if (markAlpha && markChar && markNumber) {
-            return true;
-        } else {
-            return false;
-        }
-    }
-
-    public String confirmPassword(String psw) {
-        Scanner in = new Scanner(System.in);
-        System.out.print("Confirm Password: ");
-        String cnf = in.next();
-        if (psw.equals(cnf)) {
-            return cnf;
-        } else {
-            Msg.error();
-            System.out.println("Enter the same Password");
-            return confirmPassword(psw);
-        }
-    }
-
-    public long mobileNumber() {
-        Msg.border();
-        System.out.print("Enter Mobile Number: +91 ");
-        Scanner in = new Scanner(System.in);
         try {
-            long num = in.nextLong();
-            int digits = (int) Math.log10(num);
-            if (digits == 9) {
-                return num;
-
-            } else {
+            int age = in.nextInt();
+            if (age < 1 || age > 150) {
                 Msg.error();
-                System.out.println("Invalid Mobile Number, Please enter valid Number");
-                return mobileNumber();
+                System.out.println("Invalid Age Input, Try Again");
+                return age();
+            } else if (age < 5) {
+                Msg.error();
+                System.out.println("Age should be above 5 years");
+                return age();
+            } else {
+                return age;
             }
-        } catch (InputMismatchException e) {
+        } catch (Exception e) {
             Msg.error();
-            System.out.println("Invalid Input, try Again");
-            return mobileNumber();
+            System.out.println("Invalid Input!");
+            return age();
         }
     }
 
@@ -206,9 +107,163 @@ public class Validate implements TakeInput {
             }
         } catch (Exception e) {
             Msg.error();
-            System.out.println("Invalid Input, try Again");
+            System.out.println("Invalid Input!");
             return gender();
-
         }
     }
+
+    public String email() {
+        Scanner in = new Scanner(System.in);
+        Msg.border();
+        System.out.print("Enter email: ");
+        String email = in.next();
+        if (email.contains(".com") && email.contains("@")) {
+            return email;
+        } else {
+            Msg.error();
+            System.out.println("Inavlid Email Format, Try again");
+            return email();
+        }
+    }
+
+    public long mobileNumber() {
+        Msg.border();
+        System.out.print("Enter Mobile Number: +91 ");
+        Scanner in = new Scanner(System.in);
+        try {
+            long num = in.nextLong();
+            int digits = (int) Math.log10(num);
+            if (digits+1 == 10) {
+                return num;
+            } else {
+                Msg.error();
+                System.out.println("Invalid Mobile Number, Please enter valid Number");
+                return mobileNumber();
+            }
+        } catch (InputMismatchException e) {
+            Msg.error();
+            System.out.println("Invalid Input, try Again");
+            return mobileNumber();
+        }
+    }
+
+    public String username() {
+        try {
+            Scanner in = new Scanner(System.in);
+            String username;
+            System.out.println("Create Username : ");
+            username = in.next();
+            return username;
+        } catch (Exception e) {
+            Msg.error();
+            System.out.println("Something went wrong!");
+            return username();
+        }
+    }
+
+    public String psw() {
+        Scanner in = new Scanner(System.in);
+        Msg.border();
+        System.out.print("Create Password: ");
+        String password = in.next();
+        if (iteratePass(password)) {
+            return password;
+        } else {
+            Msg.error();
+            System.out.println("'Password must contain :");
+            System.out.println("Character, Number and Alphabet (both Uppercase and Lowercase)'");
+            System.out.println("Please Enter valid Password in format");
+            return psw();
+        }
+
+    }
+
+    boolean iteratePass(String password) {
+        char[] psw = password.toCharArray();
+        boolean markAlphaU = false;
+        boolean markAlphaL = false;
+        boolean markNumber = false;
+        boolean markChar = false;
+        
+        for (char i : psw) {
+
+            if (i >= 'A' && i <= 'Z') {
+                markAlphaU = true;
+            }
+            if (i >= 'a' && i <= 'a') {
+                markAlphaL = true;
+            }
+            if (i >= '0' && i <= '9') {
+                markNumber = true;
+            }
+            if (Resource.symbolArray(i)) {
+                markChar = true;
+            }
+        }
+        if (markAlphaU && markAlphaL && markChar && markNumber) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    public String confirmPassword(String psw) {
+        Scanner in = new Scanner(System.in);
+        System.out.print("Confirm Password: ");
+        String cnf = in.next();
+        if (psw.equals(cnf)) {
+            return cnf;
+        } else {
+            Msg.error();
+            System.out.println("Enter the same Password");
+            return confirmPassword(psw);
+        }
+    }
+
+}
+
+class Resource{
+    
+    public static boolean symbolArray(char ch) {
+        ArrayList<Character> symbols= new ArrayList<Character>();
+        symbols.add('~');
+        symbols.add('`');
+        symbols.add('{');
+        symbols.add('[');
+        symbols.add('\'');
+        symbols.add('}');
+        symbols.add(']');
+        symbols.add('|');
+        symbols.add('\\');
+        symbols.add(':');
+        symbols.add(';');
+        symbols.add('"');
+        symbols.add('<');
+        symbols.add(',');
+        symbols.add('>');
+        symbols.add('.');
+        symbols.add('?');
+        symbols.add('/');
+        symbols.add('!');
+        symbols.add('@');
+        symbols.add('#');
+        symbols.add('$');
+        symbols.add('^');
+        symbols.add('&');
+        symbols.add('*');
+        symbols.add('(');
+        symbols.add(')');
+        symbols.add('_');
+        symbols.add('-');
+        symbols.add('+');
+        symbols.add('=');
+        symbols.add(' ');
+        if(symbols.contains(ch)){
+            return true;
+        }
+        else{
+            return false;
+        }
+    }
+    
 }

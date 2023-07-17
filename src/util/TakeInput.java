@@ -1,19 +1,21 @@
 package util;
 
 public interface TakeInput {
+    public void userCreds(String username, String password);
+
     public String fullName();
     
-    public void userPass(String username, String password);
+    public int age();
+
+    public String gender();
+    
+    public long mobileNumber();
 
     public String email();
 
-    public int age();
+    public String username();
 
     public String psw();
 
     public String confirmPassword(String psw);
-
-    public long mobileNumber();
-
-    public String gender();
 }
