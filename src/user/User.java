@@ -11,12 +11,12 @@ abstract class Member {
     public String gender;
     public String email;
     public long mobileNumber;
-    public String username="user";
-    public String password="pass";
+    public String username = "user";
+    public String password = "pass";
 
     public String accountType = "Saving Account";
 
-    private long accountNumber=0;
+    private long accountNumber = 0;
     private int accountLevel = 0;
     private int accountBal = 0;
 
@@ -35,9 +35,11 @@ abstract class Member {
 }
 
 public class User extends Member {
-    public static ArrayList<Member> members=new ArrayList<>();
-    public User(){
+    public static ArrayList<Member> members = new ArrayList<>();
+
+    public User() {
     }
+
     User(int eliteID, String name, int age, String gender, String email, long mobileNumber, String username,
             String password) {
         this.eliteID = eliteID;
@@ -50,6 +52,7 @@ public class User extends Member {
         setPassword(password);
         generateAcoountNumber();
     }
+
     public void details() {
         Msg.success();
         Msg.welcome();

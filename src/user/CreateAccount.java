@@ -12,8 +12,8 @@ public class CreateAccount extends Member {
 
             Msg.createAccount();
 
-            // generate unique id 
-            eliteID=111;
+            // generate unique id
+            eliteID = 111;
 
             name = validate.fullName();
 
@@ -27,9 +27,10 @@ public class CreateAccount extends Member {
 
             username = validate.username();
 
-            password=validate.confirmPassword(validate.psw());
+            password = validate.confirmPassword(validate.psw());
 
-            createUser().details();;
+            createUser().details();
+            ;
         } catch (Exception e) {
             Msg.error();
             System.out.println(e.getMessage());
@@ -37,19 +38,20 @@ public class CreateAccount extends Member {
             Home.menu();
         }
     }
-    public User createUser(){
+
+    public User createUser() {
         return new User(eliteID, name, age, gender, email, mobileNumber, username, password);
     }
 
     // public void details() {
-    //     Msg.success();
-    //     Msg.welcome();
-    //     System.out.println("Name   : " + name);
-    //     System.out.println("Age    : " + age);
-    //     System.out.println("gender : " + gender);
-    //     System.out.println("Mobile : " + mobileNumber);
-    //     System.out.println("Email  : " + email);
-    //     // System.out.println("Psw : " + getPsw());
-    //     Msg.border();
+    // Msg.success();
+    // Msg.welcome();
+    // System.out.println("Name : " + name);
+    // System.out.println("Age : " + age);
+    // System.out.println("gender : " + gender);
+    // System.out.println("Mobile : " + mobileNumber);
+    // System.out.println("Email : " + email);
+    // // System.out.println("Psw : " + getPsw());
+    // Msg.border();
     // }
 }

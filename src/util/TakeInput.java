@@ -3,16 +3,17 @@ package util;
 import user.User;
 
 public interface TakeInput {
+
     public void userCreds(String username, String password);
 
-    public void userCreds(String username, String password,User user);
+    public void userCreds(String username, String password, User user);
 
     public String fullName();
-    
+
     public int age();
 
     public String gender();
-    
+
     public long mobileNumber();
 
     public String email();
