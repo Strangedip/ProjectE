@@ -41,9 +41,7 @@ public class Validate {
             }
         }
     }
-    public static void mobile(long num){
-
-    }
+    
     public static void username(String un){
 
     }
@@ -123,12 +121,11 @@ public class Validate {
             System.out.print("Enter Mobile Number: ");
             long num = in.nextLong();
             int digits=(int)Math.log10(num);
-            System.out.println(digits);
             if (digits==9) {
                 return num;
 
             } else {
-                System.out.println("Invalid Input, try Again");
+                System.out.println("Invalid Mobile Number, Please enter valid Number");
                 return mobileNumber();
             }
         } catch (InputMismatchException e) {
