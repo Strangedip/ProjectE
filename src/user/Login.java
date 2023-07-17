@@ -1,5 +1,6 @@
 package user;
 
+import page.Page;
 import util.Action;
 import util.Msg;
 import util.TakeInput;
@@ -15,6 +16,22 @@ public class Login {
 		String password = Action.inputStr();
 
 		validate.userCreds(username, password);
+	}
+	public static void loginUser(User user) {
+		TakeInput validate=new Validate();
+		Msg.border();
+		System.out.print("Enter Username:");
+		String username = Action.inputStr();
+		System.out.print("Enter Password :");
+		String password = Action.inputStr();
+		validate.userCreds(username, password,user);
+		
+		// if(username.equals(user.username) &&  password.equals(user.password)){
+		// 	Msg.success();
+		// 	Page.homePage(user);
+		// }
+
+		// validate.userCreds(username, password);
 	}
 
 

@@ -5,25 +5,28 @@ import java.util.InputMismatchException;
 import java.util.Scanner;
 
 import main.Home;
+import page.Page;
 import user.Login;
+import user.User;
 
 public class Validate implements TakeInput {
-
+    User user=new User();
     public void userCreds(String username, String password) {
+        
         // ****take user creds from database based username
-        String orgUsername = "user";
+        String orgUsername = user.username;
         String orgPassword = "pass";
 
         if (username.equals(orgUsername) && password.equals(orgPassword)) {
             Msg.border();
-            Msg.success();
             System.out.println("Logged in");
+            Page.homePage(user);
             // user home page class or object
 
         } else if (username.equals(orgUsername)) {
             Msg.error();
             System.out.println("Incorrect Password, please try again");
-            Login.loginUser();
+            Login.loginUser(user);
 
         } else {
             Msg.error();
@@ -38,7 +41,48 @@ public class Validate implements TakeInput {
                         Home.menu();
                         break;
                     case 1:
-                        Login.loginUser();
+                        Login.loginUser(user);
+                        break;
+                    default:
+                        System.exit(0);
+                }
+
+            } catch (Exception e) {
+                System.exit(0);
+            }
+        }
+    }
+    public void userCreds(String username, String password,User user) {
+        
+        // ****take user creds from database based username
+        // String orgUsername = user.username;
+        // String orgPassword = user.password;
+
+        if (username.equals(user.username) && password.equals(user.password)) {
+            Msg.border();
+            System.out.println("Logged in");
+            Page.homePage(user);
+            // user home page class or object
+
+        } else if (username.equals(user.username)) {
+            Msg.error();
+            System.out.println("Incorrect Password, please try again");
+            Login.loginUser(user);
+
+        } else {
+            Msg.error();
+            System.out.println("Incorrect Username and Password, please try again");
+            System.out.println("Enter 0 for Main menu");
+            System.out.println("Enter 1 to try again");
+            System.out.println("Enter any other to exit");
+            System.out.print("Enter Choice ->");
+            try {
+                switch (Action.inputInt()) {
+                    case 0:
+                        Home.menu();
+                        break;
+                    case 1:
+                        Login.loginUser(user);
                         break;
                     default:
                         System.exit(0);

@@ -1,7 +1,11 @@
 package util;
 
+import user.User;
+
 public interface TakeInput {
     public void userCreds(String username, String password);
+
+    public void userCreds(String username, String password,User user);
 
     public String fullName();
     

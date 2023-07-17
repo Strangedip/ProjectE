@@ -24,6 +24,11 @@ public class Msg {
         System.out.println("|          Create New Account           |");
         System.out.println("-----------------------------------------");
     }
+    public static void accountCreated() {
+        System.out.println("-----------------------------------------");
+        System.out.println("|            Account Created            |");
+        System.out.println("-----------------------------------------");
+    }
 
     public static void error() {
         System.out.println("          -_-  _| ERROR |_  -_-          ");

@@ -1,7 +1,12 @@
 package util;
+import java.lang.reflect.Member;
 import java.util.Scanner;
+
+import main.Home;
 import user.CreateAccount;
 import user.Login;
+import user.User;
+import page.Page;
 
 public class Action {
 	static Scanner in = new Scanner(System.in);
@@ -24,6 +29,9 @@ public class Action {
 	public static void login() {
 		Login.loginUser();
 	}
+	public static void login(User user) {
+		Login.loginUser(user);
+	}
 
 	public static void adminLogin() {
 		System.out.println("Admin login here");
@@ -31,10 +39,28 @@ public class Action {
 
 	public static void createAccount() {
 		
-		CreateAccount user = new CreateAccount();
-		user.createAccount();
-		user.details();
-		// user.createUser();
+		CreateAccount newAccount = new CreateAccount();
+		newAccount.createAccount();
+		User user=newAccount.createUser();
+		User.members.add(user);
+		afterNewAccountMenu(user);
+	}
+	public static void afterNewAccountMenu(User user){
+		System.out.println("Enter 0 for Main menu");
+		System.out.println("Enter 1 to login now");
+		System.out.println("Enter Choice -> ");
+		Scanner in = new Scanner(System.in);
+		switch(in.nextInt()){
+			case 0:
+			Home.menu(user);
+			break;
+			case 1:
+			Login.loginUser(user);
+			break;
+			default:
+			System.out.println("Invalid Option, Try again");
+			afterNewAccountMenu(user);
+		}
 	}
 
 	public static void clscr() {
