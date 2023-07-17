@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
+import javax.sound.midi.Soundbank;
+
 import main.Home;
 import user.Login;
 
@@ -48,12 +50,35 @@ public class Validate {
 
     }
 
-    public static void email(String email) {
-
+    public static String email() {
+        Msg.border();
+        System.out.print("Enter email: ");
+        String email = in.next();
+        if (email.contains(".com") && email.contains("@")){
+            return email;
+        }
+        else{
+            System.out.println("Inavlid Email Format, Try again");
+            return email();
+        }
     }
 
-    public static void age(String num) {
-
+    public static int age() {
+        Msg.border();
+        System.out.print("Enter age: ");
+        int age=in.nextInt();
+        if(age<1 && age>150){
+            System.out.println("Invalid Age Input, Try Again");
+            return age();
+        }
+        else if(age<5){
+            System.out.println("Age should be above 5 years");
+            return age();
+        }
+        else{
+            return age;
+        }
+        
     }
 
     public static String psw() {
@@ -162,9 +187,5 @@ public class Validate {
             return gender();
 
         }
-    }
-
-    public static void email() {
-
     }
 }

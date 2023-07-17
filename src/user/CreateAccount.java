@@ -18,17 +18,14 @@ public class CreateAccount extends Member {
 
         name = fname + " " + sname;
 
-        Msg.border();
-        System.out.print("Enter age: ");
-        age = Action.inputInt();
+        age=Validate.age();
 
         gender = Validate.gender();
 
         mobileNumber = Validate.mobileNumber();
 
-        Msg.border();
-        System.out.print("Enter email: ");
-        email = Action.inputStr();
+     
+        email = Validate.email();
 
         Msg.border();
         System.out.print("Enter Username: ");
