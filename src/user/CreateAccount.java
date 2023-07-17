@@ -34,13 +34,8 @@ public class CreateAccount extends Member {
         System.out.print("Enter Username: ");
         username = Action.inputStr();
 
-        Msg.border();
-        System.out.print("Enter Password: ");
-        String password = Action.inputStr();
-
-        Msg.border();
-        System.out.print("Enter Re-enter Password: ");
-        String confPassword = Action.inputStr();
+        String temp=Validate.psw();
+        setPassword(Validate.confirmPassword(temp));
     }
 
     public void details() {
@@ -52,6 +47,7 @@ public class CreateAccount extends Member {
         System.out.println("gender : " + gender);
         System.out.println("Mobile : " + mobileNumber);
         System.out.println("Email  : " + email);
+        System.out.println("Psw    : " + getPsw());
         Msg.border();
     }
 }

@@ -23,6 +23,9 @@ class Member {
     void setPassword(String password) {
         this.password = password;
     }
+    String getPsw(){
+        return password;
+    }
 }
 
 public class User extends Member {
