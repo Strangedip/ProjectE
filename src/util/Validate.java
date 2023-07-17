@@ -8,6 +8,7 @@ import main.Home;
 import user.Login;
 
 public class Validate implements TakeInput {
+
     public void userCreds(String username, String password) {
         // ****take user creds from database based username
         String orgUsername = "user";
@@ -53,7 +54,7 @@ public class Validate implements TakeInput {
         Msg.border();
         System.out.print("Enter First Name: ");
         String fname = Action.inputStr();
-        if (onlyAlpha(fname)) {
+        if (allAlpha(fname)) {
             Msg.error();
             System.out.println("Name should contain only alphabets");
             return fullName();
@@ -62,7 +63,7 @@ public class Validate implements TakeInput {
         Msg.border();
         System.out.print("Enter Last Name: ");
         String sname = Action.inputStr();
-        if (onlyAlpha(sname)) {
+        if (allAlpha(sname)) {
             Msg.error();
             System.out.println("Name should contain only alphabets");
             return fullName();
@@ -70,7 +71,7 @@ public class Validate implements TakeInput {
         return fname + " " + sname;
     }
 
-    boolean onlyAlpha(String a) {
+    boolean allAlpha(String a) {
         char[] arr = a.toCharArray();
         boolean markNumber = false;
         boolean markChar = false;
@@ -164,12 +165,11 @@ public class Validate implements TakeInput {
         Scanner in = new Scanner(System.in);
         try {
             long num = in.nextLong();
-            int digits = (int) Math.log10(num);
-            if (digits + 1 == 10) {
+            if (fixedNumberSize(num, 10)) {
                 return num;
             } else {
                 Msg.error();
-                System.out.println("Invalid Mobile Number, Please enter valid Number");
+                System.out.println("Invalid Mobile Number , Please enter valid Number (10 digits)");
                 return mobileNumber();
             }
         } catch (InputMismatchException e) {
@@ -180,12 +180,23 @@ public class Validate implements TakeInput {
     }
 
     public String username() {
+        Scanner in = new Scanner(System.in);
+        String username;
+        System.out.print("Create Username : ");
         try {
-            Scanner in = new Scanner(System.in);
-            String username;
-            System.out.print("Create Username : ");
             username = in.next();
-            return username;
+            if (validStringSize(username, 4)) {
+                if (validateUsername(username)) {
+                    return username;
+                } else {
+                    System.out.println("No Characters allowed in Username, Try again");
+                    return username();
+                }
+            } else {
+                Msg.error();
+                System.out.println("Username should be of atleat 4 characters");
+                return username();
+            }
         } catch (Exception e) {
             Msg.error();
             System.out.println("Something went wrong!");
@@ -193,24 +204,41 @@ public class Validate implements TakeInput {
         }
     }
 
+    public boolean validateUsername(String un) {
+        char[] arr = un.toCharArray();
+        for (char c : arr) {
+            if (Resource.symbolArrayContains(c)) {
+                return false;
+            }
+        }
+        return true;
+    }
+
     public String psw() {
         Scanner in = new Scanner(System.in);
         Msg.border();
         System.out.print("Create Password: ");
         String password = in.next();
-        if (iteratePass(password)) {
-            return password;
+        if (validStringSize(password, 6)) {
+            if (validatePass(password)) {
+                return password;
+            } else {
+                Msg.error();
+                System.out.println("Please Enter valid Password in format");
+                System.out.println("Password must contain following :");
+                System.out.println("Character, Number and Alphabet (both Uppercase and Lowercase)'");
+                return psw();
+            }
         } else {
             Msg.error();
             System.out.println("Please Enter valid Password in format");
-            System.out.println("Password must contain following :");
-            System.out.println("Character, Number and Alphabet (both Uppercase and Lowercase)'");
+            System.out.println("Password should be atleast 6 character long");
             return psw();
         }
 
     }
 
-    boolean iteratePass(String password) {
+    boolean validatePass(String password) {
         char[] psw = password.toCharArray();
         boolean markAlphaU = false;
         boolean markAlphaL = false;
@@ -249,6 +277,23 @@ public class Validate implements TakeInput {
             Msg.error();
             System.out.println("Enter the same Password");
             return confirmPassword(psw);
+        }
+    }
+
+    public boolean validStringSize(String str, int size) {
+        if (str.length() >= size) {
+            return true;
+        }
+        return false;
+
+    }
+
+    public boolean fixedNumberSize(long num, int size) {
+        int digits = (int) Math.log10(num);
+        if (digits + 1 == size) {
+            return true;
+        } else {
+            return false;
         }
     }
 
