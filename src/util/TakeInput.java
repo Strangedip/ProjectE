@@ -8,24 +8,24 @@ public class TakeInput {
 
     }
 
-    public static long mobile() {
-        Scanner in = new Scanner(System.in);
-        try {
-            Msg.border();
-            System.out.print("Enter Mobile Number: ");
-            long num = in.nextLong();
-            if (Math.log(num) == 9) {
-                return num;
+    // public static long mobile() {
+    //     Scanner in = new Scanner(System.in);
+    //     try {
+    //         Msg.border();
+    //         System.out.print("Enter Mobile Number: ");
+    //         long num = in.nextLong();
+    //         if (Math.log(num) == 9) {
+    //             return num;
 
-            } else {
-                System.out.println("Invalid Input, try Again");
-                return mobile();
-            }
-        } catch (InputMismatchException e) {
-            System.out.println("Invalid Input, try Again");
-            return mobile();
-        }
-    }
+    //         } else {
+    //             System.out.println("Invalid Input, try Again");
+    //             return mobile();
+    //         }
+    //     } catch (InputMismatchException e) {
+    //         System.out.println("Invalid Input, try Again");
+    //         return mobile();
+    //     }
+    // }
 
     public static String gender() {
         Msg.border();

@@ -11,7 +11,7 @@ public class Test {
         System.out.println(mobileNumber());
     }
 
-    static long mobileNumber(){
+    private static long mobileNumber(){
     try {
             Msg.border();
             System.out.print("Enter Mobile Number: ");
