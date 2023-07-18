@@ -5,6 +5,7 @@ import user.User;
 public class Page {
     public static void homePage(User user) {
         HomePage.page();
+        
     }
 
     public static void shop(){
