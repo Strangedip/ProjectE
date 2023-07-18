@@ -29,8 +29,8 @@ public class CreateAccount extends Member {
 
             password = validate.confirmPassword(validate.psw());
 
-            createUser().details();
-            ;
+            createUser();
+            Msg.accountCreated();
         } catch (Exception e) {
             Msg.error();
             System.out.println(e.getMessage());
