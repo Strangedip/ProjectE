@@ -36,6 +36,7 @@ public class Action {
 
 	public static void adminLogin() {
 		System.out.println("Admin login here");
+		Login.loginAdmin();
 		
 	}
 
