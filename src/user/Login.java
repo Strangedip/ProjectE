@@ -49,7 +49,7 @@ public class Login {
 
 		if (username.equals(adminUsername) && password.equals(adminPassword)) {
 			Msg.success();
-			System.out.println("ADMIN LOOGED IN");
+			Msg.loggedIn();
 			Page.homePage(Admin.admin1);
 		} else if (username.equals(adminUsername)) {
 			Msg.error();

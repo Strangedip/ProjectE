@@ -1,7 +1,7 @@
 package user;
 
 public class Admin extends Member {
-    static User admin1=new User(1, "admin1", 20, "make", "test@test.com", 9987978402L, "admin", "admin");
+    static User admin1 = new User(1, "admin1", 20, "make", "test@test.com", 9987978402L, "admin", "admin");
 
     Admin(int eliteID, String name, int age, String gender, String email, long mobileNumber, String username,
             String password) {
@@ -15,7 +15,8 @@ public class Admin extends Member {
         setPassword(password);
         generateAcoountNumber();
     }
-    public static void adminDetails(){
+
+    public static void adminDetails() {
         admin1.details();
     }
 }

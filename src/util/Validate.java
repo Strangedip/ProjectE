@@ -20,6 +20,7 @@ public class Validate implements TakeInput {
 
         if (username.equals(orgUsername) && password.equals(orgPassword)) {
             Msg.border();
+            Msg.loggedIn();
             System.out.println("Logged in");
             Page.homePage(user);
             // user home page class or object
@@ -45,7 +46,7 @@ public class Validate implements TakeInput {
                         Login.loginUser(user);
                         break;
                     default:
-                    Msg.thankyou();
+                        Msg.thankyou();
                         System.exit(0);
                 }
 
@@ -64,6 +65,7 @@ public class Validate implements TakeInput {
 
         if (username.equals(user.username) && password.equals(user.password)) {
             Msg.border();
+            Msg.loggedIn();
             System.out.println("Logged in");
             Page.homePage(user);
             // user home page class or object

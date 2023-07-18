@@ -2,8 +2,6 @@ package main;
 
 import java.util.Scanner;
 
-import util.Msg;
-
 public class Test {
     static Scanner in = new Scanner(System.in);
 

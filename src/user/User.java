@@ -34,7 +34,6 @@ abstract class Member {
     }
 }
 
-
 public class User extends Member {
     public static ArrayList<Member> members = new ArrayList<>();
 
@@ -55,9 +54,8 @@ public class User extends Member {
     }
 
     public void details() {
-        Msg.success();
         Msg.welcome();
-        System.out.println("new User");
+        System.out.println("* * * * * * * USER DETAILS * * * * * * * ");
         System.out.println("Name   : " + name);
         System.out.println("Age    : " + age);
         System.out.println("gender : " + gender);

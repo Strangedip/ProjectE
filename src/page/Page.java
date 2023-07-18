@@ -7,16 +7,19 @@ public class Page {
         HomePage.page(user);
     }
 
-    public static void shop(){
-        
-    }
-    public static void accountInfo(){
+    public static void shop() {
 
     }
-    public static void hunt(){
+
+    public static void accountInfo() {
 
     }
-    public static void updateAccountDetails(){
+
+    public static void hunt() {
+
+    }
+
+    public static void updateAccountDetails() {
 
     }
 }
