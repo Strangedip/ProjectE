@@ -50,7 +50,7 @@ public class Login {
 		if (username.equals(adminUsername) && password.equals(adminPassword)) {
 			Msg.success();
 			System.out.println("ADMIN LOOGED IN");
-			Page.homePage(Admin.admin1);
+			Home.homePage(Admin.admin1);
 		} else if (username.equals(adminUsername)) {
 			Msg.error();
 			System.out.println("Incorrect Password, please try again");

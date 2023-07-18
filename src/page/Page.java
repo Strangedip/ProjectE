@@ -4,7 +4,7 @@ import user.User;
 
 public class Page {
     public static void homePage(User user) {
-        user.details();
+        HomePage.page();
     }
 
     public static void shop(){
