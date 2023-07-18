@@ -45,10 +45,12 @@ public class Validate implements TakeInput {
                         Login.loginUser(user);
                         break;
                     default:
+                    Msg.thankyou();
                         System.exit(0);
                 }
 
             } catch (Exception e) {
+                Msg.thankyou();
                 System.exit(0);
             }
         }
