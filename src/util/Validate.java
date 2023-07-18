@@ -21,7 +21,6 @@ public class Validate implements TakeInput {
         if (username.equals(orgUsername) && password.equals(orgPassword)) {
             Msg.border();
             Msg.loggedIn();
-            System.out.println("Logged in");
             Page.homePage(user);
             // user home page class or object
 

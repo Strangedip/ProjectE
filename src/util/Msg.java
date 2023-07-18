@@ -2,7 +2,7 @@ package util;
 
 public class Msg {
     public static void loggedIn() {
-        System.out.println("       -_-  _| LOGGED IN |_  -_-         ");
+        System.out.println("       ^_^  _| LOGGED IN |_  ^_^         ");
     }
     public static void otherOptions() {
         System.out.println("Enter 0 for Main Menu");
