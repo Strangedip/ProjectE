@@ -1,5 +1,6 @@
 package user;
 
+import main.Home;
 import page.Page;
 import util.Action;
 import util.Msg;
@@ -36,13 +37,50 @@ public class Login {
 	}
 
 	public static void loginAdmin() {
-		TakeInput validate = new Validate();
+
 		Msg.border();
 		System.out.print("Enter Username:");
 		String username = Action.inputStr();
 		System.out.print("Enter Password :");
 		String password = Action.inputStr();
 
-		// validate.adminCreds(username, password);
+		String adminUsername = Admin.admin1.username;
+		String adminPassword = Admin.admin1.password;
+
+		if (username.equals(adminUsername) && password.equals(adminPassword)) {
+			Msg.success();
+			System.out.println("ADMIN LOOGED IN");
+			Page.homePage(Admin.admin1);
+		} else if (username.equals(adminUsername)) {
+			Msg.error();
+			System.out.println("Incorrect Password, please try again");
+			Login.loginUser(Admin.admin1);
+
+		} else {
+			Msg.error();
+			System.out.println("Incorrect Username and Password, please try again");
+			System.out.println("Enter 0 for Main menu");
+			System.out.println("Enter 1 to try again");
+			System.out.println("Enter any other to exit");
+			System.out.print("Enter Choice ->");
+			try {
+				switch (Action.inputInt()) {
+					case 0:
+						Home.menu();
+						break;
+					case 1:
+						Login.loginUser(Admin.admin1);
+						break;
+					default:
+						System.exit(0);
+				}
+
+			} catch (Exception e) {
+				System.exit(0);
+			}
+		}
 	}
+
+	// TakeInput validate = new Validate();
+	// validate.adminCreds(username, password);
 }

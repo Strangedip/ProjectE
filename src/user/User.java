@@ -34,6 +34,7 @@ abstract class Member {
     }
 }
 
+
 public class User extends Member {
     public static ArrayList<Member> members = new ArrayList<>();
 
