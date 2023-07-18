@@ -16,7 +16,7 @@ public class Validate implements TakeInput {
 
         // ****take user creds from database based username
         String orgUsername = user.username;
-        String orgPassword = "pass";
+        String orgPassword = user.password;
 
         if (username.equals(orgUsername) && password.equals(orgPassword)) {
             Msg.border();
