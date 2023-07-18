@@ -6,7 +6,6 @@ import main.Home;
 import user.CreateAccount;
 import user.Login;
 import user.User;
-import page.Page;
 
 public class Action {
 	static Scanner in = new Scanner(System.in);
