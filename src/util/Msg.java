@@ -1,6 +1,13 @@
 package util;
 
 public class Msg {
+    
+    public static void header() {
+        System.out.println();
+        System.out.println("-----------------------------------------");
+        System.out.println("              ELITE SCHOOL               ");
+        System.out.println("-----------------------------------------");
+    }
     public static void loggedIn() {
         System.out.println("       ^_^  _| LOGGED IN |_  ^_^         ");
     }
@@ -18,9 +25,9 @@ public class Msg {
     }
 
     public static void welcome() {
-        System.out.println("* * * * * * * * * * * * * * * * * * * * *");
-        System.out.println("*                Welcome                *");
-        System.out.println("* * * * * * * * * * * * * * * * * * * * *");
+        // System.out.println("* * * * * * * * * * * * * * * * * * * * *");
+        // System.out.println("*                Welcome                *");
+        // System.out.println("* * * * * * * * * * * * * * * * * * * * *");
         
     }
 

@@ -50,7 +50,7 @@ public class Action {
 	public static void afterNewAccountMenu(User user) {
 		System.out.println("Enter 0 for Main menu");
 		System.out.println("Enter 1 to login now");
-		System.out.println("Enter Choice -> ");
+		System.out.print("Enter Choice -> ");
 		Scanner in = new Scanner(System.in);
 		switch (in.nextInt()) {
 			case 0:

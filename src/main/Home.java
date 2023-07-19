@@ -6,7 +6,7 @@ import util.Msg;
 
 public class Home {
     public static void menu() {
-        Msg.border();
+        Msg.header();
         System.out.println(" 1. User Login");
         System.out.println(" 2. Create new account");
         System.out.println(" 3. Admin Login");
@@ -36,7 +36,7 @@ public class Home {
     }
 
     public static void menu(User user) {
-        Msg.border();
+        Msg.header();
         System.out.println(" 1. User Login");
         System.out.println(" 2. Create new account");
         System.out.println(" 3. Admin Login");

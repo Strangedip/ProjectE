@@ -1,9 +1,11 @@
 package page;
 
 import user.User;
+import util.Msg;
 
 public class Page {
     public static void homePage(User user) {
+        Msg.header();
         HomePage.page(user);
     }
 
