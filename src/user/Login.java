@@ -11,9 +11,9 @@ public class Login {
 	public static void loginUser() {
 		TakeInput validate = new Validate();
 		Msg.border();
-		System.out.print("Enter Username:");
+		System.out.print("Enter Username : ");
 		String username = Action.inputStr();
-		System.out.print("Enter Password :");
+		System.out.print("Enter Password : ");
 		String password = Action.inputStr();
 
 		validate.userCreds(username, password);
@@ -22,9 +22,9 @@ public class Login {
 	public static void loginUser(User user) {
 		TakeInput validate = new Validate();
 		Msg.border();
-		System.out.print("Enter Username:");
+		System.out.print("Enter Username : ");
 		String username = Action.inputStr();
-		System.out.print("Enter Password :");
+		System.out.print("Enter Password : ");
 		String password = Action.inputStr();
 		validate.userCreds(username, password, user);
 
@@ -39,9 +39,9 @@ public class Login {
 	public static void loginAdmin() {
 
 		Msg.border();
-		System.out.print("Enter Username:");
+		System.out.print("Enter Username : ");
 		String username = Action.inputStr();
-		System.out.print("Enter Password :");
+		System.out.print("Enter Password : ");
 		String password = Action.inputStr();
 
 		String adminUsername = Admin.admin1.username;

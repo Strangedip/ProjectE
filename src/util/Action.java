@@ -26,15 +26,17 @@ public class Action {
 	}
 
 	public static void login() {
+		System.out.println("\n                 USER LOGIN                ");
 		Login.loginUser();
 	}
 
 	public static void login(User user) {
+		System.out.println("\n                 USER LOGIN                ");
 		Login.loginUser(user);
 	}
 
 	public static void adminLogin() {
-		System.out.println("Admin login here");
+		System.out.println("                ADMIN LOGIN                ");
 		Login.loginAdmin();
 	}
 

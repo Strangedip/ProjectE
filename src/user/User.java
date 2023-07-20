@@ -55,7 +55,7 @@ public class User extends Member {
 
     public void details() {
         Msg.welcome();
-        System.out.println("* * * * * * * USER DETAILS * * * * * * * ");
+        System.out.println("--------------- USER PROFILE ----------------");
         System.out.println("Name   : " + name);
         System.out.println("Age    : " + age);
         System.out.println("gender : " + gender);
