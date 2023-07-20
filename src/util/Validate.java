@@ -11,7 +11,7 @@ import user.User;
 
 // Implementing class for TakeInput interface
 public class Validate implements TakeInput {
-    
+    int a;
     // check default username and password
     public void userCreds(String username, String password) {
         //creating default User obj with default values (no formal argument constructor)
