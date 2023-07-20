@@ -1,5 +1,6 @@
 package util;
 
+// Msg class with all the message printing methods
 public class Msg {
     public static void otherOptions() {
         System.out.println("Enter 0 for Main Menu");
@@ -26,7 +27,7 @@ public class Msg {
 
     public static void welcome() {
         // System.out.println("* * * * * * * * * * * * * * * * * * * * *");
-        // System.out.println("*                Welcome                *");
+        System.out.println("*                  Welcome                  *");
         // System.out.println("* * * * * * * * * * * * * * * * * * * * *");
         
     }

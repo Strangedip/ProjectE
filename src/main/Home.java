@@ -4,7 +4,11 @@ import user.User;
 import util.Action;
 import util.Msg;
 
+// Home class containing 2 start menu
+// menu method overloading with no formal argument and User obj as formal argument
 public class Home {
+
+    //menu method with no formal argument for new program initiation
     public static void menu() {
         Msg.header();
         System.out.println(" 1. User Login");
@@ -35,6 +39,7 @@ public class Home {
         }
     }
 
+    // menu with User obj as formal argument to retrieve User obj members when logging in
     public static void menu(User user) {
         Msg.header();
         System.out.println(" 1. User Login");

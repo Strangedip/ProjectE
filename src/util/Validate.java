@@ -9,26 +9,31 @@ import page.Page;
 import user.Login;
 import user.User;
 
+// Implementing class for TakeInput interface
 public class Validate implements TakeInput {
-    User user = new User();
-
+    
+    // check default username and password
     public void userCreds(String username, String password) {
-
+        //creating default User obj with default values (no formal argument constructor)
+        User user = new User();
         // ****take user creds from database based username
         String orgUsername = user.username;
         String orgPassword = user.password;
 
+        // if username and password is matching with details allow login with deafult User obj
         if (username.equals(orgUsername) && password.equals(orgPassword)) {
             Msg.border();
             Msg.loggedIn();
             Page.homePage(user);
             // user home page class or object
-
+        
+        //password incorrect, login again
         } else if (username.equals(orgUsername)) {
             Msg.error();
             System.out.println("Incorrect Password, please try again");
             Login.loginUser(user);
 
+        // incorrect creds, login again 
         } else {
             Msg.error();
             System.out.println("Incorrect Username and Password, please try again");
@@ -55,7 +60,9 @@ public class Validate implements TakeInput {
             }
         }
     }
-
+    
+    // method overloading in same class
+    // check username & password for newly created User obj in formal argument
     public void userCreds(String username, String password, User user) {
 
         // ****take user creds from database based username
@@ -99,6 +106,7 @@ public class Validate implements TakeInput {
         }
     }
 
+    // to check name format (should only have alphabets)
     public String fullName() {
         Msg.border();
         System.out.print("Enter First Name: ");
@@ -120,6 +128,7 @@ public class Validate implements TakeInput {
         return fname + " " + sname;
     }
 
+    // checking for numbers & characters in String (return true if present)
     boolean allAlpha(String a) {
         char[] arr = a.toCharArray();
         boolean markNumber = false;
@@ -133,15 +142,14 @@ public class Validate implements TakeInput {
                 markChar = true;
             }
         }
-        if (markChar) {
-            return true;
-        } else if (markNumber) {
+        if (markChar || markNumber) {
             return true;
         } else {
             return false;
         }
     }
 
+    // age input and validation above 5 below 150 (no negative age allowed)
     public int age() {
         Scanner in = new Scanner(System.in);
         Msg.border();
@@ -166,6 +174,7 @@ public class Validate implements TakeInput {
         }
     }
 
+    //gender input with recursion if invalid input provided
     public String gender() {
         try {
             Scanner in = new Scanner(System.in);
@@ -194,6 +203,7 @@ public class Validate implements TakeInput {
         }
     }
 
+    // email validation (checks for '@' and '.com' String in passed String)
     public String email() {
         Scanner in = new Scanner(System.in);
         Msg.border();
@@ -208,6 +218,7 @@ public class Validate implements TakeInput {
         }
     }
 
+    // mobile number input n validation for long size of 10 digits
     public long mobileNumber() {
         Msg.border();
         System.out.print("Enter Mobile Number: +91 ");
@@ -228,6 +239,7 @@ public class Validate implements TakeInput {
         }
     }
 
+    //input username & validate (should not contain character and length should be atleast 4)
     public String username() {
         Scanner in = new Scanner(System.in);
         String username;
@@ -253,6 +265,7 @@ public class Validate implements TakeInput {
         }
     }
 
+    // validating username if not containing characters return true
     public boolean validateUsername(String un) {
         char[] arr = un.toCharArray();
         for (char c : arr) {
@@ -263,6 +276,7 @@ public class Validate implements TakeInput {
         return true;
     }
 
+    //input & validate password for size atleast and in format
     public String psw() {
         Scanner in = new Scanner(System.in);
         Msg.border();
@@ -286,14 +300,16 @@ public class Validate implements TakeInput {
         }
 
     }
-
+    //validating password (shoud contain atleast 1 char, num, upper, lower )
     boolean validatePass(String password) {
+        //converting given string into array of characters to iterate through it
         char[] psw = password.toCharArray();
         boolean markAlphaU = false;
         boolean markAlphaL = false;
         boolean markNumber = false;
         boolean markChar = false;
 
+        //checking for presence of each 
         for (char i : psw) {
 
             if (i >= 'A' && i <= 'Z') {
@@ -309,6 +325,7 @@ public class Validate implements TakeInput {
                 markChar = true;
             }
         }
+        //if all present return true else false
         if (markAlphaU && markAlphaL && markChar && markNumber) {
             return true;
         } else {
@@ -316,10 +333,12 @@ public class Validate implements TakeInput {
         }
     }
 
+    // input and validate confirm password with formal argument as entered password String
     public String confirmPassword(String psw) {
         Scanner in = new Scanner(System.in);
         System.out.print("Confirm Password: ");
         String cnf = in.next();
+        //if same as entered password return password
         if (psw.equals(cnf)) {
             return cnf;
         } else {
@@ -329,14 +348,15 @@ public class Validate implements TakeInput {
         }
     }
 
+    // validate a String for size, return true if String size is greater than size given 
     public boolean validStringSize(String str, int size) {
         if (str.length() >= size) {
             return true;
         }
         return false;
-
     }
 
+    // check for long for the digits count (return true if digit count == size)
     public boolean fixedNumberSize(long num, int size) {
         int digits = (int) Math.log10(num);
         if (digits + 1 == size) {
@@ -348,8 +368,10 @@ public class Validate implements TakeInput {
 
 }
 
+//Resources class for all resources such as character array
 class Resource {
 
+    // creating char array and return true if presence of char ch is found
     public static boolean symbolArrayContains(char ch) {
         ArrayList<Character> symbols = new ArrayList<Character>();
         symbols.add('~');

@@ -7,8 +7,11 @@ import util.Msg;
 import util.TakeInput;
 import util.Validate;
 
+//Login class cntaining all login methods
 public class Login {
+	//login for start user
 	public static void loginUser() {
+		// upcasting (creating interface reference and creating object of Validate implementing class)
 		TakeInput validate = new Validate();
 		Msg.border();
 		System.out.print("Enter Username : ");
@@ -16,16 +19,20 @@ public class Login {
 		System.out.print("Enter Password : ");
 		String password = Action.inputStr();
 
+		//validate from start user check method
 		validate.userCreds(username, password);
 	}
 
 	public static void loginUser(User user) {
+		// upcasting (creating interface reference and creating object of Validate implementing class)
 		TakeInput validate = new Validate();
 		Msg.border();
 		System.out.print("Enter Username : ");
 		String username = Action.inputStr();
 		System.out.print("Enter Password : ");
 		String password = Action.inputStr();
+
+		//validate from newcly created user check method
 		validate.userCreds(username, password, user);
 
 		// if(username.equals(user.username) && password.equals(user.password)){
@@ -36,6 +43,7 @@ public class Login {
 		// validate.userCreds(username, password);
 	}
 
+	// method for admin login 
 	public static void loginAdmin() {
 
 		Msg.border();
@@ -44,6 +52,7 @@ public class Login {
 		System.out.print("Enter Password : ");
 		String password = Action.inputStr();
 
+		// currently admin cred are static, rest are same as userCreds method
 		String adminUsername = Admin.admin1.username;
 		String adminPassword = Admin.admin1.password;
 

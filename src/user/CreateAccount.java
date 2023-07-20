@@ -5,10 +5,13 @@ import util.Msg;
 import util.TakeInput;
 import util.Validate;
 
+//class for creating new account or user which extends Members class to inherit all members inside Members
 public class CreateAccount extends Member {
+    // take input and call validation method if valid store in inherited members
     public void createAccount() {
         try {
-            TakeInput validate = new Validate(); // Upcasting & 100% abstraction
+            // Upcasting & 100% abstraction
+            TakeInput validate = new Validate(); 
 
             Msg.createAccount();
 
@@ -27,8 +30,10 @@ public class CreateAccount extends Member {
 
             username = validate.username();
 
+            // if both psw and confirmpassword are same it returns password
             password = validate.confirmPassword(validate.psw());
 
+            //creating user with entered value in same class
             createUser();
             Msg.accountCreated();
         } catch (Exception e) {
@@ -39,19 +44,9 @@ public class CreateAccount extends Member {
         }
     }
 
+    //user creating method which returns an User object with all the entered values 
     public User createUser() {
+        //returns object with formal argument constructor
         return new User(eliteID, name, age, gender, email, mobileNumber, username, password);
     }
-
-    // public void details() {
-    // Msg.success();
-    // Msg.welcome();
-    // System.out.println("Name : " + name);
-    // System.out.println("Age : " + age);
-    // System.out.println("gender : " + gender);
-    // System.out.println("Mobile : " + mobileNumber);
-    // System.out.println("Email : " + email);
-    // // System.out.println("Psw : " + getPsw());
-    // Msg.border();
-    // }
 }
