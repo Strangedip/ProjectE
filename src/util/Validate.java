@@ -72,7 +72,6 @@ public class Validate implements TakeInput {
         if (username.equals(user.username) && password.equals(user.password)) {
             Msg.border();
             Msg.loggedIn();
-            System.out.println("Logged in");
             Page.homePage(user);
             // user home page class or object
 
@@ -182,7 +181,7 @@ public class Validate implements TakeInput {
             System.out.println("1. Male");
             System.out.println("2. Female");
             System.out.println("3. Other");
-            System.out.println("Enter gender: ");
+            System.out.print("Enter gender: ");
             int input = in.nextInt();
             switch (input) {
                 case 1:
@@ -241,6 +240,7 @@ public class Validate implements TakeInput {
 
     //input username & validate (should not contain character and length should be atleast 4)
     public String username() {
+        Msg.border();
         Scanner in = new Scanner(System.in);
         String username;
         System.out.print("Create Username : ");

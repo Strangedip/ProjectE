@@ -15,7 +15,13 @@ public class Msg {
         System.out.println("_____________________________________________");
     }
     public static void loggedIn() {
+        System.out.println();
         System.out.println("         ^_^  _| LOGGED IN |_  ^_^           ");
+    }
+
+    public static void loggedOut() {
+        System.out.println();
+        System.out.println("        T_T  _| LOGGED OUT |_  T_T           ");
     }
 
     public static void thankyou() {
@@ -27,7 +33,7 @@ public class Msg {
 
     public static void welcome() {
         // System.out.println("* * * * * * * * * * * * * * * * * * * * *");
-        System.out.println("*                  Welcome                  *");
+        // System.out.println("*                  Welcome                  *");
         // System.out.println("* * * * * * * * * * * * * * * * * * * * *");
         
     }
