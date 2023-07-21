@@ -5,7 +5,7 @@ Completed Task:
 1. home menu (login menu)
 2. user login : check username password correction
 3. create new account : check validity of all details
-
+4. added Pages class with page options and input method
 
 
 To Do Task:
