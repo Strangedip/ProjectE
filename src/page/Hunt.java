@@ -6,19 +6,19 @@ import main.Home;
 import user.User;
 import util.Msg;
 
-public class Shop implements PageTemplate{
-    //shop page 
+public class Hunt implements PageTemplate {
+    // reward hunting page
     public void page(User user) {
         Msg.header();
-        shop();
+        rewardHunt();
     }
-    public void shop(){
+    public void rewardHunt(){
         System.out.println("Shop");
     }
 
     // options available at every page
     public void pageOptions() {
-        System.out.println("1.View Profile    2.Home page        3.Reward Hunt");
+        System.out.println("1.View Profile    2.Shopping         3.Home page");
         System.out.println("4.Update Profile  5.Account Details  6.Log out");
     }
 
@@ -32,9 +32,10 @@ public class Shop implements PageTemplate{
                     Page.profilePage(user);
                     break;
                 case 2:
-                    Page.homePage(user);
+                    Page.shop(user);
                     break;
                 case 3:
+                Page.homePage(user);
                     break;
                 case 4:
                     break;
@@ -53,5 +54,4 @@ public class Shop implements PageTemplate{
             pageInput(user);
         }
     }
-
 }

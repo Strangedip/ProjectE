@@ -7,24 +7,22 @@ import user.User;
 import util.Msg;
 
 //Home Page class containing format and action of home page 
-public class HomePage {
+public class HomePage implements PageTemplate{
 
     // home page Page details method
-    public static void page(User user) {
+    public void page(User user) {
         Msg.header();
         user.details();
-        pageOptions();
-        pageInput(user);
     }
 
     // options available at every page
-    public static void pageOptions() {
+    public void pageOptions() {
         System.out.println("1.View Profile    2.Shopping         3.Reward Hunt");
         System.out.println("4.Update Profile  5.Account Details  6.Log out");
     }
 
     // input for pageOptions
-    public static void pageInput(User user) {
+    public void pageInput(User user) {
         System.out.print("Action Input -> ");
         Scanner in = new Scanner(System.in);
         try {
