@@ -6,13 +6,14 @@ import main.Home;
 import user.User;
 import util.Msg;
 
-public class Shop implements PageTemplate{
-    //shop page 
+public class Shop implements PageTemplate {
+    // shop page
     public void page(User user) {
         Msg.header();
         shop();
     }
-    public void shop(){
+
+    public void shop() {
         System.out.println("Shop");
     }
 
@@ -35,10 +36,13 @@ public class Shop implements PageTemplate{
                     Page.homePage(user);
                     break;
                 case 3:
+                    Page.hunt(user);
                     break;
                 case 4:
+                    Page.updateProfile(user);
                     break;
                 case 5:
+                    Page.accountInfo(user);
                     break;
                 case 6:
                     Msg.loggedOut();

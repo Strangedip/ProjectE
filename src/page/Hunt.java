@@ -12,8 +12,9 @@ public class Hunt implements PageTemplate {
         Msg.header();
         rewardHunt();
     }
-    public void rewardHunt(){
-        System.out.println("Shop");
+
+    public void rewardHunt() {
+        System.out.println("TASK for REWARD");
     }
 
     // options available at every page
@@ -35,11 +36,13 @@ public class Hunt implements PageTemplate {
                     Page.shop(user);
                     break;
                 case 3:
-                Page.homePage(user);
+                    Page.homePage(user);
                     break;
                 case 4:
+                    Page.updateProfile(user);
                     break;
                 case 5:
+                    Page.accountInfo(user);
                     break;
                 case 6:
                     Msg.loggedOut();

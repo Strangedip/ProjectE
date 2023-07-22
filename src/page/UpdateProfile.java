@@ -6,19 +6,19 @@ import main.Home;
 import user.User;
 import util.Msg;
 
-//Home Page class containing format and action of home page 
-public class HomePage implements PageTemplate {
-
-    // home page Page details method
+public class UpdateProfile implements PageTemplate {
     public void page(User user) {
         Msg.header();
-        user.details();
+        update(user);
+    }
+    void update(User user){
+        System.out.println("Update Profile Page");
     }
 
     // options available at every page
     public void pageOptions() {
         System.out.println("1.View Profile    2.Shopping         3.Reward Hunt");
-        System.out.println("4.Update Profile  5.Account Details  6.Log out");
+        System.out.println("4.Home Page       5.Account Details  6.Log out");
     }
 
     // input for pageOptions
@@ -37,10 +37,10 @@ public class HomePage implements PageTemplate {
                     Page.hunt(user);
                     break;
                 case 4:
-                    Page.updateProfile(user);
+                Page.homePage(user);
                     break;
                 case 5:
-                    Page.accountInfo(user);
+                Page.accountInfo(user);
                     break;
                 case 6:
                     Msg.loggedOut();
