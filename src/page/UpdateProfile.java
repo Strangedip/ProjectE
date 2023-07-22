@@ -17,6 +17,7 @@ public class UpdateProfile implements PageTemplate {
 
     // options available at every page
     public void pageOptions() {
+        Msg.border();
         System.out.println("1.View Profile    2.Shopping         3.Reward Hunt");
         System.out.println("4.Home Page       5.Account Details  6.Log out");
     }

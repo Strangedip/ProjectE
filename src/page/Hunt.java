@@ -19,6 +19,7 @@ public class Hunt implements PageTemplate {
 
     // options available at every page
     public void pageOptions() {
+        Msg.border();
         System.out.println("1.View Profile    2.Shopping         3.Home page");
         System.out.println("4.Update Profile  5.Account Details  6.Log out");
     }
