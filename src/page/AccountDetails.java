@@ -8,7 +8,7 @@ import util.Msg;
 
 public class AccountDetails implements PageTemplate {
     public void page(User user) {
-        Msg.header();
+        Msg.accountPageHeader();
         accountInfo(user);
     }
     void accountInfo(User user){

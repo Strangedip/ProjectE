@@ -8,7 +8,7 @@ import util.Msg;
 
 public class UpdateProfile implements PageTemplate {
     public void page(User user) {
-        Msg.header();
+        Msg.updateProfilePageHeader();
         update(user);
     }
     void update(User user){

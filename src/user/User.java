@@ -7,13 +7,13 @@ import util.Msg;
 // default abstract class for members with minimum required details declared 
 abstract class Member {
     public int eliteID;
-    public String name;
+    public String name="user";
     public int age;
-    public String gender;
-    public String email;
+    public String gender="";
+    public String email="default@email.com";
     public long mobileNumber;
 
-    //defaul username n password
+    //default username n password
     public String username = "user";
     public String password = "pass";
 
@@ -64,8 +64,7 @@ public class User extends Member {
 
     // method to print some information of the user
     public void details() {
-        Msg.welcome();
-        System.out.println("--------------- USER PROFILE ----------------");
+        Msg.profilePageHeader();
         System.out.println("Name   : " + name);
         System.out.println("Age    : " + age);
         System.out.println("gender : " + gender);

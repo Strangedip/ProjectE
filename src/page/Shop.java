@@ -9,7 +9,7 @@ import util.Msg;
 public class Shop implements PageTemplate {
     // shop page
     public void page(User user) {
-        Msg.header();
+        Msg.shopPageHeader();
         shop();
     }
 

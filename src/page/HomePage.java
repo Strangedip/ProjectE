@@ -11,20 +11,16 @@ public class HomePage implements PageTemplate {
 
     // home page Page details method
     public void page(User user) {
-        Msg.header();
-        System.out.println("---------------  HOME PAGE  -----------------");
-        System.out.println("    Independent place for Elite Students");
-        Msg.border();
+        Msg.homePageHeader();
 
-        // if (user.gender.equals("Male")) {
-        //     System.out.println("Welcome to Elite School Mr." + user.name);
-        // } else if (user.gender.equals("Female")) {
-        //     System.out.println("Welcome to Elite School Ms." + user.name);
-        // } else {
-        //     System.out.println("Welcome to Elite School " + user.name);
-        // }
-        System.out.println("weclome "+user.name);
-        System.out.println("Money does not but skills Matter");
+        if (user.gender.equals("Male")) {
+            System.out.println("Welcome to Elite School Mr." + user.name);
+        } else if (user.gender.equals("Female")) {
+            System.out.println("Welcome to Elite School Ms." + user.name);
+        } else {
+            System.out.println("Welcome to Elite School " + user.name);
+        }
+        System.out.println();
     }
 
     // options available at every page

@@ -9,7 +9,7 @@ import util.Msg;
 public class Hunt implements PageTemplate {
     // reward hunting page
     public void page(User user) {
-        Msg.header();
+        Msg.huntPageHeader();
         rewardHunt();
     }
 
