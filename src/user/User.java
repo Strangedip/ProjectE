@@ -6,12 +6,12 @@ import util.Msg;
 
 // default abstract class for members with minimum required details declared 
 abstract class Member {
-    public int eliteID;
-    public String name="user";
-    public int age;
-    public String gender="";
+    public int eliteID=-1;
+    public String name="Default User";
+    public int age=-1;
+    public String gender="Not Set";
     public String email="default@email.com";
-    public long mobileNumber;
+    public long mobileNumber=-1l;
 
     //default username n password
     public String username = "user";
@@ -65,12 +65,13 @@ public class User extends Member {
     // method to print some information of the user
     public void details() {
         Msg.profilePageHeader();
-        System.out.println("Name   : " + name);
-        System.out.println("Age    : " + age);
-        System.out.println("gender : " + gender);
-        System.out.println("Mobile : " + mobileNumber);
-        System.out.println("Email  : " + email);
-        // System.out.println("Psw : " + getPsw());
+        System.out.println("EliteID : " + eliteID);
+        System.out.println("Name    : " + name);
+        System.out.println("Age     : " + age);
+        System.out.println("gender  : " + gender);
+        System.out.println("Mobile  : " + mobileNumber);
+        System.out.println("Email   : " + email);
+        // System.out.println("Psw   : " + getPsw());
         Msg.border();
     }
 

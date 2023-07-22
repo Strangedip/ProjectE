@@ -14,9 +14,9 @@ public class HomePage implements PageTemplate {
         Msg.homePageHeader();
 
         if (user.gender.equals("Male")) {
-            System.out.println("Welcome to Elite School Mr." + user.name);
+            System.out.println("Welcome to Elite School Mr. " + user.name);
         } else if (user.gender.equals("Female")) {
-            System.out.println("Welcome to Elite School Ms." + user.name);
+            System.out.println("Welcome to Elite School Ms. " + user.name);
         } else {
             System.out.println("Welcome to Elite School " + user.name);
         }
