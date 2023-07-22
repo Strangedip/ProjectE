@@ -64,6 +64,7 @@ public class User extends Member {
 
     // method to print some information of the user
     public void details() {
+        Msg.newSection();
         Msg.profilePageHeader();
         System.out.println("EliteID : " + eliteID);
         System.out.println("Name    : " + name);
@@ -72,7 +73,6 @@ public class User extends Member {
         System.out.println("Mobile  : " + mobileNumber);
         System.out.println("Email   : " + email);
         // System.out.println("Psw   : " + getPsw());
-        Msg.border();
     }
 
 }

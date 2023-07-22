@@ -10,6 +10,7 @@ public class Home {
 
     //menu method with no formal argument for new program initiation
     public static void menu() {
+        Msg.newSection();
         Msg.header();
         System.out.println(" 1. User Login");
         System.out.println(" 2. Create new account");
@@ -41,6 +42,7 @@ public class Home {
 
     // menu with User obj as formal argument to retrieve User obj members when logging in
     public static void menu(User user) {
+        Msg.newSection();
         Msg.header();
         System.out.println(" 1. User Login");
         System.out.println(" 2. Create new account");

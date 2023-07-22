@@ -11,6 +11,7 @@ public class HomePage implements PageTemplate {
 
     // home page Page details method
     public void page(User user) {
+        Msg.newSection();
         Msg.homePageHeader();
 
         if (user.gender.equals("Male")) {

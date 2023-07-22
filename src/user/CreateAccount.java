@@ -13,6 +13,8 @@ public class CreateAccount extends Member {
             // Upcasting & 100% abstraction
             TakeInput validate = new Validate(); 
 
+            Msg.newSection();
+
             Msg.createAccount();
 
             // generate unique id

@@ -26,6 +26,7 @@ public class Msg {
         System.out.println("   ---------------  HOME  ----------------   ");
         System.out.println();
     }
+
     public static void shopPageHeader() {
         header();
         System.out.println("   ---------------  SHOP  ----------------   ");
@@ -37,23 +38,25 @@ public class Msg {
         System.out.println("   ---------------  HUNT  ----------------   ");
         System.out.println();
     }
+
     public static void profilePageHeader() {
         header();
         System.out.println("   -----------  USER PROFILE  ------------   ");
         System.out.println();
     }
+
     public static void updateProfilePageHeader() {
         header();
         System.out.println("   ----------  UPDATE PROFILE  -----------   ");
         System.out.println();
     }
-    
+
     public static void accountPageHeader() {
         header();
         System.out.println("   ----------  ACCOUNT DETAILS  ----------   ");
         System.out.println();
     }
-    
+
     public static void loggedIn() {
         System.out.println();
         System.out.println("         ^_^  _| LOGGED IN |_  ^_^           ");
@@ -105,6 +108,12 @@ public class Msg {
     public static void border() {
         // System.out.println("=============================================");
         System.out.println("---------------------------------------------");
+    }
+
+    public static void newSection() {
+        System.out.println("======================================================");
+        // System.out.println("    ---------------------------------------------     ");
+        // System.out.println("---------------------------------------------");
     }
 
 }

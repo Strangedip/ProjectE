@@ -7,7 +7,9 @@ import user.User;
 import util.Msg;
 
 public class UpdateProfile implements PageTemplate {
+    //page for updating profile
     public void page(User user) {
+        Msg.newSection();
         Msg.updateProfilePageHeader();
         update(user);
     }

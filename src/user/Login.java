@@ -13,6 +13,8 @@ public class Login {
 	public static void loginUser() {
 		// upcasting (creating interface reference and creating object of Validate implementing class)
 		TakeInput validate = new Validate();
+		Msg.newSection();
+		System.out.println("                USER LOGIN                 ");
 		Msg.border();
 		System.out.print("Enter Username : ");
 		String username = Action.inputStr();
@@ -26,6 +28,8 @@ public class Login {
 	public static void loginUser(User user) {
 		// upcasting (creating interface reference and creating object of Validate implementing class)
 		TakeInput validate = new Validate();
+		Msg.newSection();
+		System.out.println("                USER LOGIN                 ");
 		Msg.border();
 		System.out.print("Enter Username : ");
 		String username = Action.inputStr();
@@ -45,7 +49,8 @@ public class Login {
 
 	// method for admin login 
 	public static void loginAdmin() {
-
+		Msg.newSection();
+		System.out.println("                ADMIN LOGIN                ");
 		Msg.border();
 		System.out.print("Enter Username : ");
 		String username = Action.inputStr();

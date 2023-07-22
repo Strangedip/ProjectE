@@ -31,19 +31,16 @@ public class Action {
 
 	// Userlogin without formal argument (default user) **since no DB used
 	public static void login() {
-		System.out.println("\n                 USER LOGIN                ");
 		Login.loginUser();
 	}
 
 	// Userlogin with formal argument
 	public static void login(User user) {
-		System.out.println("\n                 USER LOGIN                ");
 		Login.loginUser(user);
 	}
 
 	// Adminlogin without formal argument (precreated admin accounts)
 	public static void adminLogin() {
-		System.out.println("                ADMIN LOGIN                ");
 		Login.loginAdmin();
 	}
 

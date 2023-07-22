@@ -7,8 +7,8 @@ import user.User;
 import util.Msg;
 
 public class Profile implements PageTemplate {
+    // view details of user page
     public void page(User user) {
-        Msg.profilePageHeader();
         profile(user);
     }
     void profile(User user){
