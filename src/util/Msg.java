@@ -101,7 +101,8 @@ public class Msg {
     public static void success() {
         System.out.println("---------------------------------------------");
         System.out.println("|                  Success!                 |");
-        // System.out.println("---------------------------------------------");
+        System.out.println("---------------------------------------------");
+        System.out.println();
 
     }
 

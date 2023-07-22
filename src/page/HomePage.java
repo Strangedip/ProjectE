@@ -33,7 +33,8 @@ public class HomePage implements PageTemplate {
 
     // input for pageOptions
     public void pageInput(User user) {
-        System.out.print("Action Input -> ");
+        Msg.border();
+        System.out.print("Enter Choice -> ");
         Scanner in = new Scanner(System.in);
         try {
             switch (in.nextInt()) {

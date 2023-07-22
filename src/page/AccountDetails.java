@@ -12,7 +12,8 @@ public class AccountDetails implements PageTemplate {
         Msg.accountPageHeader();
         accountInfo(user);
     }
-    void accountInfo(User user){
+
+    void accountInfo(User user) {
         System.out.println("Private Account info after entering password");
     }
 
@@ -25,7 +26,8 @@ public class AccountDetails implements PageTemplate {
 
     // input for pageOptions
     public void pageInput(User user) {
-        System.out.print("Action Input -> ");
+        Msg.border();
+        System.out.print("Enter Choice -> ");
         Scanner in = new Scanner(System.in);
         try {
             switch (in.nextInt()) {

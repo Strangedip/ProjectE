@@ -19,9 +19,13 @@ abstract class Member {
 
     public String accountType = "Saving Account";
 
-    private long accountNumber = 0;
-    private int accountLevel = 0;
-    private int accountBal = 0;
+    public int accountLevel = -1;
+    public long accountNumber = -1l;
+    private int accountBal = 100;
+
+    public int getAccountBal() {
+        return accountBal;
+    }
 
     // ***generate random account number for each user
     void generateAcoountNumber() {
