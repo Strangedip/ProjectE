@@ -13,6 +13,7 @@ public class Msg {
         System.out.println("---------------------------------------------");
         System.out.println("                ELITE SCHOOL                 ");
         System.out.println("_____________________________________________");
+
     }
     public static void loggedIn() {
         System.out.println();
