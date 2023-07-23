@@ -4,7 +4,6 @@ import java.util.Scanner;
 
 import main.Home;
 import user.User;
-import util.Action;
 import util.Msg;
 import util.TakeInput;
 import util.Validate;
