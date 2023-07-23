@@ -20,7 +20,7 @@ abstract class Member {
     public String username = "user";
     public String password = "pass";
 
-    public String accountType = "Saving Account";
+    public String accountType = "Elite Student Account";
 
     public int accountLevel = -1;
     public long accountNumber = -1l;

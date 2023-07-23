@@ -49,7 +49,6 @@ public class Hunt implements PageTemplate {
         } else {
             System.out.println("You have been assigned with task ID : " + task.taskID);
             System.out.println("Please complete task as soon as possible");
-            Msg.border();
             user.tasks.add(task);
         }
         Msg.border();
