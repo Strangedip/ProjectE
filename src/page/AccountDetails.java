@@ -4,7 +4,10 @@ import java.util.Scanner;
 
 import main.Home;
 import user.User;
+import util.Action;
 import util.Msg;
+import util.TakeInput;
+import util.Validate;
 
 public class AccountDetails implements PageTemplate {
     public void page(User user) {
@@ -13,8 +16,17 @@ public class AccountDetails implements PageTemplate {
         accountInfo(user);
     }
 
+    TakeInput validate = new Validate();
+
     void accountInfo(User user) {
-        System.out.println("Private Account info after entering password");
+        if (validate.checkCurrentPassword(user.password)) {
+            System.out.println();
+            System.out.println("Account Number : "+user.accountNumber);
+            System.out.println("Account Type : "+user.accountType);
+            System.out.println("Account level : "+user.accountLevel);
+            System.out.println("Account Balance : "+user.getAccountBal()+" Elite Points");
+            System.out.println();
+        }
     }
 
     // options available at every page

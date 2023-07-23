@@ -53,9 +53,7 @@ public class Hunt implements PageTemplate {
             user.tasks.add(task);
         }
         Msg.border();
-        System.out.print("Enter any key to continue -> ");
-        switch (Action.inputStr()) {
-        }
+        Action.hold();
 
         Page.hunt(user);
     }
@@ -92,9 +90,7 @@ public class Hunt implements PageTemplate {
                     } else {
                         Msg.error();
                         System.out.println("Task has been closed or completed, try different one");
-                        System.out.print("Enter any key to continue -> ");
-                        switch (Action.inputStr()) {
-                        }
+                        Action.hold();
                         Page.hunt(user);
                     }
                     break;
@@ -104,9 +100,7 @@ public class Hunt implements PageTemplate {
                     } else {
                         Msg.error();
                         System.out.println("Task has been closed or completed, try different one");
-                        System.out.print("Enter any key to continue -> ");
-                        switch (Action.inputStr()) {
-                        }
+                        Action.hold();
                         Page.hunt(user);
                     }
                     break;
@@ -116,9 +110,7 @@ public class Hunt implements PageTemplate {
                     } else {
                         Msg.error();
                         System.out.println("Task has been closed or completed, try different one");
-                        System.out.print("Enter any key to continue -> ");
-                        switch (Action.inputStr()) {
-                        }
+                        Action.hold();
                         Page.hunt(user);
                     }
                     break;

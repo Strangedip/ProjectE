@@ -348,6 +348,22 @@ public class Validate implements TakeInput {
         }
     }
 
+    public boolean checkCurrentPassword(String psw) {
+        Scanner in = new Scanner(System.in);
+        System.out.print("Enter Current Password: ");
+        String cnf = in.next();
+        //if same as entered password return password
+        if (psw.equals(cnf)) {
+            Msg.success();
+            return true;
+        } else {
+            Msg.error();
+            System.out.println("Incorrect current Password");
+            return checkCurrentPassword(psw);
+        }
+    }
+
+
     // validate a String for size, return true if String size is greater than size given 
     public boolean validStringSize(String str, int size) {
         if (str.length() >= size) {

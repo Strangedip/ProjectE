@@ -11,6 +11,11 @@ import user.User;
 public class Action {
 	static Scanner in = new Scanner(System.in);
 
+	public static void hold(){
+		System.out.print("Enter any key to continue -> ");
+        switch (Action.inputStr()) {
+        }
+	}
 	// to take int input
 	public static int inputInt() {
 		int input = in.nextInt();

@@ -24,4 +24,7 @@ public interface TakeInput {
     public String psw();
 
     public String confirmPassword(String psw);
+    
+    public boolean checkCurrentPassword(String psw);
+
 }
