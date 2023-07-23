@@ -116,7 +116,6 @@ public class Msg {
         // System.out.println("=============================================");
         System.out.println();
         System.out.println("---------------------------------------------");
-        System.out.println();
     }
 
     public static void newSection() {
