@@ -20,7 +20,6 @@ public class Profile implements PageTemplate {
         Msg.border();
         System.out.println("1.Home Page       2.Shopping         3.Reward Hunt");
         System.out.println("4.Update Profile  5.Account Details  6.Log out");
-        Msg.border();
     }
 
     // input for pageOptions

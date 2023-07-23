@@ -6,13 +6,13 @@ Completed Task:
 2. user login : check username password correction
 3. create new account : check validity of all details
 4. added Pages class with page options and input method
+5. added all pages with user details (no DB)
 
 
 To Do Task:
 
-0. add all pages with user details (in progress)
-1. add admin login method (with database)
-2. attach with database for login and user Details
+1. attach with database for login and user Details
+2. add admin login method (with database)
 3. add operation a user can perform such as buy, hunt, update, shop un database
 4. differentiate user into faculty, students, authority and admins
 5. Authorize faculties to manipulate points of students with authority permission.

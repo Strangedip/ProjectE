@@ -99,6 +99,7 @@ public class Msg {
     }
 
     public static void error() {
+        System.out.println();
         System.out.println("            -_-  _| ERROR |_  -_-            ");
         border();
     }
@@ -113,10 +114,13 @@ public class Msg {
 
     public static void border() {
         // System.out.println("=============================================");
+        System.out.println();
         System.out.println("---------------------------------------------");
+        System.out.println();
     }
 
     public static void newSection() {
+        System.out.println();
         System.out.println("======================================================");
         // System.out.println("    ---------------------------------------------     ");
         // System.out.println("---------------------------------------------");
