@@ -73,6 +73,8 @@ public class User extends Member {
         this.username = username;
         setPassword(password);
         generateAcoountNumber();
+        this.accountLevel=1;
+        setAccountBal(100);
     }
 
     // method to print some information of the user
