@@ -38,6 +38,11 @@ public class Msg {
         System.out.println("   ---------------  HUNT  ----------------   ");
         System.out.println();
     }
+    public static void taskPageHeader() {
+        header();
+        System.out.println("   ------------- YOUR TASK  --------------   ");
+        System.out.println();
+    }
 
     public static void profilePageHeader() {
         header();

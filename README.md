@@ -10,10 +10,10 @@ Completed Task:
 
 To Do Task:
 
-0. add all pages with user details
-1. add admin login method with database
+0. add all pages with user details (in progress)
+1. add admin login method (with database)
 2. attach with database for login and user Details
-3. add operation a user can perform such as buy, hunt, update, shop
+3. add operation a user can perform such as buy, hunt, update, shop un database
 4. differentiate user into faculty, students, authority and admins
 5. Authorize faculties to manipulate points of students with authority permission.
 6. Authorization level admin>authority>faculty>students>visitor

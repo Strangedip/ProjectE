@@ -12,6 +12,13 @@ public class Page {
         profile.pageInput(user);
 
     }
+    public static void userTasks(User user) {
+        PageTemplate tasks = new UserTask();
+        tasks.page(user);
+        tasks.pageOptions();
+        tasks.pageInput(user);
+
+    }
 
     // calling all homepage method for home page
     public static void homePage(User user) {

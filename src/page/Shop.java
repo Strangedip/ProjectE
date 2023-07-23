@@ -74,7 +74,7 @@ public class Shop implements PageTemplate {
 
     public void buyOptions(User user) {
         Msg.border();
-        System.out.println("1.Hunt   2.Home   3.Shop   4.Account Details");
+        System.out.println("1.Reward Hunt   2.Home   3.Shop   4.Account Details");
         Msg.border();
         System.out.print("Enter Choice -> ");
         try {
@@ -116,6 +116,8 @@ public class Shop implements PageTemplate {
             case "y":
                 if (user.getAccountBal() >= item.price) {
                     Msg.success();
+                    // debiting amount from account
+                    user.setAccountBal(user.getAccountBal() - item.price);
                     System.out.println("you baught " + item.name);
                     System.out.println(item.price + " Elite Points has been Deducted from your Elite Account");
                     buyOptions(user);

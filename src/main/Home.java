@@ -17,7 +17,7 @@ public class Home {
         System.out.println(" 3. Admin Login");
         System.out.println(" Enter any other key to exit program");
         Msg.border();
-        System.out.print("Enter you Choice -> ");
+        System.out.print("Enter Choice -> ");
         try {
             int userInput = Action.inputInt();
             switch (userInput) {
@@ -49,7 +49,7 @@ public class Home {
         System.out.println(" 3. Admin Login");
         System.out.println(" Enter any other key to exit program");
         Msg.border();
-        System.out.print("Enter you Choice -> ");
+        System.out.print("Enter Choice -> ");
         try {
             int userInput = Action.inputInt();
             switch (userInput) {

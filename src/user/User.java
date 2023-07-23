@@ -1,8 +1,11 @@
 package user;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 
 import util.Msg;
+import page.Hunt;
+import page.Task;
 
 // default abstract class for members with minimum required details declared 
 abstract class Member {
@@ -26,6 +29,9 @@ abstract class Member {
     public int getAccountBal() {
         return accountBal;
     }
+    public void setAccountBal(int newBal) {
+        this.accountBal=newBal;
+    }
 
     // ***generate random account number for each user
     void generateAcoountNumber() {
@@ -47,6 +53,9 @@ abstract class Member {
 public class User extends Member {
     //list of members created are strored in an ArrayList for reference (not in use)
     public static ArrayList<Member> members = new ArrayList<>();
+
+    //list of tasks user is assigned with
+    public HashSet<Task> tasks=new HashSet<>();
 
     // no formal argument constructor to create a default user at start
     public User() {
