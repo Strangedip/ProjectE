@@ -36,10 +36,10 @@ public class Hunt implements PageTemplate {
 
     public void assignTask(User user, Task task) {
         Msg.border();
-        boolean exists=false;
+        boolean exists = false;
         for (Task t : user.tasks) {
-            if(t.taskID==task.taskID){
-                exists=true;
+            if (t.taskID == task.taskID) {
+                exists = true;
             }
         }
         if (exists) {
@@ -102,6 +102,9 @@ public class Hunt implements PageTemplate {
                     } else {
                         Msg.error();
                         System.out.println("Task has been closed or completed, try different one");
+                        System.out.print("Enter any key to continue -> ");
+                        switch (Action.inputStr()) {
+                        }
                         Page.hunt(user);
                     }
                     break;
@@ -111,6 +114,9 @@ public class Hunt implements PageTemplate {
                     } else {
                         Msg.error();
                         System.out.println("Task has been closed or completed, try different one");
+                        System.out.print("Enter any key to continue -> ");
+                        switch (Action.inputStr()) {
+                        }
                         Page.hunt(user);
                     }
                     break;
