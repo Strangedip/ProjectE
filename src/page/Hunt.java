@@ -15,6 +15,7 @@ public class Hunt implements PageTemplate {
         rewardHunt();
     }
 
+    //creating random tasks for students
     Task task1 = new Task(11, "Open", "I am Better", "Be in top 5 in upcoming exam", 50);
     Task task2 = new Task(12, "Open", "School Dev", "Design and Build school website UI", 100);
     Task task3 = new Task(13, "Closed", "Cleaning Master", "Take resposibility of cleaning your class for 1 month", 25);
@@ -36,9 +37,10 @@ public class Hunt implements PageTemplate {
 
     public void assignTask(User user, Task task) {
         Msg.border();
+        // check if the same task is already existing is the task list
         boolean exists = false;
-        for (Task t : user.tasks) {
-            if (t.taskID == task.taskID) {
+        for (Task taskObj : user.tasks) {
+            if (taskObj.taskID == task.taskID) {
                 exists = true;
             }
         }
