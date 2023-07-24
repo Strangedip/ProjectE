@@ -23,7 +23,7 @@ class Item1 extends ShopItem {
     public void desc() {
 
         System.out.println("11. " + name);
-        System.out.println("Price : " + price);
+        System.out.println("Price : " + price+" EP");
         System.out.println();
     }
 }
@@ -36,7 +36,7 @@ class Item2 extends ShopItem {
 
     public void desc() {
         System.out.println("12. " + name);
-        System.out.println("Price : " + price);
+        System.out.println("Price : " + price+" EP");
         System.out.println();
     }
 }
@@ -49,7 +49,7 @@ class Item3 extends ShopItem {
 
     public void desc() {
         System.out.println("13. " + name);
-        System.out.println("Price : " + price);
+        System.out.println("Price : " + price+" EP");
         System.out.println();
     }
 }

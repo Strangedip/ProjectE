@@ -61,6 +61,7 @@ public class Hunt implements PageTemplate {
                     user.tasks.add(task);
                     System.out.println("You have been assigned with task ID : " + task.taskID);
                     System.out.println("Please complete task as soon as possible");
+                    Action.hold();
                     Page.hunt(user);
                     break;
             }
