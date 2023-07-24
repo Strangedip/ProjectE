@@ -79,6 +79,7 @@ public class UpdateProfile implements PageTemplate {
 
     public void changeUsername(User user) {
         user.username=validate.username();
+        Msg.success();
         System.out.println("Your Username has been Updated to : "+user.username);
         Msg.border();
         Action.hold();

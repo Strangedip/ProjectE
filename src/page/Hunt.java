@@ -15,7 +15,7 @@ public class Hunt implements PageTemplate {
         rewardHunt();
     }
 
-    //creating random tasks for students
+    // creating random tasks for students
     Task task1 = new Task(11, "Open", "I am Better", "Be in top 5 in upcoming exam", 50);
     Task task2 = new Task(12, "Open", "School Dev", "Design and Build school website UI", 100);
     Task task3 = new Task(13, "Closed", "Cleaning Master", "Take resposibility of cleaning your class for 1 month", 25);
@@ -47,14 +47,25 @@ public class Hunt implements PageTemplate {
         if (exists) {
             System.out.println("you have already been assigned with this task Check Your Task");
         } else {
-            System.out.println("You have been assigned with task ID : " + task.taskID);
-            System.out.println("Please complete task as soon as possible");
-            user.tasks.add(task);
+            System.out.print("(Optional) enter 'done' if completed else any other key -> ");
+            switch (Action.inputStr()) {
+                case "done":
+                    Msg.success();
+                    System.out.println("Your account has been credited with " + task.taskReward + " Elite Points");
+                    user.setAccountBal(user.getAccountBal() + task.taskReward);
+                    System.out.println("Task ID " + task.taskID + " has been removed from ur list");
+                    Action.hold();
+                    Page.hunt(user);
+                    break;
+                default:
+                    user.tasks.add(task);
+                    System.out.println("You have been assigned with task ID : " + task.taskID);
+                    System.out.println("Please complete task as soon as possible");
+                    Page.hunt(user);
+                    break;
+            }
         }
-        Msg.border();
-        Action.hold();
 
-        Page.hunt(user);
     }
 
     // input for pageOptions
