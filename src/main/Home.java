@@ -8,7 +8,7 @@ import util.Msg;
 // menu method overloading with no formal argument and User obj as formal argument
 public class Home {
 
-    //menu method with no formal argument for new program initiation
+    // menu method with no formal argument for new program initiation
     public static void menu() {
         Msg.newSection();
         Msg.header();
@@ -16,6 +16,7 @@ public class Home {
         System.out.println(" 1. User Login");
         System.out.println(" 2. Create new account");
         System.out.println(" 3. Admin Login");
+        System.out.println(" 4. School Introduction");
         System.out.println(" Enter any other key to exit program");
         Msg.border();
         System.out.print("Enter Choice -> ");
@@ -31,6 +32,9 @@ public class Home {
                 case 3:
                     Action.adminLogin();
                     break;
+                case 4:
+                    Action.schoolIntro();
+                    break;
                 default:
                     Msg.thankyou();
                     System.exit(0);
@@ -41,7 +45,8 @@ public class Home {
         }
     }
 
-    // menu with User obj as formal argument to retrieve User obj members when logging in
+    // menu with User obj as formal argument to retrieve User obj members when
+    // logging in
     public static void menu(User user) {
         Msg.newSection();
         Msg.header();
@@ -49,6 +54,7 @@ public class Home {
         System.out.println(" 1. User Login");
         System.out.println(" 2. Create new account");
         System.out.println(" 3. Admin Login");
+        System.out.println(" 4. School Introduction");
         System.out.println(" Enter any other key to exit program");
         Msg.border();
         System.out.print("Enter Choice -> ");
@@ -63,6 +69,9 @@ public class Home {
                     break;
                 case 3:
                     Action.adminLogin();
+                    break;
+                case 4:
+                    Action.schoolIntro(user);
                     break;
                 default:
                     Msg.thankyou();

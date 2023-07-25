@@ -7,7 +7,7 @@ public class Task {
     String taskDetail;
     int taskReward;
 
-    Task(int ID, String status, String name, String detail, int reward) {
+    public Task(int ID, String status, String name, String detail, int reward) {
         taskID = ID;
         taskStatus = status;
         taskName = name;

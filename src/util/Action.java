@@ -5,6 +5,7 @@ import java.util.Scanner;
 import main.Home;
 import user.CreateAccount;
 import user.Login;
+import user.School;
 import user.User;
 
 // Action class containing all user action methods
@@ -32,6 +33,25 @@ public class Action {
 	public static long inputLong() {
 		long input = in.nextLong();
 		return input;
+	}
+	
+	public static void schoolIntro(){
+		School.introduction();
+		System.out.print("enter any key to go back -> ");
+		switch(Action.inputStr()){
+			default:
+			Home.menu();
+			break;
+		}
+	}
+	public static void schoolIntro(User user){
+		School.introduction();
+		System.out.print("enter any key to go back -> ");
+		switch(Action.inputStr()){
+			default:
+			Home.menu(user);
+			break;
+		}
 	}
 
 	// Userlogin without formal argument (default user) **since no DB used

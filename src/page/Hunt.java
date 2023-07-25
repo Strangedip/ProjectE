@@ -16,9 +16,9 @@ public class Hunt implements PageTemplate {
     }
 
     // creating random tasks for students
-    Task task1 = new Task(11, "Open", "I am Better", "Be in top 5 in upcoming exam", 50);
-    Task task2 = new Task(12, "Open", "School Dev", "Design and Build school website UI", 100);
-    Task task3 = new Task(13, "Closed", "Cleaning Master", "Take resposibility of cleaning your class for 1 month", 25);
+    static Task task1 = new Task(11, "Open", "I am Better", "Be in top 5 in upcoming exam", 50);
+    static Task task2 = new Task(12, "Open", "School Dev", "Design and Build school website UI", 100);
+    static Task task3 = new Task(13, "Closed", "Cleaning Master", "Take resposibility of cleaning your class for 1 month", 25);
 
     public void rewardHunt() {
         System.out.println("TASK for REWARD");
@@ -54,6 +54,9 @@ public class Hunt implements PageTemplate {
                     System.out.println("Your account has been credited with " + task.taskReward + " Elite Points");
                     user.setAccountBal(user.getAccountBal() + task.taskReward);
                     System.out.println("Task ID " + task.taskID + " has been removed from ur list");
+                    Msg.border();
+                    System.out.println("Task ID "+task.taskID+" has been Closed");
+                    task.taskStatus="Closed";
                     Action.hold();
                     Page.hunt(user);
                     break;
