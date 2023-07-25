@@ -16,9 +16,10 @@ public class Hunt implements PageTemplate {
     }
 
     // creating random tasks for students
-    static Task task1 = new Task(11, "Open", "I am Better", "Be in top 5 in upcoming exam", 50);
-    static Task task2 = new Task(12, "Open", "School Dev", "Design and Build school website UI", 100);
+    static Task task1 = new Task(11, "Open", "Topper", "Be in top 5 in upcoming exam", 50);
+    static Task task2 = new Task(12, "Open", "School Dev", "Design and Build school website UI", 150);
     static Task task3 = new Task(13, "Closed", "Cleaning Master", "Take resposibility of cleaning your class for 1 month", 25);
+    static Task task4 = new Task(14, "Open", "Brainer", "Get A+ in Quick Test", 20);
 
     public void rewardHunt() {
         System.out.println("TASK for REWARD");
@@ -26,6 +27,7 @@ public class Hunt implements PageTemplate {
         task1.taskDesc();
         task2.taskDesc();
         task3.taskDesc();
+        task4.taskDesc();
     }
 
     // options available at every page
@@ -121,6 +123,16 @@ public class Hunt implements PageTemplate {
                 case 13:
                     if (task3.taskStatus.equals("Open")) {
                         assignTask(user, task3);
+                    } else {
+                        Msg.error();
+                        System.out.println("Task has been closed or completed, try different one");
+                        Action.hold();
+                        Page.hunt(user);
+                    }
+                    break;
+                case 14:
+                    if (task4.taskStatus.equals("Open")) {
+                        assignTask(user, task4);
                     } else {
                         Msg.error();
                         System.out.println("Task has been closed or completed, try different one");
