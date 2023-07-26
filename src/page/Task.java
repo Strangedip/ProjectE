@@ -1,11 +1,11 @@
 package page;
 
 public class Task {
-    int taskID;
-    String taskStatus;
-    String taskName;
-    String taskDetail;
-    int taskReward;
+    public int taskID;
+    public String taskStatus;
+    public String taskName;
+    public String taskDetail;
+    public int taskReward;
 
     public Task(int ID, String status, String name, String detail, int reward) {
         taskID = ID;
