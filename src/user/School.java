@@ -1,12 +1,13 @@
 package user;
 
+import java.util.ArrayList;
 import java.util.HashSet;
 
 import page.Task;
 import util.Msg;
 
 public class School {
-    public static HashSet<Task> taskList = new HashSet<>();
+    public static ArrayList<Task> taskList = new ArrayList<>();
     public static void viewTaskList() {
         for (Task task : taskList) {
             taskDesc(task);
