@@ -12,18 +12,19 @@ import user.User;
 public class Action {
 	static Scanner in = new Scanner(System.in);
 
-	public static void hold(){
+	public static void hold() {
 		System.out.print("Enter any key to continue -> ");
-        switch (Action.inputStr()) {
-        }
+		switch (Action.inputStr()) {
+		}
 	}
+
 	// to take int input
 	public static int inputInt() {
 		int input = in.nextInt();
 		return input;
 	}
 
-	//to take String input
+	// to take String input
 	public static String inputStr() {
 		String input = in.next();
 		return input;
@@ -34,23 +35,24 @@ public class Action {
 		long input = in.nextLong();
 		return input;
 	}
-	
-	public static void schoolIntro(){
+
+	public static void schoolIntro() {
 		School.introduction();
 		System.out.print("enter any key to go back -> ");
-		switch(Action.inputStr()){
+		switch (Action.inputStr()) {
 			default:
-			Home.menu();
-			break;
+				Home.menu();
+				break;
 		}
 	}
-	public static void schoolIntro(User user){
+
+	public static void schoolIntro(User user) {
 		School.introduction();
 		System.out.print("enter any key to go back -> ");
-		switch(Action.inputStr()){
+		switch (Action.inputStr()) {
 			default:
-			Home.menu(user);
-			break;
+				Home.menu(user);
+				break;
 		}
 	}
 
@@ -87,7 +89,8 @@ public class Action {
 		afterNewAccountMenu(user);
 	}
 
-	// method to run after new account has been created with formal argument as User obj
+	// method to run after new account has been created with formal argument as User
+	// obj
 	public static void afterNewAccountMenu(User user) {
 		System.out.println("Enter 0 for Main menu");
 		System.out.println("Enter 1 to login now");
@@ -95,11 +98,11 @@ public class Action {
 		Scanner in = new Scanner(System.in);
 		switch (in.nextInt()) {
 			case 0:
-				//calling Home menu with User obj
+				// calling Home menu with User obj
 				Home.menu(user);
 				break;
 			case 1:
-				//calling loginUser with User obj
+				// calling loginUser with User obj
 				Login.loginUser(user);
 				break;
 			default:
@@ -108,7 +111,7 @@ public class Action {
 		}
 	}
 
-	//clear screen optional (not working)
+	// clear screen optional (not working)
 	public static void clscr() {
 		// System.out.println("\033[H\033[2J");
 		// System.out.flush();

@@ -9,6 +9,8 @@ public interface TakeInput {
 
     public void userCreds(String username, String password, User user);
 
+    public String position();
+
     public String fullName();
 
     public int age();

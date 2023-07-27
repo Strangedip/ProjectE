@@ -11,7 +11,37 @@ import user.User;
 
 // Implementing class for TakeInput interface
 public class Validate implements TakeInput {
-    int a;
+
+    public void checkCredential(String username, String password) {
+
+    }
+
+    public String position() {
+        Msg.border();
+        System.out.println("1.Visitor");
+        System.out.println("2.Student");
+        System.out.println("3.Faculty");
+        System.out.print("Select Your Current Position Accurately ->");
+        Scanner in = new Scanner(System.in);
+        try {
+            switch (in.nextInt()) {
+                case 1:
+                    return "Student";
+                case 2:
+                    return "Faculty";
+                case 3:
+                    return "Visitor";
+                default:
+                    Msg.error();
+                    System.out.println("Invalid Option");
+                    return position();
+            }
+        } catch (Exception e) {
+            Msg.error();
+            System.out.println("Invalid Input!");
+            return position();
+        }
+    }
 
     // check default username and password
     public void userCreds(String username, String password) {
@@ -227,8 +257,7 @@ public class Validate implements TakeInput {
             if (i == '@') {
                 if (countAt < 1) {
                     countAt++;
-                }
-                else{
+                } else {
                     return false;
                 }
             }

@@ -11,7 +11,7 @@ public class CreateAccount extends Member {
     public void createAccount() {
         try {
             // Upcasting & 100% abstraction
-            TakeInput validate = new Validate(); 
+            TakeInput validate = new Validate();
 
             Msg.newSection();
 
@@ -19,6 +19,8 @@ public class CreateAccount extends Member {
 
             // generate unique id
             eliteID = 111;
+
+            postion = validate.position();
 
             name = validate.fullName();
 
@@ -35,7 +37,7 @@ public class CreateAccount extends Member {
             // if both psw and confirmpassword are same it returns password
             password = validate.confirmPassword(validate.psw());
 
-            //creating user with entered value in same class
+            // creating user with entered value in same class
             createUser();
             Msg.accountCreated();
         } catch (Exception e) {
@@ -46,9 +48,9 @@ public class CreateAccount extends Member {
         }
     }
 
-    //user creating method which returns an User object with all the entered values 
+    // user creating method which returns an User object with all the entered values
     public User createUser() {
-        //returns object with formal argument constructor
-        return new User(eliteID, name, age, gender, email, mobileNumber, username, password);
+        // returns object with formal argument constructor
+        return new User(eliteID, postion, name, age, gender, email, mobileNumber, username, password);
     }
 }
