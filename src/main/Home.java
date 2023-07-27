@@ -1,6 +1,7 @@
 package main;
 
 import user.Admin;
+import user.School;
 import user.User;
 import util.Action;
 import util.Msg;
@@ -43,7 +44,7 @@ public class Home {
                     Action.adminLogin();
                     break;
                 case 4:
-                    Action.schoolIntro();
+                    School.schoolIntro();
                     break;
                 default:
                     Msg.thankyou();

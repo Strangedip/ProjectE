@@ -36,26 +36,6 @@ public class Action {
 		return input;
 	}
 
-	public static void schoolIntro() {
-		School.introduction();
-		System.out.print("enter any key to go back -> ");
-		switch (Action.inputStr()) {
-			default:
-				Home.menu();
-				break;
-		}
-	}
-
-	public static void schoolIntro(User user) {
-		School.introduction();
-		System.out.print("enter any key to go back -> ");
-		switch (Action.inputStr()) {
-			default:
-				Home.menu();
-				break;
-		}
-	}
-
 	// Userlogin without formal argument (default user) **since no DB used
 	public static void login() {
 		Login.checkCredential();

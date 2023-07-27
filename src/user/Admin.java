@@ -8,7 +8,7 @@ public class Admin extends User {
     public Admin(String position, String name, int age, String gender, String email, long mobileNumber,
             String username, String password, int AccountBal) {
         generateEliteID();
-        this.postion = position;
+        this.position = position;
         this.name = name;
         this.age = age;
         this.gender = gender;
@@ -20,6 +20,5 @@ public class Admin extends User {
         this.accountType="Supreme Admin Account";
         generateAcoountNumber();
         this.setAccountBal(AccountBal);
-        User.userList.add(this);
     }
 }

@@ -17,7 +17,7 @@ public class CreateAccount extends User {
 
             Msg.createAccount();
 
-            postion = validate.position();
+            position = validate.position();
 
             name = validate.fullName();
 
@@ -45,6 +45,6 @@ public class CreateAccount extends User {
     // user creating method which returns an User object with all the entered values
     public User createUser() {
         // returns object with formal argument constructor
-        return new User(postion, name, age, gender, email, mobileNumber, username, password);
+        return new User(position, name, age, gender, email, mobileNumber, username, password);
     }
 }

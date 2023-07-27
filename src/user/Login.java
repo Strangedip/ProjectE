@@ -31,7 +31,7 @@ public class Login {
 		User currentUser = null;
 		boolean exist = false;
 		for (User user : User.userList) {
-			if (!user.postion.equals("Admin")) {
+			if (!user.position.equals("Admin")) {
 				if (user.username.equals(username)) {
 					currentUser = user;
 					exist = true;
@@ -120,7 +120,7 @@ public class Login {
 		User admin = null;
 		boolean exist = false;
 		for (User user : User.userList) {
-			if (user.postion.equals("Admin")) {
+			if (user.position.equals("Admin")) {
 				if (user.username.equals(username)) {
 					admin = user;
 					exist = true;

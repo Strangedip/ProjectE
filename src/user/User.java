@@ -24,7 +24,7 @@ public class User {
     public String gender = "Not Set";
     public String email = "default@email.com";
     public long mobileNumber = -1l;
-    public String postion = "Visitor";
+    public String position = "Visitor";
 
     // default username n password
     public String username = "user";
@@ -46,7 +46,7 @@ public class User {
             String username,
             String password) {
         generateEliteID();
-        this.postion = position;
+        this.position = position;
         this.name = name;
         this.age = age;
         this.gender = gender;
@@ -112,7 +112,7 @@ public class User {
         Msg.newSection();
         Msg.profilePageHeader();
         System.out.println("EliteID   : " + eliteID);
-        System.out.println("Position  : " + postion);
+        System.out.println("Position  : " + position);
         System.out.println("Name      : " + name);
         System.out.println("Age       : " + age);
         System.out.println("gender    : " + gender);
