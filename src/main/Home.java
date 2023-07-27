@@ -9,17 +9,9 @@ import util.Msg;
 // Home class containing 2 start menu
 // menu method overloading with no formal argument and User obj as formal argument
 public class Home {
-    // default user
-    static User defaultUser = new User();
-
-    // admin
-    static User adminUser = new Admin("Admin", "Sandip Gupta", 20, "Male", "test@test.com", 9987978402L, "admin",
-            "admin", 9999);
-
+    
     // menu method new program initiation
     public static void menu() {
-        User.userList.add(adminUser);
-        User.addNewMember(defaultUser);
 
         Msg.newSection();
         Msg.header();
