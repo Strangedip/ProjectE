@@ -1,7 +1,5 @@
 package util;
 
-import user.User;
-
 // TakeInput interface while creating new account 
 public interface TakeInput {
 

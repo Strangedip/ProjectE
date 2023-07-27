@@ -5,12 +5,10 @@ import java.util.Scanner;
 import main.Home;
 import user.CreateAccount;
 import user.Login;
-import user.School;
 import user.User;
 
 // Action class containing all user action methods
 public class Action {
-	static Scanner in = new Scanner(System.in);
 
 	public static void hold() {
 		System.out.print("Enter any key to continue -> ");
@@ -20,18 +18,24 @@ public class Action {
 
 	// to take int input
 	public static int inputInt() {
+		Scanner in = new Scanner(System.in);
+
 		int input = in.nextInt();
 		return input;
 	}
 
 	// to take String input
 	public static String inputStr() {
+		Scanner in = new Scanner(System.in);
+
 		String input = in.next();
 		return input;
 	}
 
 	// to take Long as input
 	public static long inputLong() {
+		Scanner in = new Scanner(System.in);
+
 		long input = in.nextLong();
 		return input;
 	}
@@ -74,9 +78,8 @@ public class Action {
 		System.out.println("Enter 0 for Main menu");
 		System.out.println("Enter 1 to login now");
 		System.out.print("Enter Choice -> ");
-		Scanner in = new Scanner(System.in);
 		try {
-			switch (in.nextInt()) {
+			switch (Action.inputInt()) {
 				case 0:
 					Home.menu();
 					break;

@@ -1,9 +1,9 @@
 package page;
 
-import java.util.Scanner;
 
 import main.Home;
 import user.User;
+import util.Action;
 import util.Msg;
 
 public class UserTask implements PageTemplate {
@@ -40,9 +40,8 @@ public class UserTask implements PageTemplate {
     public void pageInput(User user) {
         Msg.border();
         System.out.print("Enter Choice -> ");
-        Scanner in = new Scanner(System.in);
         try {
-            switch (in.nextInt()) {
+            switch (Action.inputInt()) {
                 case 1:
                     Page.hunt(user);
                     break;

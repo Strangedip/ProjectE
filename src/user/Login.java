@@ -1,13 +1,9 @@
 package user;
 
-import java.util.Currency;
-
 import main.Home;
 import page.Page;
 import util.Action;
 import util.Msg;
-import util.TakeInput;
-import util.Validate;
 
 //Login class cntaining all login methods
 public class Login {

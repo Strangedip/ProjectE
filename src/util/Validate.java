@@ -2,11 +2,6 @@ package util;
 
 import java.util.ArrayList;
 import java.util.InputMismatchException;
-import java.util.Scanner;
-
-import main.Home;
-import page.Page;
-import user.Login;
 import user.User;
 
 // Implementing class for TakeInput interface
@@ -69,9 +64,8 @@ public class Validate implements TakeInput {
         System.out.println("2.Student");
         System.out.println("3.Faculty");
         System.out.print("Enter Current Position Accurately : ");
-        Scanner in = new Scanner(System.in);
         try {
-            switch (in.nextInt()) {
+            switch (Action.inputInt()) {
                 case 1:
                     return "Student";
                 case 2:
@@ -135,11 +129,10 @@ public class Validate implements TakeInput {
 
     // age input and validation above 5 below 150 (no negative age allowed)
     public int age() {
-        Scanner in = new Scanner(System.in);
         Msg.border();
         System.out.print("Enter age: ");
         try {
-            int age = in.nextInt();
+            int age = Action.inputInt();
             if (age < 1 || age > 150) {
                 Msg.error();
                 System.out.println("Invalid Age Input, Try Again");
@@ -161,13 +154,12 @@ public class Validate implements TakeInput {
     // gender input with recursion if invalid input provided
     public String gender() {
         try {
-            Scanner in = new Scanner(System.in);
             Msg.border();
             System.out.println("1. Male");
             System.out.println("2. Female");
             System.out.println("3. Other");
             System.out.print("Enter gender: ");
-            int input = in.nextInt();
+            int input = Action.inputInt();
             switch (input) {
                 case 1:
                     return "Male";
@@ -189,10 +181,9 @@ public class Validate implements TakeInput {
 
     // email validation (checks for '@' and '.com' String in passed String)
     public String email() {
-        Scanner in = new Scanner(System.in);
         Msg.border();
         System.out.print("Enter email: ");
-        String email = in.next();
+        String email = Action.inputStr();
         if (email.contains(".com") && (validEmail(email))) {
             return email;
         } else {
@@ -221,9 +212,8 @@ public class Validate implements TakeInput {
     public long mobileNumber() {
         Msg.border();
         System.out.print("Enter Mobile Number: +91 ");
-        Scanner in = new Scanner(System.in);
         try {
-            long num = in.nextLong();
+            long num = Action.inputLong();
             if (fixedNumberSize(num, 10)) {
                 return num;
             } else {
@@ -251,11 +241,10 @@ public class Validate implements TakeInput {
     // atleast 4)
     public String username() {
         Msg.border();
-        Scanner in = new Scanner(System.in);
         String username;
         System.out.print("Create Username : ");
         try {
-            username = in.next();
+            username = Action.inputStr();
             if (!usernameExist(username)) {
                 Msg.error();
                 System.out.println("Username Already Exist, Try different one");
@@ -296,10 +285,9 @@ public class Validate implements TakeInput {
 
     // input & validate password for size atleast and in format
     public String psw() {
-        Scanner in = new Scanner(System.in);
         Msg.border();
         System.out.print("Create Password: ");
-        String password = in.next();
+        String password = Action.inputStr();
         if (validStringSize(password, 6)) {
             if (validatePass(password)) {
                 return password;
@@ -355,9 +343,8 @@ public class Validate implements TakeInput {
     // input and validate confirm password with formal argument as entered password
     // String
     public String confirmPassword(String psw) {
-        Scanner in = new Scanner(System.in);
         System.out.print("Confirm Password: ");
-        String cnf = in.next();
+        String cnf = Action.inputStr();
         // if same as entered password return password
         if (psw.equals(cnf)) {
             return cnf;
@@ -369,10 +356,9 @@ public class Validate implements TakeInput {
     }
 
     public boolean checkCurrentPassword(String psw) {
-        Scanner in = new Scanner(System.in);
         Msg.border();
         System.out.print("Enter Current Password: ");
-        String cnf = in.next();
+        String cnf = Action.inputStr();
         // if same as entered password return password
         if (psw.equals(cnf)) {
             return true;

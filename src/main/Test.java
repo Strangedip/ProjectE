@@ -3,9 +3,6 @@ package main;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-import page.Task;
-import user.School;
-
 public class Test {
     static Scanner in = new Scanner(System.in);
     String s;
@@ -19,7 +16,7 @@ public class Test {
     }
 
     public static boolean add(int a, int b) {
-        int c = a + b;
+        
         return true;
     }
 

@@ -1,8 +1,6 @@
 package user;
 
 import java.util.ArrayList;
-import java.util.HashSet;
-
 import main.Home;
 import page.Task;
 import util.Action;

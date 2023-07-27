@@ -1,9 +1,8 @@
 package page;
 
-import java.util.Scanner;
-
 import main.Home;
 import user.User;
+import util.Action;
 import util.Msg;
 
 //Home Page class containing format and action of home page 
@@ -35,9 +34,8 @@ public class HomePage implements PageTemplate {
     public void pageInput(User user) {
         Msg.border();
         System.out.print("Enter Choice -> ");
-        Scanner in = new Scanner(System.in);
         try {
-            switch (in.nextInt()) {
+            switch (Action.inputInt()) {
                 case 1:
                     Page.profilePage(user);
                     break;

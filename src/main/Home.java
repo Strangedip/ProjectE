@@ -1,8 +1,6 @@
 package main;
 
-import user.Admin;
 import user.School;
-import user.User;
 import util.Action;
 import util.Msg;
 
