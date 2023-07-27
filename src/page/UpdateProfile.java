@@ -122,7 +122,7 @@ public class UpdateProfile implements PageTemplate {
                     break;
                 case 6:
                     Msg.loggedOut();
-                    Home.menu(user);
+                    Home.menu();
                     break;
                 case 11:
                     changeName(user);

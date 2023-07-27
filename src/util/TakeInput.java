@@ -1,13 +1,11 @@
 package util;
 
 import user.User;
+
 // TakeInput interface while creating new account 
 public interface TakeInput {
-    public int a=10;
 
-    public void userCreds(String username, String password);
-
-    public void userCreds(String username, String password, User user);
+    // public void checkCredential(String username, String password);
 
     public String position();
 
@@ -26,7 +24,7 @@ public interface TakeInput {
     public String psw();
 
     public String confirmPassword(String psw);
-    
+
     public boolean checkCurrentPassword(String psw);
 
 }

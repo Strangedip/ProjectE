@@ -18,7 +18,8 @@ public class Hunt implements PageTemplate {
     // creating random tasks for students
     static Task task1 = new Task(11, "Open", "Topper", "Be in top 5 in upcoming exam", 50);
     static Task task2 = new Task(12, "Open", "School Dev", "Design and Build school website UI", 150);
-    static Task task3 = new Task(13, "Closed", "Cleaning Master", "Take resposibility of cleaning your class for 1 month", 25);
+    static Task task3 = new Task(13, "Closed", "Cleaning Master",
+            "Take resposibility of cleaning your class for 1 month", 25);
     static Task task4 = new Task(14, "Open", "Brainer", "Get A+ in Quick Test", 20);
 
     public void rewardHunt() {
@@ -40,14 +41,8 @@ public class Hunt implements PageTemplate {
     public void assignTask(User user, Task task) {
         Msg.border();
         // check if the same task is already existing is the task list
-        boolean exists = false;
-        for (Task taskObj : user.tasks) {
-            if (taskObj.taskID == task.taskID) {
-                exists = true;
-            }
-        }
-        if (exists) {
-            System.out.println("you have already been assigned with this task Check Your Task");
+        if (!user.addTask(task)) {
+            System.out.println("you have already been assigned with this task Check Your Task Section");
         } else {
             System.out.print("(Optional) enter 'done' if completed else any other key -> ");
             switch (Action.inputStr()) {
@@ -57,13 +52,12 @@ public class Hunt implements PageTemplate {
                     user.setAccountBal(user.getAccountBal() + task.taskReward);
                     System.out.println("Task ID " + task.taskID + " has been removed from ur list");
                     Msg.border();
-                    System.out.println("Task ID "+task.taskID+" has been Closed");
-                    task.taskStatus="Closed";
+                    System.out.println("Task ID " + task.taskID + " has been Closed");
+                    task.taskStatus = "Closed";
                     Action.hold();
                     Page.hunt(user);
                     break;
                 default:
-                    user.tasks.add(task);
                     System.out.println("You have been assigned with task ID : " + task.taskID);
                     System.out.println("Please complete task as soon as possible");
                     Action.hold();
@@ -98,7 +92,7 @@ public class Hunt implements PageTemplate {
                     break;
                 case 6:
                     Msg.loggedOut();
-                    Home.menu(user);
+                    Home.menu();
                     break;
                 case 11:
                     if (task1.taskStatus.equals("Open")) {

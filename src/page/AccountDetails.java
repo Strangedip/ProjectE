@@ -59,7 +59,7 @@ public class AccountDetails implements PageTemplate {
                     break;
                 case 6:
                     Msg.loggedOut();
-                    Home.menu(user);
+                    Home.menu();
                     break;
                 default:
                     System.out.println("Invalid Option");

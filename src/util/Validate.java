@@ -12,8 +12,55 @@ import user.User;
 // Implementing class for TakeInput interface
 public class Validate implements TakeInput {
 
-    public void checkCredential(String username, String password) {
+    // public void checkCredential(String username, String password) {
+    // User currentUser = getUser(username);
+    // try {
+    // // if password is matching with users password allow login
+    // if (currentUser.password.equals(password)) {
+    // Msg.border();
+    // Msg.loggedIn();
+    // Page.homePage(currentUser);
+    // }
+    // // password incorrect, login again
+    // else {
+    // Msg.error();
+    // System.out.println("Incorrect Password, please try again");
 
+    // }
+    // } catch (Exception e) {
+    // Msg.error();
+    // System.out.println("Incorrect Username and Password, please try again");
+    // System.out.println("Enter 0 for Main menu");
+    // System.out.println("Enter 1 to try again");
+    // System.out.println("Enter any other to exit");
+    // System.out.print("Enter Choice ->");
+    // try {
+    // switch (Action.inputInt()) {
+    // case 0:
+    // Home.menu();
+    // break;
+    // case 1:
+    // Login.checkCredential();
+    // break;
+    // default:
+    // Msg.thankyou();
+    // System.exit(0);
+    // }
+
+    // } catch (Exception e1) {
+    // Msg.thankyou();
+    // System.exit(0);
+    // }
+    // }
+    // }
+
+    public User getUser(String un) {
+        for (User user : User.userList) {
+            if (user.username == un) {
+                return user;
+            }
+        }
+        return null;
     }
 
     public String position() {
@@ -21,7 +68,7 @@ public class Validate implements TakeInput {
         System.out.println("1.Visitor");
         System.out.println("2.Student");
         System.out.println("3.Faculty");
-        System.out.print("Select Your Current Position Accurately ->");
+        System.out.print("Enter Current Position Accurately : ");
         Scanner in = new Scanner(System.in);
         try {
             switch (in.nextInt()) {
@@ -40,101 +87,6 @@ public class Validate implements TakeInput {
             Msg.error();
             System.out.println("Invalid Input!");
             return position();
-        }
-    }
-
-    // check default username and password
-    public void userCreds(String username, String password) {
-        // creating default User obj with default values (no formal argument
-        // constructor)
-        User user = new User();
-        // ****take user creds from database based username
-        String orgUsername = user.username;
-        String orgPassword = user.password;
-
-        // if username and password is matching with details allow login with deafult
-        // User obj
-        if (username.equals(orgUsername) && password.equals(orgPassword)) {
-            Msg.border();
-            Msg.loggedIn();
-            Page.homePage(user);
-            // user home page class or object
-
-            // password incorrect, login again
-        } else if (username.equals(orgUsername)) {
-            Msg.error();
-            System.out.println("Incorrect Password, please try again");
-            Login.loginUser(user);
-
-            // incorrect creds, login again
-        } else {
-            Msg.error();
-            System.out.println("Incorrect Username and Password, please try again");
-            System.out.println("Enter 0 for Main menu");
-            System.out.println("Enter 1 to try again");
-            System.out.println("Enter any other to exit");
-            System.out.print("Enter Choice ->");
-            try {
-                switch (Action.inputInt()) {
-                    case 0:
-                        Home.menu();
-                        break;
-                    case 1:
-                        Login.loginUser(user);
-                        break;
-                    default:
-                        Msg.thankyou();
-                        System.exit(0);
-                }
-
-            } catch (Exception e) {
-                Msg.thankyou();
-                System.exit(0);
-            }
-        }
-    }
-
-    // method overloading in same class
-    // check username & password for newly created User obj in formal argument
-    public void userCreds(String username, String password, User user) {
-
-        // ****take user creds from database based username
-        // String orgUsername = user.username;
-        // String orgPassword = user.password;
-
-        if (username.equals(user.username) && password.equals(user.password)) {
-            Msg.border();
-            Msg.loggedIn();
-            Page.homePage(user);
-            // user home page class or object
-
-        } else if (username.equals(user.username)) {
-            Msg.error();
-            System.out.println("Incorrect Password, please try again");
-            Login.loginUser(user);
-
-        } else {
-            Msg.error();
-            System.out.println("Incorrect Username and Password, please try again");
-            System.out.println("Enter 0 for Main menu");
-            System.out.println("Enter 1 to try again");
-            System.out.println("Enter any other to exit");
-            System.out.print("Enter Choice ->");
-            try {
-                switch (Action.inputInt()) {
-                    case 0:
-                        Home.menu();
-                        break;
-                    case 1:
-                        Login.loginUser(user);
-                        break;
-                    default:
-                        System.exit(0);
-                }
-
-            } catch (Exception e) {
-                System.exit(0);
-            }
         }
     }
 
@@ -286,6 +238,15 @@ public class Validate implements TakeInput {
         }
     }
 
+    boolean usernameExist(String un) {
+        for (User user : User.userList) {
+            if (user.username.equals(un)) {
+                return false;
+            }
+        }
+        return true;
+    }
+
     // input username & validate (should not contain character and length should be
     // atleast 4)
     public String username() {
@@ -295,17 +256,25 @@ public class Validate implements TakeInput {
         System.out.print("Create Username : ");
         try {
             username = in.next();
-            if (validStringSize(username, 4)) {
-                if (validateUsername(username)) {
-                    return username;
+            if (!usernameExist(username)) {
+                Msg.error();
+                System.out.println("Username Already Exist, Try different one");
+                return username();
+            } 
+            //if username does not exist allow username for next validations
+            else {
+                if (validStringSize(username, 4)) {
+                    if (validateUsername(username)) {
+                        return username;
+                    } else {
+                        System.out.println("No Characters allowed in Username, Try again");
+                        return username();
+                    }
                 } else {
-                    System.out.println("No Characters allowed in Username, Try again");
+                    Msg.error();
+                    System.out.println("Username should be of atleat 4 characters");
                     return username();
                 }
-            } else {
-                Msg.error();
-                System.out.println("Username should be of atleat 4 characters");
-                return username();
             }
         } catch (Exception e) {
             Msg.error();

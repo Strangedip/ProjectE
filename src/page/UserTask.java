@@ -17,12 +17,12 @@ public class UserTask implements PageTemplate {
     public void taskList(User user) {
 
         //check if task list is empty
-        if (user.tasks.isEmpty()) {
+        if (user.taskList.isEmpty()) {
             System.out.println("No task assigned yet, Visit Hunt page to get tasks");
         } 
         // else print all taks description in list
         else {
-            for (Task task : user.tasks) {
+            for (Task task : user.taskList) {
                 task.taskDesc();
             }
         }
@@ -60,7 +60,7 @@ public class UserTask implements PageTemplate {
                     break;
                 case 6:
                     Msg.loggedOut();
-                    Home.menu(user);
+                    Home.menu();
                     break;
                 default:
                     System.out.println("Invalid Option");

@@ -51,19 +51,14 @@ public class Action {
 		System.out.print("enter any key to go back -> ");
 		switch (Action.inputStr()) {
 			default:
-				Home.menu(user);
+				Home.menu();
 				break;
 		}
 	}
 
 	// Userlogin without formal argument (default user) **since no DB used
 	public static void login() {
-		Login.loginUser();
-	}
-
-	// Userlogin with formal argument
-	public static void login(User user) {
-		Login.loginUser(user);
+		Login.checkCredential();
 	}
 
 	// Adminlogin without formal argument (precreated admin accounts)
@@ -83,31 +78,39 @@ public class Action {
 		// creating new User ref with details stored inside CreateAccount obj
 		User user = newAccount.createUser();
 		// adding that newly created user into members ArrayList
-		User.members.add(user);
-
+		if (!User.addNewMember(user)) {
+			Msg.error();
+			System.out.println("Account already Exist, Please Login");
+			afterNewAccountMenu();
+		}
+		Msg.accountCreated();
 		// aftermath for the newly created user
-		afterNewAccountMenu(user);
+		afterNewAccountMenu();
 	}
 
 	// method to run after new account has been created with formal argument as User
 	// obj
-	public static void afterNewAccountMenu(User user) {
+	public static void afterNewAccountMenu() {
 		System.out.println("Enter 0 for Main menu");
 		System.out.println("Enter 1 to login now");
 		System.out.print("Enter Choice -> ");
 		Scanner in = new Scanner(System.in);
-		switch (in.nextInt()) {
-			case 0:
-				// calling Home menu with User obj
-				Home.menu(user);
-				break;
-			case 1:
-				// calling loginUser with User obj
-				Login.loginUser(user);
-				break;
-			default:
-				System.out.println("Invalid Option, Try again");
-				afterNewAccountMenu(user);
+		try {
+			switch (in.nextInt()) {
+				case 0:
+					Home.menu();
+					break;
+				case 1:
+					// calling login User
+					Login.checkCredential();
+					break;
+				default:
+					System.out.println("Invalid Option, Try again");
+					afterNewAccountMenu();
+			}
+		} catch (Exception e) {
+			System.out.println("Invalid Input, Try again");
+			afterNewAccountMenu();
 		}
 	}
 

@@ -170,7 +170,7 @@ public class Shop implements PageTemplate {
                     break;
                 case 6:
                     Msg.loggedOut();
-                    Home.menu(user);
+                    Home.menu();
                     break;
                 case 11:
                     buy(user, item1);

@@ -1,18 +1,22 @@
 package user;
 
 import java.util.ArrayList;
-import java.util.HashSet;
 
-import util.Msg;
-import page.Hunt;
 import page.Task;
+import util.Msg;
 
 // default abstract class for members with minimum required details declared 
-abstract class Member {
+public class User {
 
     // list of members created are strored in an ArrayList for reference (not in
     // use)
-    public static ArrayList<Member> members = new ArrayList<>();
+    public static ArrayList<User> userList = new ArrayList<>();
+
+    //count of users in system
+    public static int currentUserCount = userList.size();
+
+
+    public ArrayList<Task> taskList = new ArrayList<>();
 
     public int eliteID = -1;
     public String name = "Default User";
@@ -32,6 +36,33 @@ abstract class Member {
     public long accountNumber = -1l;
     private int accountBal = 100;
 
+    // default constructor for sub class constructors
+    public User() {
+        this.accountType="Visitor Account";
+    }
+
+    // initiating User Object with all details for each object of User class
+    User(String position, String name, int age, String gender, String email, long mobileNumber,
+            String username,
+            String password) {
+        generateEliteID();
+        this.postion = position;
+        this.name = name;
+        this.age = age;
+        this.gender = gender;
+        this.email = email;
+        this.mobileNumber = mobileNumber;
+        this.username = username;
+        setPassword(password);
+        generateAcoountNumber();
+        this.accountLevel = 1;
+        setAccountBal(100);
+    }
+
+    public void generateEliteID() {
+        this.eliteID = userList.size() + 1;
+    }
+
     public int getAccountBal() {
         return accountBal;
     }
@@ -42,7 +73,7 @@ abstract class Member {
 
     // ***generate random account number for each user
     void generateAcoountNumber() {
-        this.accountNumber = 111l;
+        this.accountNumber = 100000+eliteID ;
     }
 
     // setter method for password (not in user currently)
@@ -54,35 +85,26 @@ abstract class Member {
     String getPsw() {
         return password;
     }
-}
 
-// User class to inherit all members of Member class for initializing new user
-public class User extends Member {
-
-    // list of tasks user is assigned with
-    public HashSet<Task> tasks = new HashSet<>();
-
-    // no formal argument constructor to create a default user at start // visitor
-    // account
-    public User() {
+    public static boolean addNewMember(User user) {
+        for (User u : userList) {
+            if (u.eliteID == user.eliteID) {
+                return false;
+            }
+        }
+        userList.add(user);
+        return true;
     }
 
-    // constructor to initialize User with all required details inherited from
-    // Members
-    User(int eliteID,String position, String name, int age, String gender, String email, long mobileNumber, String username,
-            String password) {
-        this.eliteID = eliteID;
-        this.postion=position;
-        this.name = name;
-        this.age = age;
-        this.gender = gender;
-        this.email = email;
-        this.mobileNumber = mobileNumber;
-        this.username = username;
-        setPassword(password);
-        generateAcoountNumber();
-        this.accountLevel = 1;
-        setAccountBal(100);
+    // ns task adding method for each user
+    public boolean addTask(Task task) {
+        for (Task t : taskList) {
+            if (t.taskID == task.taskID) {
+                return false;
+            }
+        }
+        taskList.add(task);
+        return true;
     }
 
     // method to print some information of the user
@@ -98,5 +120,4 @@ public class User extends Member {
         System.out.println("Email     : " + email);
         // System.out.println("Psw : " + getPsw());
     }
-
 }
