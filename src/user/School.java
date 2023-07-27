@@ -18,7 +18,7 @@ public class School {
 
     }
 
-    public static void schoolIntro() {
+    public static void schoolMembers() {
         Msg.border();
         System.out.println("Our Members");
         for (User user : User.userList) {
@@ -41,7 +41,7 @@ public class School {
         System.out.println();
     }
 
-    public static void introduction() {
+    public static void schoolIntro() {
         Msg.header();
         System.out.println();
         System.out.println("Elite School of India");
@@ -56,7 +56,8 @@ public class School {
         System.out.print("enter 'm' to see out members or any other key to go back -> ");
         switch (Action.inputStr()) {
             case "m":
-
+                schoolMembers();
+                break;
             default:
                 Home.menu();
                 break;
