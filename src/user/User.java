@@ -60,7 +60,7 @@ public class User {
     }
 
     public void generateEliteID() {
-        this.eliteID = userList.size() + 1;
+        this.eliteID = userList.size() + 100;
     }
 
     public int getAccountBal() {
