@@ -1,23 +1,20 @@
 package main;
 
-import java.util.ArrayList;
-import java.util.Scanner;
 
 public class Test {
-    static Scanner in = new Scanner(System.in);
-    String s;
 
     public static void main(String[] args) {
-        ArrayList<Integer> a = new ArrayList<>();
-        a.add(12);
-        add(1, 4);
-        System.out.println(true);
-
+        solution(25, 2500);
+        
     }
 
-    public static boolean add(int a, int b) {
-        
-        return true;
+    public static void solution(int x, int y) {
+        if(x>y*10){
+            System.out.println("spam");
+        }
+        else{
+            System.out.println("genuine");
+        }
     }
 
 }
