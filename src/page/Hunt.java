@@ -49,6 +49,7 @@ public class Hunt implements PageTemplate {
                     System.out.println("Your account has been credited with " + task.taskReward + " Elite Points");
                     user.setAccountBal(user.getAccountBal() + task.taskReward);
                     System.out.println("Task ID " + task.taskID + " has been removed from ur list");
+                    user.taskList.remove(task);
                     Msg.border();
                     System.out.println("Task ID " + task.taskID + " has been Closed");
                     task.taskStatus = "Closed";
