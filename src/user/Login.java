@@ -43,7 +43,7 @@ public class Login {
 				} else {
 					Msg.error();
 					System.out.println("Incorrect Password, please try again");
-					Login.loginAdmin();
+					Login.checkCredential();
 				}
 			} else {
 				Msg.error();
@@ -51,7 +51,7 @@ public class Login {
 			}
 		} catch (Exception e) {
 			Msg.error();
-			adminLoginOptions();
+			userLoginOptions();
 
 		}
 
@@ -135,29 +135,13 @@ public class Login {
 					System.out.println("Incorrect Password, please try again");
 					Login.loginAdmin();
 				}
+			} else {
+				Msg.error();
+				adminLoginOptions();
 			}
 		} catch (Exception e) {
 			Msg.error();
-			System.out.println("Invalid Username and Password, please try again");
-			System.out.println("Enter 0 for Main menu");
-			System.out.println("Enter 1 to try again");
-			System.out.println("Enter any other to exit");
-			System.out.print("Enter Choice ->");
-			try {
-				switch (Action.inputInt()) {
-					case 0:
-						Home.menu();
-						break;
-					case 1:
-						Login.loginAdmin();
-						break;
-					default:
-						System.exit(0);
-				}
-
-			} catch (Exception e1) {
-				System.exit(0);
-			}
+			adminLoginOptions();
 		}
 	}
 }
