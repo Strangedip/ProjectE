@@ -41,6 +41,8 @@ public class Hunt implements PageTemplate {
         // check if the same task is already existing is the task list
         if (!user.addTask(task)) {
             System.out.println("you have already been assigned with this task Check Your Task Section");
+            Action.hold();
+            Page.hunt(user);
         } else {
             System.out.print("(Optional) enter 'done' if completed else any other key -> ");
             switch (Action.inputStr()) {
