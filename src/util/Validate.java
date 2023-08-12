@@ -65,13 +65,13 @@ public class Validate implements TakeInput {
         System.out.println("3.Faculty");
         System.out.print("Enter Current Position Accurately : ");
         try {
-            switch (Action.inputInt()) {
+            switch (Actions.inputInt()) {
                 case 1:
-                    return "Student";
-                case 2:
-                    return "Faculty";
-                case 3:
                     return "Visitor";
+                case 2:
+                    return "Student";
+                case 3:
+                    return "Faculty";
                 default:
                     Msg.error();
                     System.out.println("Invalid Option");
@@ -88,7 +88,7 @@ public class Validate implements TakeInput {
     public String fullName() {
         Msg.border();
         System.out.print("Enter First Name: ");
-        String fname = Action.inputStr();
+        String fname = Actions.inputStr();
         if (allAlpha(fname)) {
             Msg.error();
             System.out.println("Name should contain only alphabets");
@@ -97,7 +97,7 @@ public class Validate implements TakeInput {
 
         Msg.border();
         System.out.print("Enter Last Name: ");
-        String sname = Action.inputStr();
+        String sname = Actions.inputStr();
         if (allAlpha(sname)) {
             Msg.error();
             System.out.println("Name should contain only alphabets");
@@ -132,7 +132,7 @@ public class Validate implements TakeInput {
         Msg.border();
         System.out.print("Enter age: ");
         try {
-            int age = Action.inputInt();
+            int age = Actions.inputInt();
             if (age < 1 || age > 150) {
                 Msg.error();
                 System.out.println("Invalid Age Input, Try Again");
@@ -159,7 +159,7 @@ public class Validate implements TakeInput {
             System.out.println("2. Female");
             System.out.println("3. Other");
             System.out.print("Enter gender: ");
-            int input = Action.inputInt();
+            int input = Actions.inputInt();
             switch (input) {
                 case 1:
                     return "Male";
@@ -183,7 +183,7 @@ public class Validate implements TakeInput {
     public String email() {
         Msg.border();
         System.out.print("Enter email: ");
-        String email = Action.inputStr();
+        String email = Actions.inputStr();
         if (email.contains(".com") && (validEmail(email))) {
             return email;
         } else {
@@ -213,7 +213,7 @@ public class Validate implements TakeInput {
         Msg.border();
         System.out.print("Enter Mobile Number: +91 ");
         try {
-            long num = Action.inputLong();
+            long num = Actions.inputLong();
             if (fixedNumberSize(num, 10)) {
                 return num;
             } else {
@@ -244,7 +244,7 @@ public class Validate implements TakeInput {
         String username;
         System.out.print("Create Username : ");
         try {
-            username = Action.inputStr();
+            username = Actions.inputStr();
             if (!usernameExist(username)) {
                 Msg.error();
                 System.out.println("Username Already Exist, Try different one");
@@ -287,7 +287,7 @@ public class Validate implements TakeInput {
     public String psw() {
         Msg.border();
         System.out.print("Create Password: ");
-        String password = Action.inputStr();
+        String password = Actions.inputStr();
         if (validStringSize(password, 6)) {
             if (validatePass(password)) {
                 return password;
@@ -344,7 +344,7 @@ public class Validate implements TakeInput {
     // String
     public String confirmPassword(String psw) {
         System.out.print("Confirm Password: ");
-        String cnf = Action.inputStr();
+        String cnf = Actions.inputStr();
         // if same as entered password return password
         if (psw.equals(cnf)) {
             return cnf;
@@ -358,7 +358,7 @@ public class Validate implements TakeInput {
     public boolean checkCurrentPassword(String psw) {
         Msg.border();
         System.out.print("Enter Current Password: ");
-        String cnf = Action.inputStr();
+        String cnf = Actions.inputStr();
         // if same as entered password return password
         if (psw.equals(cnf)) {
             return true;

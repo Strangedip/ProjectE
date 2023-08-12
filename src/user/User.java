@@ -2,7 +2,7 @@ package user;
 
 import java.util.ArrayList;
 
-import page.Task;
+import page.student.Task;
 import util.Msg;
 
 // default abstract class for members with minimum required details declared 
@@ -42,10 +42,10 @@ public class User {
     }
 
     // initiating User Object with all details for each object of User class
-    User(String position, String name, int age, String gender, String email, long mobileNumber,
+    public User(String position, String name, int age, String gender, String email, long mobileNumber,
             String username,
             String password) {
-        generateEliteID();
+        
         this.position = position;
         this.name = name;
         this.age = age;
@@ -93,6 +93,7 @@ public class User {
             }
         }
         userList.add(user);
+        user.generateEliteID();
         return true;
     }
 

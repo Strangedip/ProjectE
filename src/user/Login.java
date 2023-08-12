@@ -1,8 +1,9 @@
 package user;
 
 import main.Home;
-import page.Page;
-import util.Action;
+import page.faculty.Faculty;
+import page.student.Page;
+import util.Actions;
 import util.Msg;
 
 //Login class cntaining all login methods
@@ -16,9 +17,9 @@ public class Login {
 		System.out.println("                USER LOGIN                 ");
 		Msg.border();
 		System.out.print("Enter Username : ");
-		String username = Action.inputStr();
+		String username = Actions.inputStr();
 		System.out.print("Enter Password : ");
-		String password = Action.inputStr();
+		String password = Actions.inputStr();
 
 		// validate from start user check method
 		// validate.checkCredential(username, password);
@@ -36,14 +37,26 @@ public class Login {
 		}
 		try {
 			if (exist) {
-				if (password.equals(currentUser.password)) {
-					Msg.success();
-					Msg.loggedIn();
-					Page.homePage(currentUser);
+				if (currentUser.position.equals("Faculty")) {
+					if (password.equals(currentUser.password)) {
+						Msg.success();
+						Msg.loggedIn();
+						Faculty.homePage(currentUser);
+					} else {
+						Msg.error();
+						System.out.println("Incorrect Password, please try again");
+						Login.checkCredential();
+					}
 				} else {
-					Msg.error();
-					System.out.println("Incorrect Password, please try again");
-					Login.checkCredential();
+					if (password.equals(currentUser.password)) {
+						Msg.success();
+						Msg.loggedIn();
+						Page.homePage(currentUser);
+					} else {
+						Msg.error();
+						System.out.println("Incorrect Password, please try again");
+						Login.checkCredential();
+					}
 				}
 			} else {
 				Msg.error();
@@ -64,7 +77,7 @@ public class Login {
 		System.out.println("Enter any other to exit");
 		System.out.print("Enter Choice ->");
 		try {
-			switch (Action.inputInt()) {
+			switch (Actions.inputInt()) {
 				case 0:
 					Home.menu();
 					break;
@@ -87,7 +100,7 @@ public class Login {
 		System.out.println("Enter any other to exit");
 		System.out.print("Enter Choice ->");
 		try {
-			switch (Action.inputInt()) {
+			switch (Actions.inputInt()) {
 				case 0:
 					Home.menu();
 					break;
@@ -109,9 +122,9 @@ public class Login {
 		System.out.println("                ADMIN LOGIN                ");
 		Msg.border();
 		System.out.print("Enter Username : ");
-		String username = Action.inputStr();
+		String username = Actions.inputStr();
 		System.out.print("Enter Password : ");
-		String password = Action.inputStr();
+		String password = Actions.inputStr();
 
 		// current admin cred
 		User admin = null;

@@ -2,8 +2,8 @@ package user;
 
 import java.util.ArrayList;
 import main.Home;
-import page.Task;
-import util.Action;
+import page.student.Task;
+import util.Actions;
 import util.Msg;
 
 public class School {
@@ -25,7 +25,7 @@ public class School {
             System.out.println("Name     : " + user.name);
             System.out.println("Position : " + user.position);
         }
-        Action.hold();
+        Actions.hold();
         Home.menu();
     }
 
@@ -52,7 +52,7 @@ public class School {
         System.out.println();
         Msg.border();
         System.out.print("enter 'm' to see out members or any other key to go back -> ");
-        switch (Action.inputStr()) {
+        switch (Actions.inputStr()) {
             case "m":
                 schoolMembers();
                 break;

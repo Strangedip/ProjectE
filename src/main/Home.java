@@ -1,7 +1,7 @@
 package main;
 
 import user.School;
-import util.Action;
+import util.Actions;
 import util.Msg;
 
 // Home class containing 2 start menu
@@ -22,16 +22,16 @@ public class Home {
         Msg.border();
         System.out.print("Enter Choice -> ");
         try {
-            int userInput = Action.inputInt();
+            int userInput = Actions.inputInt();
             switch (userInput) {
                 case 1:
-                    Action.login();
+                    Actions.login();
                     break;
                 case 2:
-                    Action.createAccount();
+                    Actions.createAccount();
                     break;
                 case 3:
-                    Action.adminLogin();
+                    Actions.adminLogin();
                     break;
                 case 4:
                     School.schoolIntro();
