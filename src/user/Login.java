@@ -27,7 +27,7 @@ public class Login {
 		// currently user cred
 		User currentUser = null;
 		boolean exist = false;
-		for (User user : User.userList) {
+		for (User user : School.userList) {
 			if (!user.position.equals("Admin")) {
 				if (user.username.equals(username)) {
 					currentUser = user;
@@ -129,7 +129,7 @@ public class Login {
 		// current admin cred
 		User admin = null;
 		boolean exist = false;
-		for (User user : User.userList) {
+		for (User user : School.userList) {
 			if (user.position.equals("Admin")) {
 				if (user.username.equals(username)) {
 					admin = user;

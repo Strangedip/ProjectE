@@ -8,13 +8,8 @@ import util.Msg;
 // default abstract class for members with minimum required details declared 
 public class User {
 
-    // list of members created are strored in an ArrayList for reference (not in
-    // use)
-    public static ArrayList<User> userList = new ArrayList<>();
-
-    //count of users in system
-    public static int currentUserCount = userList.size();
-
+    // count of users in system
+    public static int currentUserCount = School.userList.size();
 
     public ArrayList<Task> taskList = new ArrayList<>();
 
@@ -38,14 +33,15 @@ public class User {
 
     // default constructor for sub class constructors
     public User() {
-        this.accountType="Visitor Account";
+        this.accountType = "Visitor Account";
+        School.userList.add(this);
     }
 
     // initiating User Object with all details for each object of User class
     public User(String position, String name, int age, String gender, String email, long mobileNumber,
             String username,
             String password) {
-        
+        this.eliteID = School.userList.size() + 100;
         this.position = position;
         this.name = name;
         this.age = age;
@@ -54,13 +50,10 @@ public class User {
         this.mobileNumber = mobileNumber;
         this.username = username;
         setPassword(password);
-        generateAcoountNumber();
+        this.accountNumber = 100000 + eliteID;
         this.accountLevel = 1;
         setAccountBal(100);
-    }
-
-    public void generateEliteID() {
-        this.eliteID = userList.size() + 100;
+        School.userList.add(this);
     }
 
     public int getAccountBal() {
@@ -71,11 +64,6 @@ public class User {
         this.accountBal = newBal;
     }
 
-    // ***generate random account number for each user
-    void generateAcoountNumber() {
-        this.accountNumber = 100000+eliteID ;
-    }
-
     // setter method for password (not in user currently)
     void setPassword(String password) {
         this.password = password;
@@ -84,17 +72,6 @@ public class User {
     // getter method for password (not in user currently)
     String getPsw() {
         return password;
-    }
-
-    public static boolean addNewMember(User user) {
-        for (User u : userList) {
-            if (u.eliteID == user.eliteID) {
-                return false;
-            }
-        }
-        userList.add(user);
-        user.generateEliteID();
-        return true;
     }
 
     // ns task adding method for each user

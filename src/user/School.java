@@ -9,6 +9,10 @@ import util.Msg;
 public class School {
     public static ArrayList<Task> taskList = new ArrayList<>();
 
+    // list of members created are strored in an ArrayList for reference (not in
+    // use)
+    public static ArrayList<User> userList = new ArrayList<>();
+
     public static void viewTaskList() {
         for (Task task : taskList) {
             taskDesc(task);
@@ -19,7 +23,7 @@ public class School {
     public static void schoolMembers() {
         Msg.border();
         System.out.println("Our Members");
-        for (User user : User.userList) {
+        for (User user : School.userList) {
             System.out.println();
             System.out.println("Elite ID : " + user.eliteID);
             System.out.println("Name     : " + user.name);

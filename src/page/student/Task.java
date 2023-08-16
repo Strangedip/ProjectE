@@ -4,12 +4,7 @@ import user.School;
 
 public class Task {
     // creating random tasks for students
-    static Task task1 = new Task(11, "Open", "Topper", "Be in top 5 in upcoming exam", 50);
-    static Task task2 = new Task(12, "Open", "School Dev", "Design and Build school website UI", 150);
-    static Task task3 = new Task(13, "Closed", "Cleaning Master",
-            "Take resposibility of cleaning your class for 1 month", 25);
-    static Task task4 = new Task(14, "Open", "Brainer", "Get A+ in Quick Test", 20);
-
+    
     public int taskID;
     public String taskStatus;
     public String taskName;

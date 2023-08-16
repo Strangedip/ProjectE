@@ -7,7 +7,9 @@ public class Admin extends User {
 
     public Admin(String position, String name, int age, String gender, String email, long mobileNumber,
             String username, String password, int AccountBal) {
-        generateEliteID();
+
+        //calling super() default.. hence re-change value
+        this.eliteID = School.userList.size()-1 + 100;
         this.position = position;
         this.name = name;
         this.age = age;
@@ -16,9 +18,9 @@ public class Admin extends User {
         this.mobileNumber = mobileNumber;
         this.username = username;
         setPassword(password);
-        this.accountLevel=99;
-        this.accountType="Supreme Admin Account";
-        generateAcoountNumber();
+        this.accountLevel = 99;
+        this.accountType = "Supreme Admin Account";
+        this.accountNumber = 100000 + eliteID;
         this.setAccountBal(AccountBal);
     }
 }

@@ -62,12 +62,7 @@ public class Actions {
 
 		// creating new User ref with details stored inside CreateAccount obj
 		User user = newAccount.createUser();
-		// adding that newly created user into members ArrayList
-		if (!User.addNewMember(user)) {
-			Msg.error();
-			System.out.println("Account already Exist, Please Login");
-			afterNewAccountMenu();
-		}
+
 		Msg.accountCreated();
 		// aftermath for the newly created user
 		afterNewAccountMenu();

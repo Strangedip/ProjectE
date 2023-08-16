@@ -1,6 +1,7 @@
 package page.student;
 
 import main.Home;
+import main.Main;
 import user.User;
 import util.Actions;
 import util.Msg;
@@ -17,10 +18,10 @@ public class Hunt implements PageTemplate {
     public void rewardHunt() {
         System.out.println("TASK for REWARD");
         System.out.println();
-        Task.task1.taskDesc();
-        Task.task2.taskDesc();
-        Task.task3.taskDesc();
-        Task.task4.taskDesc();
+        Main.task1.taskDesc();
+        Main.task2.taskDesc();
+        Main.task3.taskDesc();
+        Main.task4.taskDesc();
     }
 
     // options available at every page
@@ -89,8 +90,8 @@ public class Hunt implements PageTemplate {
                     Home.menu();
                     break;
                 case 11:
-                    if (Task.task1.taskStatus.equals("Open")) {
-                        assignTask(user, Task.task1);
+                    if (Main.task1.taskStatus.equals("Open")) {
+                        assignTask(user, Main.task1);
                     } else {
                         Msg.error();
                         System.out.println("Task has been closed or completed, try different one");
@@ -99,8 +100,8 @@ public class Hunt implements PageTemplate {
                     }
                     break;
                 case 12:
-                    if (Task.task2.taskStatus.equals("Open")) {
-                        assignTask(user, Task.task2);
+                    if (Main.task2.taskStatus.equals("Open")) {
+                        assignTask(user, Main.task2);
                     } else {
                         Msg.error();
                         System.out.println("Task has been closed or completed, try different one");
@@ -109,8 +110,8 @@ public class Hunt implements PageTemplate {
                     }
                     break;
                 case 13:
-                    if (Task.task3.taskStatus.equals("Open")) {
-                        assignTask(user, Task.task3);
+                    if (Main.task3.taskStatus.equals("Open")) {
+                        assignTask(user, Main.task3);
                     } else {
                         Msg.error();
                         System.out.println("Task has been closed or completed, try different one");
@@ -119,8 +120,8 @@ public class Hunt implements PageTemplate {
                     }
                     break;
                 case 14:
-                    if (Task.task4.taskStatus.equals("Open")) {
-                        assignTask(user, Task.task4);
+                    if (Main.task4.taskStatus.equals("Open")) {
+                        assignTask(user, Main.task4);
                     } else {
                         Msg.error();
                         System.out.println("Task has been closed or completed, try different one");

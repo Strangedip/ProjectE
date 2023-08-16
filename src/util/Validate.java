@@ -2,6 +2,8 @@ package util;
 
 import java.util.ArrayList;
 import java.util.InputMismatchException;
+
+import user.School;
 import user.User;
 
 // Implementing class for TakeInput interface
@@ -50,7 +52,7 @@ public class Validate implements TakeInput {
     // }
 
     public User getUser(String un) {
-        for (User user : User.userList) {
+        for (User user : School.userList) {
             if (user.username == un) {
                 return user;
             }
@@ -229,7 +231,7 @@ public class Validate implements TakeInput {
     }
 
     boolean usernameExist(String un) {
-        for (User user : User.userList) {
+        for (User user : School.userList) {
             if (user.username.equals(un)) {
                 return false;
             }
