@@ -1,6 +1,7 @@
 package user;
 
 import main.Home;
+import page.admin.AdminPage;
 import page.faculty.Faculty;
 import page.student.Page;
 import util.Actions;
@@ -142,7 +143,7 @@ public class Login {
 				if (password.equals(admin.password)) {
 					Msg.success();
 					Msg.loggedIn();
-					Page.homePage(admin);
+					AdminPage.homePage(admin);
 				} else {
 					Msg.error();
 					System.out.println("Incorrect Password, please try again");

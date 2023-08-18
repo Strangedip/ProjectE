@@ -12,7 +12,7 @@ public class Profile implements PageTemplate {
         profile(user);
     }
     void profile(User user){
-        user.details();
+        user.profile();
     }
 
     // options available at every page

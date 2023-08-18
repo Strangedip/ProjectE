@@ -16,11 +16,11 @@ public class TaskRequest {
     }
 
     public void details() {
-        System.out.println("Requested ID: " + this.requestId);
-        System.out.println("Elite ID     : " + this.user.eliteID);
-        System.out.println("Student Name : " + this.user.name);
-        System.out.println("Task Name    : " + this.task.taskName);
-        System.out.println("Task Reward  : " + this.task.taskReward);
+        System.out.println("Requested ID    : " + this.requestId);
+        System.out.println("Student EliteID : " + this.user.eliteID);
+        System.out.println("Student Name    : " + this.user.name);
+        System.out.println("Task Name       : " + this.task.taskName);
+        System.out.println("Task Reward     : " + this.task.taskReward);
         System.out.println();
     }
 }

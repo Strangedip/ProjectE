@@ -1,4 +1,4 @@
-package page.faculty;
+package page.admin;
 
 import java.util.Scanner;
 
@@ -9,8 +9,8 @@ import user.User;
 import util.Actions;
 import util.Msg;
 
-public class FacultyAction {
-    public static void studentList(User faculty) {
+public class AdminAction {
+    public static void studentList(User admin) {
         for (User user : School.userList) {
             if (user.position.equals("Student")) {
                 Msg.border();
@@ -22,10 +22,94 @@ public class FacultyAction {
         }
         Msg.border();
         Actions.hold();
-        Faculty.homePage(faculty);
+        AdminPage.homePage(admin);
     }
 
-    public static void addNewTask(User faculty) {
+    public static void viewAllUsers() {
+        for (User user : School.userList) {
+            user.details();
+        }
+        Msg.border();
+    }
+
+    public static void resetUser(User admin) {
+        System.out.print("Enter User EliteID : ");
+        Scanner in = new Scanner(System.in);
+        try {
+            int currentEliteID = in.nextInt();
+            System.out.println("Are your Sure you want Reset User Stats from System? (y/n)");
+            switch (in.next()) {
+                case "y":
+                    for (User user : School.userList) {
+                        if (user.eliteID == currentEliteID) {
+                            Msg.success();
+                            System.out.println("User Stat has been reset");
+                            user.reset();
+                            return;
+                        }
+                    }
+                    System.out.println("No Such User found");
+                    break;
+                case "n":
+                    AdminPage.homePage(admin);
+                    break;
+                default:
+                    Msg.error();
+                    System.out.println("Enter valid Option");
+                    AdminPage.homePage(admin);
+                    break;
+            }
+
+        } catch (Exception e) {
+            System.out.println("Invalid Input");
+            AdminPage.homePage(admin);
+        }
+    }
+
+    public static void removeUser(User admin) {
+        System.out.print("Enter User EliteID : ");
+        Scanner in = new Scanner(System.in);
+        try {
+            int currentEliteID = in.nextInt();
+            System.out.println("Are your Sure you want to remove user from System? (y/n)");
+            switch (in.next()) {
+                case "y":
+                    for (int i = 0; i < School.userList.size(); i++) {
+                        if (School.userList.get(i).eliteID == currentEliteID) {
+                            System.out.println(
+                                    "User " + School.userList.get(i).eliteID + " has been removed from System");
+                            School.userList.remove(i);
+                            return;
+                        }
+                    }
+                    System.out.println("No Such User found");
+                    break;
+                case "n":
+                    AdminPage.homePage(admin);
+                default:
+                    Msg.error();
+                    System.out.println("Enter valid Option");
+                    AdminPage.homePage(admin);
+                    break;
+            }
+
+            // for (User user : School.userList) {
+            // if (user.eliteID == currentEliteID) {
+            // Msg.success();
+            // System.out.println("User has been removed from System");
+            // user = null;
+            // System.out.println(School.userList);
+            // return;
+            // }
+            // }
+
+        } catch (Exception e) {
+            System.out.println("Invalid Input");
+            AdminPage.homePage(admin);
+        }
+    }
+
+    public static void addNewTask(User admin) {
         try {
             Scanner in = new Scanner(System.in);
             System.out.print("Enter task Name : ");
@@ -40,22 +124,22 @@ public class FacultyAction {
             Task newTask = new Task(id, "Open", taskName, taskDesc, reward);
             System.out.println("Task " + newTask.taskID + " has been added successfully!");
             Actions.hold();
-            Faculty.homePage(faculty);
+            AdminPage.homePage(admin);
         } catch (Exception e) {
             Msg.error();
             System.out.println("Invalid Input!");
-            addNewTask(faculty);
+            addNewTask(admin);
         }
     }
 
-    public static void viewTaskList(User faculty) {
+    public static void viewTaskList(User admin) {
         School.viewTaskList();
         Actions.hold();
-        Faculty.homePage(faculty);
+        AdminPage.homePage(admin);
     }
 
-    public static void verifyTask(User faculty) {
-        viewTaskRequestList(faculty);
+    public static void verifyTask(User admin) {
+        viewTaskRequestList(admin);
         Msg.border();
         Scanner in = new Scanner(System.in);
         System.out.print("Enter Task Request ID to verify : ");
@@ -70,18 +154,18 @@ public class FacultyAction {
             if (currentTr == null) {
                 Msg.error();
                 System.out.println("Invalid Task Request ID : ");
-                verifyTask(faculty);
+                verifyTask(admin);
             } else {
-                changeTaskRequestStatus(faculty, currentTr);
+                changeTaskRequestStatus(admin, currentTr);
             }
         } catch (Exception e) {
             Msg.error();
             System.out.println("Invalid Task Request ID : ");
-            verifyTask(faculty);
+            verifyTask(admin);
         }
     }
 
-    public static void changeTaskRequestStatus(User faculty, TaskRequest tr) {
+    public static void changeTaskRequestStatus(User admin, TaskRequest tr) {
         Scanner in = new Scanner(System.in);
         Msg.border();
         System.out.println("a. Approve Request");
@@ -92,30 +176,32 @@ public class FacultyAction {
             case "a":
                 Msg.success();
                 System.out.println(
-                        "Task Request ID " + tr.requestId + " has been Approved and removed from Task Request List and Student Task List");
+                        "Task Request ID " + tr.requestId
+                                + " has been Approved and removed from Task Request List and Student Task List");
                 tr.task.taskStatus = "Closed";
                 removeTaskRequest(tr);
                 tr.user.taskList.remove(tr.task);
                 tr.user.setAccountBal(tr.user.getAccountBal() + tr.task.taskReward);
                 System.out.println("Student has been rewarded with " + tr.task.taskReward + " Elite Points");
                 Actions.hold();
-                Faculty.homePage(faculty);
+                AdminPage.homePage(admin);
                 break;
             case "b":
                 Msg.success();
-                System.out.println("Task Request ID " + tr.requestId + " has been Rejected and removed from Task Request List and Student Task List");
+                System.out.println("Task Request ID " + tr.requestId
+                        + " has been Rejected and removed from Task Request List and Student Task List");
                 removeTaskRequest(tr);
                 tr.user.taskList.remove(tr.task);
                 Actions.hold();
-                Faculty.homePage(faculty);
+                AdminPage.homePage(admin);
                 break;
             case "c":
-                Faculty.homePage(faculty);
+                AdminPage.homePage(admin);
                 break;
             default:
                 Msg.error();
                 System.out.println("Invalid Input");
-                changeTaskRequestStatus(faculty, tr);
+                changeTaskRequestStatus(admin, tr);
                 break;
         }
     }
@@ -128,11 +214,11 @@ public class FacultyAction {
         }
     }
 
-    public static void viewTaskRequestList(User faculty) {
+    public static void viewTaskRequestList(User admin) {
         if (School.taskRequestList.isEmpty()) {
             System.out.println("There are no Task Verification Request.");
             Actions.hold();
-            Faculty.homePage(faculty);
+            AdminPage.homePage(admin);
         } else {
             for (TaskRequest tr : School.taskRequestList) {
                 tr.details();
@@ -140,7 +226,7 @@ public class FacultyAction {
         }
     }
 
-    public static void studentInfo(User faculty) {
+    public static void studentInfo(User admin) {
         System.out.print("Enter the Elite ID -> ");
         Scanner in = new Scanner(System.in);
         User student = null;
@@ -155,11 +241,11 @@ public class FacultyAction {
         if (student == null) {
             System.out.println("No Student exist with Elite ID : " + eliteId);
             Actions.hold();
-            Faculty.homePage(faculty);
+            AdminPage.homePage(admin);
         } else {
             student.profile();
             Actions.hold();
-            Faculty.homePage(faculty);
+            AdminPage.homePage(admin);
         }
     }
 }

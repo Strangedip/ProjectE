@@ -41,8 +41,9 @@ public class User {
     public User(String position, String name, int age, String gender, String email, long mobileNumber,
             String username,
             String password) {
-        this.eliteID = School.userList.size() + 100;
+        this.eliteID = ++currentUserCount + 100;
         this.position = position;
+        setAccountType(position);
         this.name = name;
         this.age = age;
         this.gender = gender;
@@ -54,6 +55,12 @@ public class User {
         this.accountLevel = 1;
         setAccountBal(100);
         School.userList.add(this);
+    }
+
+    public void setAccountType(String pos) {
+        if (pos.equals("Faculty")) {
+            this.accountType = "Elite Faculty Account";
+        }
     }
 
     public int getAccountBal() {
@@ -86,7 +93,7 @@ public class User {
     }
 
     // method to print some information of the user
-    public void details() {
+    public void profile() {
         Msg.newSection();
         Msg.profilePageHeader();
         System.out.println("EliteID   : " + eliteID);
@@ -97,5 +104,21 @@ public class User {
         System.out.println("Mobile    : " + mobileNumber);
         System.out.println("Email     : " + email);
         // System.out.println("Psw : " + getPsw());
+    }
+    public void details() {
+        System.out.println();
+        System.out.println("EliteID   : " + eliteID);
+        System.out.println("Position  : " + position);
+        System.out.println("Name      : " + name);
+        System.out.println("Age       : " + age);
+        System.out.println("gender    : " + gender);
+        System.out.println("Mobile    : " + mobileNumber);
+        System.out.println("Email     : " + email);
+        // System.out.println("Psw : " + getPsw());
+    }
+    public void reset(){
+        this.accountBal=100;
+        this.accountLevel=1;
+        this.taskList.clear();
     }
 }

@@ -4,6 +4,7 @@ import page.student.Task;
 import user.Admin;
 import user.School;
 import user.User;
+import util.Msg;
 
 public class Main {
 
@@ -29,12 +30,8 @@ public class Main {
 		new User("Student", "Sandip Gupta", 20, "Male", "test@test.com", 9987978402L, "stud",
 				"stud");
 
-		School.taskList.add(task1);
-		School.taskList.add(task2);
-		School.taskList.add(task3);
-		School.taskList.add(task4);
-
 		// calling home menu
+		Msg.welcome();
 		Home.menu();
 	}
 

@@ -7,10 +7,9 @@ import util.Msg;
 // Home class containing 2 start menu
 // menu method overloading with no formal argument and User obj as formal argument
 public class Home {
-    
+
     // menu method new program initiation
     public static void menu() {
-
         Msg.newSection();
         Msg.header();
         System.out.println();
@@ -18,6 +17,7 @@ public class Home {
         System.out.println(" 2. Create new account");
         System.out.println(" 3. Admin Login");
         System.out.println(" 4. School Introduction");
+        System.out.println(" 5. Exit");
         System.out.println(" Enter any other key to exit program");
         Msg.border();
         System.out.print("Enter Choice -> ");
@@ -36,13 +36,19 @@ public class Home {
                 case 4:
                     School.schoolIntro();
                     break;
-                default:
+                case 5:
                     Msg.thankyou();
                     System.exit(0);
+                    break;
+                default:
+                    Msg.error();
+                    System.out.println("Invalid Input");
+                    menu();
             }
         } catch (Exception e) {
-            Msg.thankyou();
-            System.exit(0);
+            Msg.error();
+            System.out.println("Invalid Input");
+            menu();
         }
     }
 

@@ -74,7 +74,7 @@ public class Msg {
 
     public static void thankyou() {
         System.out.println("---------------------------------------------------");
-        System.out.println("|              THANK YOU FOR USING                |");
+        System.out.println("|          Thank You for using our App            |");
         System.out.println("---------------------------------------------------");
 
     }

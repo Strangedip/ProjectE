@@ -9,7 +9,7 @@ public class Admin extends User {
             String username, String password, int AccountBal) {
 
         //calling super() default.. hence re-change value
-        this.eliteID = School.userList.size()-1 + 100;
+        this.eliteID = ++currentUserCount + 100;
         this.position = position;
         this.name = name;
         this.age = age;

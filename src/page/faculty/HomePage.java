@@ -5,7 +5,7 @@ import user.User;
 import util.Actions;
 import util.Msg;
 
-public class HomePage implements PageTemplate {
+public class HomePage {
     public void page(User user) {
         Msg.newSection();
         Msg.homePageHeader();
@@ -60,10 +60,7 @@ public class HomePage implements PageTemplate {
 
                 break;
             case "7":
-                Msg.newSection();
-                System.out.println("   ---------------  Your Profile  --------------   ");
-                System.out.println();
-                user.details();
+                user.profile();
                 Actions.hold();
                 Faculty.homePage(user);
                 break;
