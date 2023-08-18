@@ -58,10 +58,15 @@ public class School {
         System.out.println("co-founder : Sandip Gupta");
         System.out.println();
         Msg.border();
-        System.out.print("enter 'm' to see out members or any other key to go back -> ");
+        System.out.print("enter 'm' to see out members or 't' to see tasks or any other key to go back -> ");
         switch (Actions.inputStr()) {
             case "m":
                 schoolMembers();
+                break;
+            case "n":
+                viewTaskList();
+                Actions.hold();
+                Home.menu();
                 break;
             default:
                 Home.menu();
