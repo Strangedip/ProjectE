@@ -105,6 +105,7 @@ public class User {
         System.out.println("Email     : " + email);
         // System.out.println("Psw : " + getPsw());
     }
+
     public void details() {
         System.out.println();
         System.out.println("EliteID   : " + eliteID);
@@ -116,9 +117,10 @@ public class User {
         System.out.println("Email     : " + email);
         // System.out.println("Psw : " + getPsw());
     }
-    public void reset(){
-        this.accountBal=100;
-        this.accountLevel=1;
+
+    public void reset() {
+        this.accountBal = 100;
+        this.accountLevel = 1;
         this.taskList.clear();
     }
 }
