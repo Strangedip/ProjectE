@@ -22,7 +22,7 @@ public class HomePage implements PageTemplate {
 
     public void pageInput(User user) {
         Msg.border();
-        System.out.println("Enter your choice -> ");
+        System.out.print("Enter your choice -> ");
         switch (Actions.inputStr()) {
             case "1":
                 Msg.newSection();

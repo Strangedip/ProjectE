@@ -4,6 +4,7 @@ import java.util.Scanner;
 
 import page.student.Task;
 import user.School;
+import user.TaskRequest;
 import user.User;
 import util.Actions;
 import util.Msg;
@@ -54,8 +55,10 @@ public class FacultyAction {
     }
 
     public static void verifyTask(User faculty){
-        // need new structure
-        System.out.println("need new structure");
+        for (TaskRequest tr : School.taskRequestList) {
+            tr.details();
+        }
+        Actions.hold();
         Faculty.homePage(faculty);
     }
 

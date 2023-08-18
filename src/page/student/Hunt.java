@@ -2,6 +2,8 @@ package page.student;
 
 import main.Home;
 import main.Main;
+import user.School;
+import user.TaskRequest;
 import user.User;
 import util.Actions;
 import util.Msg;
@@ -14,7 +16,6 @@ public class Hunt implements PageTemplate {
         rewardHunt();
     }
 
-    
     public void rewardHunt() {
         System.out.println("TASK for REWARD");
         System.out.println();
@@ -54,8 +55,10 @@ public class Hunt implements PageTemplate {
                     Page.hunt(user);
                     break;
                 default:
+                    TaskRequest tr = new TaskRequest(user, task);
+                    System.out.println("A Verification Request has been generated with ID : " + tr.requestId);
                     System.out.println("You have been assigned with task ID : " + task.taskID);
-                    System.out.println("Please complete task as soon as possible");
+                    System.out.println("Please complete task as soon as possible and get it verified from faculty");
                     Actions.hold();
                     Page.hunt(user);
                     break;
