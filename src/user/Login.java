@@ -86,10 +86,12 @@ public class Login {
 					Login.checkCredential();
 					break;
 				default:
+					Msg.thankyou();
 					System.exit(0);
 			}
 
 		} catch (Exception e1) {
+			Msg.thankyou();
 			System.exit(0);
 		}
 	}
@@ -109,10 +111,12 @@ public class Login {
 					Login.loginAdmin();
 					break;
 				default:
+					Msg.thankyou();
 					System.exit(0);
 			}
 
 		} catch (Exception e1) {
+			Msg.thankyou();
 			System.exit(0);
 		}
 	}

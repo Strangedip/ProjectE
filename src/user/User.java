@@ -33,8 +33,6 @@ public class User {
 
     // default constructor for sub class constructors
     public User() {
-        this.accountType = "Visitor Account";
-        School.userList.add(this);
     }
 
     // initiating User Object with all details for each object of User class
@@ -60,6 +58,9 @@ public class User {
     public void setAccountType(String pos) {
         if (pos.equals("Faculty")) {
             this.accountType = "Elite Faculty Account";
+        }
+        else if (pos.equals("Visitor")) {
+            this.accountType = "Visitor Account";
         }
     }
 

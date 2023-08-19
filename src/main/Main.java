@@ -15,8 +15,8 @@ public class Main {
 	public static Task task4 = new Task(14, "Open", "Brainer", "Get A+ in Quick Test", 20);
 
 	public static void main(String[] args) {
-		// Default user
-		new User();
+		// Default user adding explicitely
+		School.userList.add(new User());
 
 		// Admin User
 		new Admin("Admin", "Sandip Gupta", 20, "Male", "test@test.com", 9987978402L, "admin",

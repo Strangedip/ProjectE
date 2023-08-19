@@ -8,7 +8,7 @@ public class Admin extends User {
     public Admin(String position, String name, int age, String gender, String email, long mobileNumber,
             String username, String password, int AccountBal) {
 
-        //calling super() default.. hence re-change value
+        // calling super() default.. hence re-change value
         this.eliteID = ++currentUserCount + 100;
         this.position = position;
         this.name = name;
@@ -22,5 +22,7 @@ public class Admin extends User {
         this.accountType = "Supreme Admin Account";
         this.accountNumber = 100000 + eliteID;
         this.setAccountBal(AccountBal);
+        School.userList.add(this);
+
     }
 }
