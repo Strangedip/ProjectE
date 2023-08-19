@@ -84,12 +84,12 @@ public class User {
 
     // ns task adding method for each user
     public boolean addTask(Task task) {
-        for (Task t : taskList) {
+        for (Task t : this.taskList) {
             if (t.taskID == task.taskID) {
                 return false;
             }
         }
-        taskList.add(task);
+        this.taskList.add(task);
         return true;
     }
 

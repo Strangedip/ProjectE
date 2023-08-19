@@ -19,10 +19,9 @@ public class Hunt implements PageTemplate {
     public void rewardHunt() {
         System.out.println("TASK for REWARD");
         System.out.println();
-        Main.task1.taskDesc();
-        Main.task2.taskDesc();
-        Main.task3.taskDesc();
-        Main.task4.taskDesc();
+        for (Task task : School.taskList) {
+            task.taskDesc();
+        }
     }
 
     // options available at every page
@@ -72,7 +71,8 @@ public class Hunt implements PageTemplate {
         Msg.border();
         System.out.print("Enter TaskID or Option -> ");
         try {
-            switch (Actions.inputInt()) {
+            int choice = Actions.inputInt();
+            switch (choice) {
                 case 1:
                     Page.userTasks(user);
                     break;
@@ -92,52 +92,33 @@ public class Hunt implements PageTemplate {
                     Msg.loggedOut();
                     Home.menu();
                     break;
-                case 11:
-                    if (Main.task1.taskStatus.equals("Open")) {
-                        assignTask(user, Main.task1);
-                    } else {
-                        Msg.error();
-                        System.out.println("Task has been closed or completed, try different one");
-                        Actions.hold();
-                        Page.hunt(user);
-                    }
-                    break;
-                case 12:
-                    if (Main.task2.taskStatus.equals("Open")) {
-                        assignTask(user, Main.task2);
-                    } else {
-                        Msg.error();
-                        System.out.println("Task has been closed or completed, try different one");
-                        Actions.hold();
-                        Page.hunt(user);
-                    }
-                    break;
-                case 13:
-                    if (Main.task3.taskStatus.equals("Open")) {
-                        assignTask(user, Main.task3);
-                    } else {
-                        Msg.error();
-                        System.out.println("Task has been closed or completed, try different one");
-                        Actions.hold();
-                        Page.hunt(user);
-                    }
-                    break;
-                case 14:
-                    if (Main.task4.taskStatus.equals("Open")) {
-                        assignTask(user, Main.task4);
-                    } else {
-                        Msg.error();
-                        System.out.println("Task has been closed or completed, try different one");
-                        Actions.hold();
-                        Page.hunt(user);
-                    }
-                    break;
 
                 default:
-                    System.out.println("Invalid Option");
-                    pageInput(user);
+                    Task currentTask = null;
+                    for (Task task : School.taskList) {
+                        if (task.taskID == choice) {
+                            currentTask = task;
+                        }
+                    }
+                    if (currentTask == null) {
+                        Msg.error();
+                        System.out.println("Invalid Option or Task ID");
+                        pageInput(user);
+                    } else {
+                        if (currentTask.taskStatus.equals("Open")) {
+                            assignTask(user, currentTask);
+                        } else {
+                            Msg.error();
+                            System.out.println("Task has been closed or completed, try different one");
+                            Actions.hold();
+                            Page.hunt(user);
+                        }
+                        break;
+                    }
+                    break;
             }
         } catch (Exception e) {
+            Msg.error();
             System.out.println("Invalid Input");
             pageInput(user);
         }
