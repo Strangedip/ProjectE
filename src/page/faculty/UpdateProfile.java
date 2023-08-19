@@ -1,5 +1,6 @@
 package page.faculty;
 
+import page.admin.AdminPage;
 import user.User;
 import util.Actions;
 import util.Msg;
@@ -11,8 +12,14 @@ public class UpdateProfile {
     public static void page(User user) {
         Msg.newSection();
         Msg.updateProfilePageHeader();
-        UpdateProfile currentUser=new UpdateProfile();
+        UpdateProfile currentUser = new UpdateProfile();
         currentUser.update(user);
+        Actions.hold();
+        if (user.position.equals("Faculty")) {
+            Faculty.homePage(user);
+        } else if (user.position.equals("Admin")) {
+            AdminPage.homePage(user);
+        }
     }
 
     void update(User user) {
@@ -23,70 +30,59 @@ public class UpdateProfile {
         pageInput(user);
     }
 
-    //upcasting 100% abstraction
-    TakeInput validate=new Validate();
+    // upcasting 100% abstraction
+    TakeInput validate = new Validate();
 
     public void changeName(User user) {
-        user.name=validate.fullName();
+        user.name = validate.fullName();
         Msg.success();
-        System.out.println("Your Name has been Updated to : "+user.name);
+        System.out.println("Your Name has been Updated to : " + user.name);
         Msg.border();
-        Actions.hold();
-        Faculty.homePage(user);
+
     }
 
     public void changeGender(User user) {
-        user.gender=validate.gender();
-        System.out.println("Your Gender has been Updated to : "+user.gender);
+        user.gender = validate.gender();
+        System.out.println("Your Gender has been Updated to : " + user.gender);
         Msg.border();
-        Actions.hold();
-        Faculty.homePage(user);
+
     }
 
     public void changeAge(User user) {
-        user.age=validate.age();
-        System.out.println("Your Age has been Updated to : "+user.age);
+        user.age = validate.age();
+        System.out.println("Your Age has been Updated to : " + user.age);
         Msg.border();
-        Actions.hold();
-        Faculty.homePage(user);
 
     }
 
     public void changeNumber(User user) {
-        user.mobileNumber=validate.mobileNumber();
-        System.out.println("Your Mobile Number has been Updated to : "+user.mobileNumber);
+        user.mobileNumber = validate.mobileNumber();
+        System.out.println("Your Mobile Number has been Updated to : " + user.mobileNumber);
         Msg.border();
-        Actions.hold();
-        Faculty.homePage(user);
+
     }
 
     public void changeEmail(User user) {
-        user.email=validate.email();
-        System.out.println("Your Email has been Updated to : "+user.email);
+        user.email = validate.email();
+        System.out.println("Your Email has been Updated to : " + user.email);
         Msg.border();
-        Actions.hold();
-        Faculty.homePage(user);
 
     }
 
     public void changeUsername(User user) {
-        user.username=validate.username();
+        user.username = validate.username();
         Msg.success();
-        System.out.println("Your Username has been Updated to : "+user.username);
+        System.out.println("Your Username has been Updated to : " + user.username);
         Msg.border();
-        Actions.hold();
-        Faculty.homePage(user);
 
     }
 
     public void changePassword(User user) {
-        if(validate.checkCurrentPassword(user.password)){
-            user.password=validate.confirmPassword(validate.psw());
+        if (validate.checkCurrentPassword(user.password)) {
+            user.password = validate.confirmPassword(validate.psw());
         }
         System.out.println("Your Password has been Updated ");
         Msg.border();
-        Actions.hold();
-        Faculty.homePage(user);
 
     }
 
@@ -97,8 +93,7 @@ public class UpdateProfile {
         try {
             switch (Actions.inputInt()) {
                 case 10:
-                Faculty.homePage(user);
-                break;
+                    break;
                 case 11:
                     changeName(user);
                     break;

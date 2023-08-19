@@ -1,5 +1,6 @@
 package page.faculty;
 
+import page.admin.AdminPage;
 import user.User;
 import util.Actions;
 import util.Msg;
@@ -26,7 +27,12 @@ public class AccountDetails {
             System.out.println("Account Balance : " + user.getAccountBal() + " Elite Points");
             System.out.println();
             Actions.hold();
-            Faculty.homePage(user);
+            if (user.position.equals("Faculty")) {
+                Faculty.homePage(user);
+            }
+            else if(user.position.equals("Admin")){
+                AdminPage.homePage(user);
+            }
         }
     }
 }

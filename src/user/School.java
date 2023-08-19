@@ -63,7 +63,7 @@ public class School {
             case "m":
                 schoolMembers();
                 break;
-            case "n":
+            case "t":
                 viewTaskList();
                 Actions.hold();
                 Home.menu();
